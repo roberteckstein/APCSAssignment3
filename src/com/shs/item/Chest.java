@@ -33,12 +33,14 @@ public class Chest extends ContainerItem implements Openable {
 
     @Override
     public boolean isGettable() {
-        return false;
+        return true;
     }
+
     @Override
     public boolean isOpenable() {
         return true;
     }
+
     @Override
     public boolean isOpen() {
         return open;

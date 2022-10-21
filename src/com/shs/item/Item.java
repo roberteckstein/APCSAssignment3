@@ -29,8 +29,6 @@ public class Item {
     public boolean isGettable() {
         return false;
     }
-    public boolean isOpenable() {
-        return false;
-    }
+    public boolean isOpenable() { return false; }
 
 }
