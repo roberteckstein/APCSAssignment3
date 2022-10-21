@@ -47,18 +47,14 @@ public class TextAdventure {
     }
 
     public void run() {
-
         Scanner in = new Scanner(System.in);
-
         System.out.println(currentRoom.getLongDescription());
         currentRoom.setAlreadyVisited(true);
-
         while (!gameOver) {
             System.out.print("> ");
             String message = parse(in.nextLine().trim());
             System.out.println(message);
         }
-
         in.close();
 
     }
