@@ -139,13 +139,14 @@ public class TextAdventure {
         }
     }
     public String get(String target) {
-        Item i = currentRoom.removeItem(target);
+        Item i = currentRoom.getItem(target);
         if (i == null) {
             return "You cannot find that item.";
         } else if (!i.isGettable()) {
             return "You cannot get that item.";
         } else {
             playerInventory.addItem(i);
+            currentRoom.removeItem(target);
             return "Taken.";
         }
     }
