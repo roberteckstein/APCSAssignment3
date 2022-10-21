@@ -81,33 +81,54 @@ public class TextAdventure {
             directObject = parts[2];
         }
 
-        if (action.equals("move") || action.equals("go")) {
-            return move(target);
-        } else if (action.equals("get") || action.equals("take")) {
-            return get(target);
-        } else if (action.equals("put")) {
-            return put(target, directObject);
-        } else if (action.equals("remove")) {
-            return remove(target, directObject);
-        } else if (action.equals("drop")) {
-            return drop(target);
-        } else if (action.equals("open")) {
-            return open(target);
-        } else if (action.equals("close")) {
-            return close(target);
-        } else if (action.equals("quit")) {
-            gameOver = true;
-            return "Quitting the game";
-        } else if (action.equals("inventory")) {
-            return inventory();
-        } else if (action.equals("look")) {
-            return currentRoom.getLongDescription();
+        // actions
+        switch (action) {
+            case "move":
+            case "go":
+                return move(target);
+            case "get":
+            case "take":
+                return get(target);
+            case "put":
+                return put(target, directObject);
+            case "remove":
+                return remove(target, directObject);
+            case "drop":
+                return drop(target);
+            case "open":
+                return open(target);
+            case "close":
+                return close(target);
+            case "quit":
+                gameOver = true;
+                return "Quitting the game";
+            case "inventory":
+                return inventory();
+            case "look":
+                return currentRoom.getLongDescription();
         }
 
         return "Unknown command: " + command;
     }
 
     public String move(String direction) {
+        // e.g., "go n" [allows single letter movement]
+        if (direction.length() == 1) {
+            switch (direction) {
+                case "n":
+                    direction = "north";
+                    break;
+                case "s":
+                    direction = "south";
+                    break;
+                case "w":
+                    direction = "west";
+                    break;
+                case "e":
+                    direction = "east";
+                    break;
+            }
+        }
 
         Room nextRoom = currentRoom.getRoomAt(direction);
         if (nextRoom != null) {
