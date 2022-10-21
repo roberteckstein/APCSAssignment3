@@ -35,8 +35,8 @@ public class TextAdventure {
         //  Must create rooms before creating paths
         cavern = new Cavern();
         tomb = new Tomb();
-        room1 = new Room("You are", "Simple description");
-        room2 = new Room("First time in room description", "Simple description");
+        /*room1 = new Room("You are", "Simple description");
+        room2 = new Room("First time in room description", "Simple description");*/
 
         //  Add paths from one room to the next
         cavern.addPath("north", tomb);
@@ -69,7 +69,7 @@ public class TextAdventure {
 
         String[] parts = command.split(" ", 3);
         String action = "", target = "", directObject = "";
-
+        // parse [split parts of] action
         if (parts.length == 1) {
             action = command;
         } else if (parts.length == 2) {
@@ -142,9 +142,7 @@ public class TextAdventure {
             return currentRoom.getMoveErrorMessage();
         }
     }
-
     public String get(String target) {
-
         Item i = currentRoom.removeItem(target);
         if (i == null) {
             return "You cannot find that item.";
@@ -154,11 +152,8 @@ public class TextAdventure {
             playerInventory.addItem(i);
             return "Taken.";
         }
-
     }
-
     public String drop(String target) {
-
         Item i = playerInventory.removeItem(target);
         if (i != null) {
             currentRoom.addItem(i);
@@ -167,7 +162,6 @@ public class TextAdventure {
             return "You are not carrying that item.";
         }
     }
-
     public String put(String target, String directObject) {
 
         //  Check both the room and the player's inventory
