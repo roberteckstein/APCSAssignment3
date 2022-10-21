@@ -35,6 +35,8 @@ public class TextAdventure {
         //  Must create rooms before creating paths
         cavern = new Cavern();
         tomb = new Tomb();
+        room1 = new Room("You are", "Simple description");
+        room2 = new Room("First time in room description", "Simple description");
 
         //  Add paths from one room to the next
         cavern.addPath("north", tomb);
