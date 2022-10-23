@@ -1,6 +1,6 @@
 package com.shs.item;
 
-public class Item {
+public class Item extends Object{
 
     private final String name;
     private final String description;

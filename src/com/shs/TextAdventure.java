@@ -96,8 +96,7 @@ public class TextAdventure {
         // This sets which room you start in when the game starts.
         currentRoom = cavern;
 
-    }   // End of game configuration block (setup)
-
+    }   // End GAME CONFIGURATION block
 
 
 
@@ -128,7 +127,7 @@ public class TextAdventure {
         // Closes the scanner, and the game ends (exit code 0)
         in.close();
 
-    }   // End of game execution block (run)
+    }   // End GAME EXECUTION block
 
 
 
@@ -206,7 +205,7 @@ public class TextAdventure {
         }
 
         return "Unknown command: \"" + command + "\"";
-    } // End user input block
+    } // End READ AND EXECUTE USER INPUT block
 
 
 
@@ -214,7 +213,8 @@ public class TextAdventure {
 
     /* MOVEMENT BETWEEN ROOMS
     In its current form, being in a room means the user can access everything in that room.
-    If we want to make a very large room (or very long one), that room will be split into multiple room instances.
+    If we want to make a very large room (or very long one) where not everything is accessible at the same time,
+    that room can be split into multiple room instances.
      */
     public String move(String direction) {
 
@@ -229,13 +229,13 @@ public class TextAdventure {
         } else {
             return currentRoom.getMoveErrorMessage();
         }
-    }   // End room movement block
+    }   // End MOVEMENT BETWEEN ROOMS block
 
 
 
 
 
-    /* PICKING UP ITEMS
+    /* PICK UP ITEM
     If the item isn't null, and is gettable, the item is added to the playerInventory hashmap
      */
     public String get(String target) {
@@ -250,13 +250,13 @@ public class TextAdventure {
             return "Taken.";
         }
 
-    }   // End get item block
+    }   // End PICK UP ITEM block
 
 
 
 
 
-    /* DROPPING ITEMS
+    /* DROP ITEM
     If the item is in playerInventory and isn't null, it is removed from playerInventory and added to the current room
      */
     public String drop(String target) {
@@ -268,27 +268,32 @@ public class TextAdventure {
         } else {
             return "You are not carrying that item.";
         }
-    }
+    }   // End DROP ITEM block
 
 
 
 
 
-    /* PUTTING ITEMS
-     */
+    /* PUT ITEM
+
+    */
     public String put(String target, String directObject) {
+
 
         //  Check both the room and the player's inventory
         Item i = currentRoom.getItem(target);
         Item d = currentRoom.getItem(directObject);
 
+
         if (i == null) {
             i = playerInventory.getItem(target);
         }
 
+
         if (d == null) {
             d = playerInventory.getItem(directObject);
         }
+
 
         if (i == null) {
             return "You do not see the " + target + ".";
@@ -299,11 +304,13 @@ public class TextAdventure {
                     " inside of the " + directObject;
         } else {
 
+
             ContainerItem ci = (ContainerItem)d;
 
             if ((ci instanceof Openable) && (!((Openable)ci).isOpen())) {
                 return "The " + directObject + " is not open.";
             }
+
 
             ci.containedItems.addItem(i);
             currentRoom.removeItem(target);
@@ -311,10 +318,15 @@ public class TextAdventure {
             return "Done.";
 
         }
-    }
+    }   // End PUT ITEM block
 
 
 
+
+
+    /* REMOVE ITEM
+
+     */
     public String remove(String target, String directObject) {
 
         //  Check both the room and the player's inventory
@@ -346,7 +358,7 @@ public class TextAdventure {
             return "The " + target + " is now on the ground.";
 
         }
-    }
+    }   // End REMOVE ITEM block
 
 
 
@@ -378,7 +390,7 @@ public class TextAdventure {
             ((Openable)i).setOpen(true);
             return "Opened.";
         }
-    }   // End 'open object' check
+    }   // End OPEN OBJECT check
 
 
 
@@ -410,7 +422,7 @@ public class TextAdventure {
             ((Openable)i).setOpen(false);
             return "Closed.";
         }
-    }   // End 'close object' block
+    }   // End CLOSE OBJECT block
 
 
 
@@ -425,7 +437,7 @@ public class TextAdventure {
         returnValue += playerInventory.printItems();
 
         return returnValue;
-    }   // End inventory block
+    }   // End PLAYER INVENTORY block
 
 
 
@@ -439,4 +451,4 @@ public class TextAdventure {
         game.setup();
         game.run();
     }
-}   // End main method block
+}   // End MAIN METHOD block
