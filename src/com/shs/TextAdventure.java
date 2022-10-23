@@ -1,5 +1,9 @@
 package com.shs;
 
+
+/* IMPORTS
+When new rooms, items, or other classes are created, remember to add import statements here
+ */
 import com.shs.item.*;
 import com.shs.monster.Dragon;
 import com.shs.monster.Monster;
@@ -8,66 +12,153 @@ import com.shs.room.Room;
 import com.shs.room.Tomb;
 import com.shs.traits.Openable;
 
+
 import java.util.HashMap;
 import java.util.Scanner;
 
+
+
+
+
+
+/* MAIN CLASS
+Controls the game by calling all other various room and items classes
+
+Remember guys, since we'll all be working on different pieces of code IntelliJ lets you collapse blocks of code
+that you aren't working on at the moment, which can help readability (click the little arrowed-tabs directly to
+the left next to the line numbers).
+ */
 public class TextAdventure {
 
+
+
+
+
+    // Ends the game when true (exit code 0)
     private boolean gameOver = false;
 
+
+    // playerInventory is an instance of the imported class Inventory, which is a hashmap.
     private Inventory playerInventory;
 
+
     //  Static so they can be referenced from anywhere
+    //  Every room, item, and object in the game must be listed (initiated?) here
     public static Room currentRoom;
     public static Room cavern, tomb;
     public static Item sword, chest;
     public static Monster dragon;
 
+
+
+
+
+    // GAME CONFIGURATION. Work in this block to change map layout, room contents, or item/room instances
     public void setup() {
 
+
+        // Creates a new instance of the Inventory class
         playerInventory = new Inventory();
 
-        //  Must create items before populating rooms
+
+        /*  Must create items before populating rooms. Creates a new instance of each item class. Multiple instances
+        of the same class must have unique names (shortSword vs. longSword or swordStartingRoom vs. swordCavern)
+         */
         sword = new Sword();
         dragon = new Dragon();
         chest = new Chest();
 
-        //  Must create rooms before creating paths
+
+        /*  Must create rooms before creating paths. Creates a new instance of each room class.
+        If we want to create multiple instances of the same room template, that can be done simply by declaring two
+        rooms with different names (cavernIcy and cavernDark)
+         */
         cavern = new Cavern();
         tomb = new Tomb();
 
-        //  Add paths from one room to the next
+
+        /*  Add paths from one room to the next. The template class 'Room' (that all room instances inherit) has a
+        hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
+        that direction leads to.
+
+        So in the example cavern1.addPath("north",cavern2'), 'cavern1' is the room we're adding a connection to, 'north'
+        is the keyword (direction) invoked to go to a new room, and 'cavern2' is the connecting room we end up in.
+        Adding the opposite 'cavern2.addPath("south",cavern1)' creates a two-way connection between one. ALL PATHS
+        NEED BOTH LINES OF CODE TO GO BACK AND FORTH, else it's a one-way path.
+
+        The whole block of code here is just for setting up the map, so we can mess with it to change the map
+        on the fly.
+         */
         cavern.addPath("north", tomb);
         tomb.addPath("south", cavern);
 
+
+        // This sets which room you start in when the game starts.
         currentRoom = cavern;
 
-    }
+    }   // End of game configuration block (setup)
 
+
+
+
+
+    // GAME EXECUTION. For now, do not touch
     public void run() {
 
+
+        // Creates a scanner called 'in' to take user input
         Scanner in = new Scanner(System.in);
 
+
+        /* This fetches and prints a description of the current room (stored in that room's class file), and notes
+        that the user has now visited that room
+         */
         System.out.println(currentRoom.getLongDescription());
         currentRoom.setAlreadyVisited(true);
 
+
+        // This loops until the game ends, to constantly read commands the user inputs
         while (!gameOver) {
             System.out.print("> ");
             String message = parse(in.nextLine().trim());
             System.out.println(message);
         }
 
+
+        // Closes the scanner, and the game ends (exit code 0)
         in.close();
 
-    }
+    }   // End of game execution block (run)
 
+
+
+
+
+    // READ AND EXECUTE USER INPUT
     public String parse(String command) {
 
+
+        // This takes all unimportant words out of the user's input and replaces them with a space character
         command = command.replaceAll("( a | the | in | from )", " ");
 
+
+        /* This splits up the user's input by where the spaces are, to a maximum of 3 different parts. NOTE: CURRENT
+        IMPLEMENTATION MEANS ALL USER INPUT MUST FOLLOW THE SAME 'action, target, _____' PATTERN (swing the sword at
+        the dragon).
+
+        This also creates an array, called parts, that stores each distinct part of the user's input as a distinct
+        element (to a maximum of 3).
+         */
         String[] parts = command.split(" ", 3);
         String action = "", target = "", directObject = "";
 
+
+        /* If the input was a single action like 'walk', then action is set to the command.
+           If the input was an action and a target like 'swing the sword', then action is set to the first part
+           of the array, and target is set to the second part of the array.
+           The same is true for a three-part command like 'take the sword from the stone', where directObject is the
+           third part of the command and the third element in the 'parts' array.
+         */
         if (parts.length == 1) {
             action = command;
         } else if (parts.length == 2) {
@@ -79,32 +170,52 @@ public class TextAdventure {
             directObject = parts[2];
         }
 
+
+        // Big ol' if/else structure for each possible action.
         if (action.equals("move") || action.equals("go")) {
             return move(target);
+
         } else if (action.equals("get") || action.equals("take")) {
             return get(target);
+
         } else if (action.equals("put")) {
             return put(target, directObject);
+
         } else if (action.equals("remove")) {
             return remove(target, directObject);
+
         } else if (action.equals("drop")) {
             return drop(target);
+
         } else if (action.equals("open")) {
             return open(target);
+
         } else if (action.equals("close")) {
             return close(target);
+
         } else if (action.equals("quit")) {
             gameOver = true;
             return "Quitting the game";
+
         } else if (action.equals("inventory")) {
             return inventory();
+
         } else if (action.equals("look")) {
             return currentRoom.getLongDescription();
+
         }
 
-        return "Unknown command: " + command;
-    }
+        return "Unknown command: \"" + command + "\"";
+    } // End user input block
 
+
+
+
+
+    /* MOVEMENT BETWEEN ROOMS
+    In its current form, being in a room means the user can access everything in that room.
+    If we want to make a very large room (or very long one), that room will be split into multiple room instances.
+     */
     public String move(String direction) {
 
         Room nextRoom = currentRoom.getRoomAt(direction);
@@ -118,8 +229,15 @@ public class TextAdventure {
         } else {
             return currentRoom.getMoveErrorMessage();
         }
-    }
+    }   // End room movement block
 
+
+
+
+
+    /* PICKING UP ITEMS
+    If the item isn't null, and is gettable, the item is added to the playerInventory hashmap
+     */
     public String get(String target) {
 
         Item i = currentRoom.removeItem(target);
@@ -132,8 +250,15 @@ public class TextAdventure {
             return "Taken.";
         }
 
-    }
+    }   // End get item block
 
+
+
+
+
+    /* DROPPING ITEMS
+    If the item is in playerInventory and isn't null, it is removed from playerInventory and added to the current room
+     */
     public String drop(String target) {
 
         Item i = playerInventory.removeItem(target);
@@ -145,6 +270,12 @@ public class TextAdventure {
         }
     }
 
+
+
+
+
+    /* PUTTING ITEMS
+     */
     public String put(String target, String directObject) {
 
         //  Check both the room and the player's inventory
@@ -182,6 +313,8 @@ public class TextAdventure {
         }
     }
 
+
+
     public String remove(String target, String directObject) {
 
         //  Check both the room and the player's inventory
@@ -215,14 +348,28 @@ public class TextAdventure {
         }
     }
 
+
+
+
+
+    /* OPEN OBJECT
+    This method checks the room for the input target. If not found, it checks the player's inventory.
+    Returns 1 of 3:
+        Item not seen
+        Item not openable
+        Item opened
+     */
     public String open(String target) {
 
-        //  Check both the room and the player's inventory
+
+        //  Perform room/inventory check for target
         Item i = currentRoom.getItem(target);
         if (i == null) {
             i = playerInventory.getItem(target);
         }
 
+
+        //  Return value
         if (i == null) {
             return "You do not see that item.";
         } else if (!(i instanceof Openable)) {
@@ -231,16 +378,30 @@ public class TextAdventure {
             ((Openable)i).setOpen(true);
             return "Opened.";
         }
-    }
+    }   // End 'open object' check
 
+
+
+
+
+    /* CLOSE OBJECT
+    This method checks the room for the input target. If not found, it checks the player's inventory.
+    Returns 1 of 3:
+        Item not seen
+        Item not closable
+        Item closed
+     */
     public String close(String target) {
 
-        //  Check both the room and the player's inventory
+
+        //  Perform room/inventory check for target
         Item i = currentRoom.getItem(target);
         if (i == null) {
             i = playerInventory.getItem(target);
         }
 
+
+        //  Return value
         if (i == null) {
             return "You do not see that item.";
         } else if (!(i instanceof Openable)) {
@@ -249,19 +410,33 @@ public class TextAdventure {
             ((Openable)i).setOpen(false);
             return "Closed.";
         }
-    }
+    }   // End 'close object' block
 
+
+
+
+
+    /* PLAYER INVENTORY
+    Method to print out the player's current inventory.
+     */
     public String inventory() {
 
         String returnValue = "You have the following items:\n";
         returnValue += playerInventory.printItems();
 
         return returnValue;
-    }
+    }   // End inventory block
 
+
+
+
+
+    /* MAIN METHOD
+    Creates a new instance of TextAdventure, calls 'setup' (configuration) and calls 'run' (execution)
+     */
     public static void main(String[] args) {
         TextAdventure game = new TextAdventure();
         game.setup();
         game.run();
     }
-}
+}   // End main method block
