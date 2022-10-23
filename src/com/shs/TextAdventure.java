@@ -275,7 +275,7 @@ public class TextAdventure {
 
 
     /* PUT ITEM
-
+    [ Needs documentation please ]
     */
     public String put(String target, String directObject) {
 
@@ -325,7 +325,7 @@ public class TextAdventure {
 
 
     /* REMOVE ITEM
-
+    [ Needs documentation please ]
      */
     public String remove(String target, String directObject) {
 

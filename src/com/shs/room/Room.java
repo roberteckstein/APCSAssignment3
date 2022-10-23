@@ -8,9 +8,19 @@ import java.util.*;
 public class Room {
 
 
+    // Each room has a boolean for if it's already been visited or not.
     private boolean alreadyVisited;
+
+
+
     private String shortDescription;
+
+
+
     private String description = "";
+
+
+    // Each room has a unique error message for trying to exit through an invalid path.
     private String moveErrorMessage = "";
 
 
@@ -46,7 +56,7 @@ public class Room {
     }
 
 
-
+    // Prints a list of items in the room (short version)
     public String getShortDescription() {
         String returnValue = this.shortDescription;
         for (Item item: itemsInRoom.getInventory()) {
@@ -57,7 +67,7 @@ public class Room {
     }
 
 
-
+    // Prints a list of items in the room (long version)
     public String getLongDescription() {
 
         String returnValue = this.description;
@@ -87,11 +97,14 @@ public class Room {
     }
 
 
-
+    /* Method for adding paths between rooms. First value is the keyword to access that room from the current room
+    (like 'north'), and the second value is the room it gives access to.
+     */
     public void addPath(String direction, Room room) { exits.put(direction, room);}
 
 
-
+    /* Method to remove paths between rooms.
+     */
     public void removePath(String direction) { exits.remove(direction);}
 
 
