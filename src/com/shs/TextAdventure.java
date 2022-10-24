@@ -6,10 +6,8 @@ When new rooms, items, or other classes are created, remember to add import stat
  */
 import com.shs.item.*;
 import com.shs.creature.Dragon;
-import com.shs.creature.CreatureTemplate;
-import com.shs.room.StartingRoom;
-import com.shs.room.RoomTemplate;
-import com.shs.room.RoomSecond;
+import com.shs.levelOne.StartingRoom;
+import com.shs.levelOne.RoomSecond;
 import com.shs.traits.Openable;
 
 

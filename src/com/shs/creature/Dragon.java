@@ -1,5 +1,7 @@
 package com.shs.creature;
 
+import com.shs.CreatureTemplate;
+
 public class Dragon extends CreatureTemplate {
 
     public Dragon() {

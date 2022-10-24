@@ -1,6 +1,4 @@
-package com.shs.creature;
-
-import com.shs.item.ItemTemplate;
+package com.shs;
 
 public class CreatureTemplate extends ItemTemplate {
 

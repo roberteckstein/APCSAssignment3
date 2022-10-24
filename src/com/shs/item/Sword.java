@@ -1,5 +1,7 @@
 package com.shs.item;
 
+import com.shs.ItemTemplate;
+
 public class Sword extends ItemTemplate {
 
     public Sword() {

@@ -1,6 +1,4 @@
-package com.shs.item;
-
-import com.shs.Inventory;
+package com.shs;
 
 public abstract class ContainerTemplate extends ItemTemplate {
 

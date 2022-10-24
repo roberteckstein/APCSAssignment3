@@ -1,6 +1,7 @@
-package com.shs.room;
+package com.shs.levelOne;
 
 import com.shs.TextAdventure;
+import com.shs.RoomTemplate;
 
 public class RoomSecond extends RoomTemplate {
 

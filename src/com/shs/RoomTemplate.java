@@ -1,7 +1,4 @@
-package com.shs.room;
-
-import com.shs.Inventory;
-import com.shs.item.ItemTemplate;
+package com.shs;
 
 import java.util.*;
 

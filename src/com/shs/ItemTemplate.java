@@ -1,4 +1,4 @@
-package com.shs.item;
+package com.shs;
 
 public class ItemTemplate extends Object{
 

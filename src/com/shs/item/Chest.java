@@ -1,5 +1,6 @@
 package com.shs.item;
 
+import com.shs.ContainerTemplate;
 import com.shs.traits.Openable;
 
 public class Chest extends ContainerTemplate implements Openable {
