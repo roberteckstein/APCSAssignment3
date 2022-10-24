@@ -2,11 +2,11 @@ package com.shs.item;
 
 import com.shs.Inventory;
 
-public abstract class ContainerItem extends ItemTemplate {
+public abstract class ContainerTemplate extends ItemTemplate {
 
     public Inventory containedItems;
 
-    public ContainerItem(String name, String unequippedDescription, String equippedDescription) {
+    public ContainerTemplate(String name, String unequippedDescription, String equippedDescription) {
         super(name, unequippedDescription, equippedDescription);
 
         containedItems = new Inventory();

@@ -2,7 +2,7 @@ package com.shs.item;
 
 import com.shs.traits.Openable;
 
-public class Chest extends ContainerItem implements Openable {
+public class Chest extends ContainerTemplate implements Openable {
 
     boolean open = false;
 

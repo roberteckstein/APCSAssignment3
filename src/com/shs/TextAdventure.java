@@ -298,13 +298,13 @@ public class TextAdventure {
             return "You do not see the " + target + ".";
         } else if (d == null) {
             return "You do not see the " + directObject + ".";
-        } else if (!(d instanceof ContainerItem)) {
+        } else if (!(d instanceof ContainerTemplate)) {
             return "You cannot put the " + target +
                     " inside of the " + directObject;
         } else {
 
 
-            ContainerItem ci = (ContainerItem)d;
+            ContainerTemplate ci = (ContainerTemplate)d;
 
             if ((ci instanceof Openable) && (!((Openable)ci).isOpen())) {
                 return "The " + directObject + " is not open.";
@@ -337,11 +337,11 @@ public class TextAdventure {
 
         if (d == null) {
             return "You do not see the " + directObject + ".";
-        } else if (!(d instanceof ContainerItem)) {
+        } else if (!(d instanceof ContainerTemplate)) {
             return "The " + directObject + " does not contain anything.";
         } else {
 
-            ContainerItem ci = (ContainerItem)d;
+            ContainerTemplate ci = (ContainerTemplate)d;
 
             if ((ci instanceof Openable) && (!((Openable)ci).isOpen())) {
                 return "The " + directObject + " is not open.";
