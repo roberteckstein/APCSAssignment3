@@ -1,11 +1,11 @@
-package com.shs.levelOne;
+package com.shs.levelTwo;
 
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 
-public class RoomSecond extends RoomTemplate {
+public class levelTwo extends RoomTemplate {
 
-    public RoomSecond() {
+    public levelTwo() {
         super("Second Room", "This is the second room.");
         setMoveErrorMessage("There is no exit that way!");
 
