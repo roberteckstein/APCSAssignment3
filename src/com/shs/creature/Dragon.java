@@ -1,4 +1,4 @@
-package com.shs.monster;
+package com.shs.creature;
 
 public class Dragon extends CreatureTemplate {
 

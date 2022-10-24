@@ -1,4 +1,4 @@
-package com.shs.monster;
+package com.shs.creature;
 
 import com.shs.item.ItemTemplate;
 

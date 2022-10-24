@@ -5,8 +5,8 @@ package com.shs;
 When new rooms, items, or other classes are created, remember to add import statements here
  */
 import com.shs.item.*;
-import com.shs.monster.Dragon;
-import com.shs.monster.CreatureTemplate;
+import com.shs.creature.Dragon;
+import com.shs.creature.CreatureTemplate;
 import com.shs.room.StartingRoom;
 import com.shs.room.RoomTemplate;
 import com.shs.room.RoomSecond;
@@ -42,7 +42,7 @@ public class TextAdventure {
 
 
     //  Static so they can be referenced from anywhere
-    //  Every room, item, and object in the game must be listed (initiated?) here
+    //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
     public static RoomTemplate startingRoom, roomSecond;
     public static ItemTemplate sword, chest;
