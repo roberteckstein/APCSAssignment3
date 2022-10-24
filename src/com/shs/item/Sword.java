@@ -1,9 +1,11 @@
 package com.shs.item;
 
-public class Sword extends Item {
+import com.shs.ItemTemplate;
+
+public class Sword extends ItemTemplate {
 
     public Sword() {
-        super("sword", "There is a tall, glowing sword lying in a pile of treasures.", "A glowing sword.");
+        super("sword", "There is a sword here.", "A sword.");
     }
 
     @Override

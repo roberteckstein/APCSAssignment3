@@ -1,13 +1,13 @@
-package com.shs.item;
+package com.shs;
 
-public class Item {
+public class ItemTemplate extends Object{
 
     private final String name;
     private final String description;
     private final String equippedDescription;
 
 
-    public Item(String name, String description, String equippedDescription) {
+    public ItemTemplate(String name, String description, String equippedDescription) {
         this.name = name;
         this.description = description;
         this.equippedDescription = equippedDescription;
@@ -29,8 +29,6 @@ public class Item {
     public boolean isGettable() {
         return false;
     }
-    public boolean isOpenable() {
-        return false;
-    }
+    public boolean isOpenable() { return false; }
 
 }

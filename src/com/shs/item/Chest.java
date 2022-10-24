@@ -1,8 +1,9 @@
 package com.shs.item;
 
+import com.shs.ContainerTemplate;
 import com.shs.traits.Openable;
 
-public class Chest extends ContainerItem implements Openable {
+public class Chest extends ContainerTemplate implements Openable {
 
     boolean open = false;
 
@@ -13,7 +14,7 @@ public class Chest extends ContainerItem implements Openable {
 
     public String getDescription() {
 
-        String r = "There is a wooden chest here that is " + (open ? "open." : "closed.") + " ";
+        String r = "There is a chest here that is " + (open ? "open." : "closed.") + " ";
         if (this.open) {
             r = r + getContents();
         }
@@ -33,12 +34,14 @@ public class Chest extends ContainerItem implements Openable {
 
     @Override
     public boolean isGettable() {
-        return false;
+        return true;
     }
+
     @Override
     public boolean isOpenable() {
         return true;
     }
+
     @Override
     public boolean isOpen() {
         return open;

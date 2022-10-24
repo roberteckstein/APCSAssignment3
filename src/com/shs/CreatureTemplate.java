@@ -1,12 +1,10 @@
-package com.shs.monster;
+package com.shs;
 
-import com.shs.item.Item;
-
-public class Monster extends Item {
+public class CreatureTemplate extends ItemTemplate {
 
     protected boolean alive;
 
-    public Monster(String name, String description, String equippedDescription) {
+    public CreatureTemplate(String name, String description, String equippedDescription) {
         super(name, description, equippedDescription);
         this.alive = true;
     }
