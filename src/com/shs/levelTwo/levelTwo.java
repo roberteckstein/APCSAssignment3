@@ -6,6 +6,7 @@ import com.shs.RoomTemplate;
 public class levelTwo extends RoomTemplate {
 
     public levelTwo() {
+        //Room description
         super("Second Room", "This is the second room.");
         setMoveErrorMessage("There is no exit that way!");
 
