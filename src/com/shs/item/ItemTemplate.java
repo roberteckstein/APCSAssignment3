@@ -1,13 +1,13 @@
 package com.shs.item;
 
-public class Item extends Object{
+public class ItemTemplate extends Object{
 
     private final String name;
     private final String description;
     private final String equippedDescription;
 
 
-    public Item(String name, String description, String equippedDescription) {
+    public ItemTemplate(String name, String description, String equippedDescription) {
         this.name = name;
         this.description = description;
         this.equippedDescription = equippedDescription;

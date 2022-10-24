@@ -1,11 +1,11 @@
 package com.shs.room;
 
 import com.shs.Inventory;
-import com.shs.item.Item;
+import com.shs.item.ItemTemplate;
 
 import java.util.*;
 
-public class Room {
+public class RoomTemplate {
 
 
     // Each room has a boolean for if it's already been visited or not.
@@ -25,13 +25,13 @@ public class Room {
 
 
     // A hashmap to list all valid exits from the room, and the room that they connect to.
-    private HashMap<String, Room> exits = new HashMap<String, Room>();
+    private HashMap<String, RoomTemplate> exits = new HashMap<String, RoomTemplate>();
 
 
     private Inventory itemsInRoom = new Inventory();
 
 
-    public Room(String shortDescription, String... description) {   // Why is there a '...' after String?
+    public RoomTemplate(String shortDescription, String... description) {   // Why is there a '...' after String?
 
 
         this.shortDescription = shortDescription;
@@ -59,7 +59,7 @@ public class Room {
     // Prints a list of items in the room (short version)
     public String getShortDescription() {
         String returnValue = this.shortDescription;
-        for (Item item: itemsInRoom.getInventory()) {
+        for (ItemTemplate item: itemsInRoom.getInventory()) {
             returnValue += "\n" + item.getDescription();
         }
 
@@ -71,7 +71,7 @@ public class Room {
     public String getLongDescription() {
 
         String returnValue = this.description;
-        for (Item item: itemsInRoom.getInventory()) {
+        for (ItemTemplate item: itemsInRoom.getInventory()) {
             returnValue += "\n" + item.getDescription();
         }
 
@@ -80,19 +80,19 @@ public class Room {
 
 
     // Adds an item to the room. Used for initial game layout configuration
-    public void addItem(Item item) {
+    public void addItem(ItemTemplate item) {
         itemsInRoom.addItem(item);
     }
 
 
 
-    public Item getItem(String name) {
+    public ItemTemplate getItem(String name) {
         return itemsInRoom.getItem(name);
     }
 
 
 
-    public Item removeItem(String name) {
+    public ItemTemplate removeItem(String name) {
         return itemsInRoom.removeItem(name);
     }
 
@@ -100,7 +100,7 @@ public class Room {
     /* Method for adding paths between rooms. First value is the keyword to access that room from the current room
     (like 'north'), and the second value is the room it gives access to.
      */
-    public void addPath(String direction, Room room) { exits.put(direction, room);}
+    public void addPath(String direction, RoomTemplate room) { exits.put(direction, room);}
 
 
     /* Method to remove paths between rooms.
@@ -111,7 +111,7 @@ public class Room {
 
     //  Override in subclass, return null, and set error message if some
     //  obstacle temporarily prevents user from taking path (i.e., closed door, etc.)
-    public Room getRoomAt(String direction) { return exits.get(direction);}
+    public RoomTemplate getRoomAt(String direction) { return exits.get(direction);}
 
 
 

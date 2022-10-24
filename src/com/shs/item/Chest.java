@@ -13,7 +13,7 @@ public class Chest extends ContainerItem implements Openable {
 
     public String getDescription() {
 
-        String r = "There is a wooden chest here that is " + (open ? "open." : "closed.") + " ";
+        String r = "There is a chest here that is " + (open ? "open." : "closed.") + " ";
         if (this.open) {
             r = r + getContents();
         }

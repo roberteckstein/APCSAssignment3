@@ -2,7 +2,7 @@ package com.shs.item;
 
 import com.shs.Inventory;
 
-public abstract class ContainerItem extends Item {
+public abstract class ContainerItem extends ItemTemplate {
 
     public Inventory containedItems;
 

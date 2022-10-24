@@ -6,14 +6,13 @@ When new rooms, items, or other classes are created, remember to add import stat
  */
 import com.shs.item.*;
 import com.shs.monster.Dragon;
-import com.shs.monster.Monster;
-import com.shs.room.Cavern;
-import com.shs.room.Room;
-import com.shs.room.Tomb;
+import com.shs.monster.Creature;
+import com.shs.room.StartingRoom;
+import com.shs.room.RoomTemplate;
+import com.shs.room.RoomSecond;
 import com.shs.traits.Openable;
 
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 
@@ -44,10 +43,10 @@ public class TextAdventure {
 
     //  Static so they can be referenced from anywhere
     //  Every room, item, and object in the game must be listed (initiated?) here
-    public static Room currentRoom;
-    public static Room cavern, tomb;
-    public static Item sword, chest;
-    public static Monster dragon;
+    public static RoomTemplate currentRoom;
+    public static RoomTemplate startingRoom, roomSecond;
+    public static ItemTemplate sword, chest;
+    public static Creature dragon;
 
 
 
@@ -73,8 +72,8 @@ public class TextAdventure {
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
         rooms with different names (cavernIcy and cavernDark)
          */
-        cavern = new Cavern();
-        tomb = new Tomb();
+        startingRoom = new StartingRoom();
+        roomSecond = new RoomSecond();
 
 
         /*  Add paths from one room to the next. The template class 'Room' (that all room instances inherit) has a
@@ -89,12 +88,12 @@ public class TextAdventure {
         The whole block of code here is just for setting up the map, so we can mess with it to change the map
         on the fly.
          */
-        cavern.addPath("north", tomb);
-        tomb.addPath("south", cavern);
+        startingRoom.addPath("north", roomSecond);
+        roomSecond.addPath("south", startingRoom);
 
 
         // This sets which room you start in when the game starts.
-        currentRoom = cavern;
+        currentRoom = startingRoom;
 
     }   // End GAME CONFIGURATION block
 
@@ -218,7 +217,7 @@ public class TextAdventure {
      */
     public String move(String direction) {
 
-        Room nextRoom = currentRoom.getRoomAt(direction);
+        RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
         if (nextRoom != null) {
             currentRoom = nextRoom;
             if (currentRoom.isAlreadyVisited()) {
@@ -240,7 +239,7 @@ public class TextAdventure {
      */
     public String get(String target) {
 
-        Item i = currentRoom.removeItem(target);
+        ItemTemplate i = currentRoom.removeItem(target);
         if (i == null) {
             return "You cannot find that item.";
         } else if (!i.isGettable()) {
@@ -261,7 +260,7 @@ public class TextAdventure {
      */
     public String drop(String target) {
 
-        Item i = playerInventory.removeItem(target);
+        ItemTemplate i = playerInventory.removeItem(target);
         if (i != null) {
             currentRoom.addItem(i);
             return "Dropped.";
@@ -281,8 +280,8 @@ public class TextAdventure {
 
 
         //  Check both the room and the player's inventory
-        Item i = currentRoom.getItem(target);
-        Item d = currentRoom.getItem(directObject);
+        ItemTemplate i = currentRoom.getItem(target);
+        ItemTemplate d = currentRoom.getItem(directObject);
 
 
         if (i == null) {
@@ -330,7 +329,7 @@ public class TextAdventure {
     public String remove(String target, String directObject) {
 
         //  Check both the room and the player's inventory
-        Item d = currentRoom.getItem(directObject);
+        ItemTemplate d = currentRoom.getItem(directObject);
 
         if (d == null) {
             d = playerInventory.getItem(directObject);
@@ -348,7 +347,7 @@ public class TextAdventure {
                 return "The " + directObject + " is not open.";
             }
 
-            Item i = ci.containedItems.getItem(target);
+            ItemTemplate i = ci.containedItems.getItem(target);
             if (i == null) {
                 return "The " + target + " is not inside the " + directObject + ".";
             }
@@ -375,7 +374,7 @@ public class TextAdventure {
 
 
         //  Perform room/inventory check for target
-        Item i = currentRoom.getItem(target);
+        ItemTemplate i = currentRoom.getItem(target);
         if (i == null) {
             i = playerInventory.getItem(target);
         }
@@ -407,7 +406,7 @@ public class TextAdventure {
 
 
         //  Perform room/inventory check for target
-        Item i = currentRoom.getItem(target);
+        ItemTemplate i = currentRoom.getItem(target);
         if (i == null) {
             i = playerInventory.getItem(target);
         }

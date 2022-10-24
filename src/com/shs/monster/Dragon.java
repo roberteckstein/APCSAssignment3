@@ -1,9 +1,9 @@
 package com.shs.monster;
 
-public class Dragon extends Monster {
+public class Dragon extends Creature {
 
     public Dragon() {
-        super("dragon", "A large, red dragon eyes you as you move about the room.", "");
+        super("dragon", "There is a dragon here.", "");
     }
 
 }
