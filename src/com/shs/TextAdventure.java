@@ -6,7 +6,7 @@ When new rooms, items, or other classes are created, remember to add import stat
  */
 import com.shs.item.*;
 import com.shs.monster.Dragon;
-import com.shs.monster.Creature;
+import com.shs.monster.CreatureTemplate;
 import com.shs.room.StartingRoom;
 import com.shs.room.RoomTemplate;
 import com.shs.room.RoomSecond;
@@ -46,7 +46,7 @@ public class TextAdventure {
     public static RoomTemplate currentRoom;
     public static RoomTemplate startingRoom, roomSecond;
     public static ItemTemplate sword, chest;
-    public static Creature dragon;
+    public static CreatureTemplate dragon;
 
 
 

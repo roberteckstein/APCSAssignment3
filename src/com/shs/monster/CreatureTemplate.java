@@ -2,11 +2,11 @@ package com.shs.monster;
 
 import com.shs.item.ItemTemplate;
 
-public class Creature extends ItemTemplate {
+public class CreatureTemplate extends ItemTemplate {
 
     protected boolean alive;
 
-    public Creature(String name, String description, String equippedDescription) {
+    public CreatureTemplate(String name, String description, String equippedDescription) {
         super(name, description, equippedDescription);
         this.alive = true;
     }
