@@ -1,6 +1,6 @@
 package com.shs;
 
-public class CreatureTemplate extends ItemTemplate {
+public abstract class CreatureTemplate extends ItemTemplate {
 
     protected boolean alive;
 

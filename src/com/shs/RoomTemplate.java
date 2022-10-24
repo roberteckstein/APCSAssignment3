@@ -2,7 +2,7 @@ package com.shs;
 
 import java.util.*;
 
-public class RoomTemplate {
+public abstract class RoomTemplate {
 
 
     // Each room has a boolean for if it's already been visited or not.
