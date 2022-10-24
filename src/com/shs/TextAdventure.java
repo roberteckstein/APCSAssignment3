@@ -5,10 +5,9 @@ package com.shs;
 When new rooms, items, or other classes are created, remember to add import statements here
  */
 import com.shs.item.*;
-import com.shs.creature.Dragon;
-import com.shs.levelOne.StartingRoom;
-import com.shs.levelOne.RoomSecond;
-import com.shs.traits.Openable;
+import com.shs.creature.*;
+import com.shs.levelOne.*;
+import com.shs.traits.*;
 
 
 import java.util.Scanner;

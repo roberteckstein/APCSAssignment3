@@ -1,6 +1,6 @@
 package com.shs;
 
-public class ItemTemplate extends Object{
+public abstract class ItemTemplate extends Object{
 
     private final String name;
     private final String description;
