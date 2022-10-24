@@ -74,8 +74,8 @@ public class TextAdventure {
         roomSecond = new RoomSecond();
 
 
-        /*  Add paths from one room to the next. The template class 'Room' (that all room instances inherit) has a
-        hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
+        /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
+        a hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
         that direction leads to.
 
         So in the example cavern1.addPath("north",cavern2'), 'cavern1' is the room we're adding a connection to, 'north'
