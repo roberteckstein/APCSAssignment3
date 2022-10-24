@@ -3,12 +3,12 @@ package com.shs.levelTwo;
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 
-public class levelTwo extends RoomTemplate {
+public class StartingRoom extends RoomTemplate {
 
-    public levelTwo() {
+    public StartingRoom() {
         //Room description
-        super("Second Room", "This is the second room.");
-        setMoveErrorMessage("There is no exit that way!");
+        super("Starting Room", "This is the starting room.");
+        setMoveErrorMessage("You can't go there.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(TextAdventure.dragon);
