@@ -22,7 +22,4 @@ public class Sword extends ItemTemplate {
     public boolean isOpenable() {
         return false;
     }
-
-    public boolean isLightable() { return false; }
-
 }
