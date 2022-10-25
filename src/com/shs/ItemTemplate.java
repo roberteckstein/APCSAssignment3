@@ -31,4 +31,6 @@ public abstract class ItemTemplate extends Object{
     }
     public boolean isOpenable() { return false; }
 
+    public boolean isLightable() { return false; }
+
 }

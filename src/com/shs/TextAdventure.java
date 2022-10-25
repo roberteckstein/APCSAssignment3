@@ -41,8 +41,8 @@ public class TextAdventure {
     //  Static so they can be referenced from anywhere
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
-    public static RoomTemplate startingRoom, roomSecond;
-    public static ItemTemplate sword, chest;
+    public static RoomTemplate startingRoom, roomSecond, hidenRoom;
+    public static ItemTemplate sword, chest, lantern;
     public static CreatureTemplate dragon;
 
 
@@ -71,6 +71,7 @@ public class TextAdventure {
          */
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
+        hidenRoom = new HiddenRoom();
 
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
@@ -86,6 +87,7 @@ public class TextAdventure {
         on the fly.
          */
         startingRoom.addPath("north", roomSecond);
+        startingRoom.addPath("west", hidenRoom);
         roomSecond.addPath("south", startingRoom);
 
 
@@ -236,13 +238,14 @@ public class TextAdventure {
      */
     public String get(String target) {
 
-        ItemTemplate i = currentRoom.removeItem(target);
+        ItemTemplate i = currentRoom.getItem(target);
         if (i == null) {
             return "You cannot find that item.";
         } else if (!i.isGettable()) {
             return "You cannot get that item.";
         } else {
             playerInventory.addItem(i);
+            currentRoom.removeItem(target);
             return "Taken.";
         }
 
