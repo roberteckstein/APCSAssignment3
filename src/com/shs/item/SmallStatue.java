@@ -1,4 +1,4 @@
-package com.shs.levelOne;
+package com.shs.item;
 
 import com.shs.ItemTemplate;
 

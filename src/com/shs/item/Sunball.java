@@ -3,10 +3,10 @@ package com.shs.item;
 import com.shs.ItemTemplate;
 import com.shs.traits.Lightable;
 
-public class Lantern extends ItemTemplate implements Lightable {
+public class Sunball extends ItemTemplate implements Lightable {
 
     boolean light = false;
-    public Lantern() {
+    public Sunball() {
         super("lantern", "This is a battery powered lantern", "The lantern is lighting up the room.");
     }
 

@@ -23,6 +23,6 @@ public class Lightsaber extends ItemTemplate {
         return false;
     }
 
-    public boolean isLightable() { return false; }
+    public boolean isLightable() { return true; }
 
 }
