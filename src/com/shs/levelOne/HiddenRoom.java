@@ -8,7 +8,7 @@ public class HiddenRoom extends RoomTemplate {
         setMoveErrorMessage("There is no exit that way!");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
-        addItem(TextAdventure.dragon);
+        addItem(TextAdventure.smallstatue);
 
         }
     }
