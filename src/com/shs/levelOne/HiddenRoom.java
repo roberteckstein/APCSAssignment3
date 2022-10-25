@@ -1,15 +1,15 @@
 package com.shs.levelOne;
+import com.shs.RoomTemplate;
+import com.shs.TextAdventure;
 
-public class HiddenRoom extends RoomTemplate{
+public class HiddenRoom extends RoomTemplate {
     public HiddenRoom() {   // Why is there a '...' after String?
+        super("Second Room", "This is the second room. There is a passage going south.");
+        setMoveErrorMessage("There is no exit that way!");
 
+        // Add items/creatures here (watch out for duplicate objects across rooms)
+        addItem(TextAdventure.dragon);
 
-        this.shortDescription = "you've made it, to the hidden room";
-        this.alreadyVisited = false;   // By default, all rooms are set to not have been visited yet
-
-
-        for (String d : description) {
-            this.description += d;
         }
     }
 }
