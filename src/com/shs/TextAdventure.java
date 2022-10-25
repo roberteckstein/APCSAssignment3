@@ -43,8 +43,6 @@ public class TextAdventure {
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
     public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2;
-    public static ItemTemplate sword, chest, lantern, smallstatue, chest2;
-    public static CreatureTemplate dragon;
 
 
 
@@ -61,11 +59,6 @@ public class TextAdventure {
         /*  Must create items before populating rooms. Creates a new instance of each item class. Multiple instances
         of the same class must have unique names (shortSword vs. longSword or swordStartingRoom vs. swordCavern)
          */
-        sword = new Sword();
-        dragon = new Dragon();
-        chest = new Chest();
-        chest2 = new Chest();
-        smallstatue = new SmallStatue();
 
 
         /*  Must create rooms before creating paths. Creates a new instance of each room class.
