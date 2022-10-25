@@ -42,7 +42,7 @@ public class TextAdventure {
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
     public static RoomTemplate startingRoom, roomSecond, hiddenRoom;
-    public static ItemTemplate sword, chest, lantern, chest2;
+    public static ItemTemplate sword, chest, lantern;
     public static CreatureTemplate dragon;
 
 
@@ -63,8 +63,6 @@ public class TextAdventure {
         sword = new Sword();
         dragon = new Dragon();
         chest = new Chest();
-        chest2 = new Chest();
-
 
 
         /*  Must create rooms before creating paths. Creates a new instance of each room class.
@@ -94,12 +92,9 @@ public class TextAdventure {
         startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
 
-
         //LEVEL TWO rooms
 
         //LEVEL THREE rooms
-
-
         // This sets which room you start in when the game starts.
         currentRoom = startingRoom;
 
