@@ -42,7 +42,7 @@ public class TextAdventure {
     //  Static so they can be referenced from anywhere
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
-    public static RoomTemplate startingRoom, roomSecond, hiddenRoom;
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2;
     public static ItemTemplate sword, chest, lantern, smallstatue, chest2;
     public static CreatureTemplate dragon;
 
@@ -76,6 +76,9 @@ public class TextAdventure {
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
 
+        //Level 2 room instantiation
+        entryRoom2 = new EntryRoom2();
+
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
         a hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
@@ -96,6 +99,8 @@ public class TextAdventure {
         roomSecond.addPath("south", startingRoom);
 
         //LEVEL TWO rooms
+
+
 
         //LEVEL THREE rooms
         // This sets which room you start in when the game starts.
