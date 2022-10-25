@@ -3,6 +3,7 @@ package com.shs.levelOne;
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 
+
 public class RoomSecond extends RoomTemplate {
 
     public RoomSecond() {
@@ -10,7 +11,7 @@ public class RoomSecond extends RoomTemplate {
         setMoveErrorMessage("There is no exit that way!");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
-        addItem(TextAdventure.dragon);
+        addItem(TextAdventure.chest2);
 
     }
 

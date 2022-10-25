@@ -2,10 +2,10 @@ package com.shs.item;
 
 import com.shs.ItemTemplate;
 
-public class Sword extends ItemTemplate {
+public class Lightsaber extends ItemTemplate {
 
-    public Sword() {
-        super("sword", "There is a sword here.", "A sword.");
+    public Lightsaber() {
+        super("Lightsaber", "There is a Lightsaber here.", "A Lightsaber from Star Wars.");
     }
 
     @Override
@@ -22,4 +22,7 @@ public class Sword extends ItemTemplate {
     public boolean isOpenable() {
         return false;
     }
+
+    public boolean isLightable() { return false; }
+
 }
