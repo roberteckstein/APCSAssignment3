@@ -81,7 +81,7 @@ public class TextAdventure {
         So in the example cavern1.addPath("north",cavern2'), 'cavern1' is the room we're adding a connection to, 'north'
         is the keyword (direction) invoked to go to a new room, and 'cavern2' is the connecting room we end up in.
         Adding the opposite 'cavern2.addPath("south",cavern1)' creates a two-way connection between one. ALL PATHS
-        NEED BOTH LINES OF CODE TO GO BACK AND FORTH, else it's a one-way path.
+        NEED BOTH LINES OF CODE TO GO BACK AND FORTH, else it's a one-way path
 
         The whole block of code here is just for setting up the map, so we can mess with it to change the map
         on the fly.
