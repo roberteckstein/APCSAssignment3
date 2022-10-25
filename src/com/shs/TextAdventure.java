@@ -86,11 +86,15 @@ public class TextAdventure {
         The whole block of code here is just for setting up the map, so we can mess with it to change the map
         on the fly.
          */
+
+        //LEVEL ONE rooms
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
 
+        //LEVEL TWO rooms
 
+        //LEVEL THREE rooms
         // This sets which room you start in when the game starts.
         currentRoom = startingRoom;
 
