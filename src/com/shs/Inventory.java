@@ -42,13 +42,16 @@ public class Inventory {
     public String printItems() {
 
 
+        if (inventory.size() == 0) {
+            return "[ No items ]";
+        }
         String r = new String();
 
         /* For each item in the inventory, the description is retrieved and concatenated (added) to a string that
         then prints the whole list of the player's inventory.
          */
         for (ItemTemplate i : getInventory()) {
-            r += i.getEquippedDescription() + "\n";
+            r += "- " + i.getEquippedDescription() + "\n";
         }
         return r;
     }
