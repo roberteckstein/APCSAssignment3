@@ -4,7 +4,7 @@ import com.shs.TextAdventure;
 
 public class HiddenRoom extends RoomTemplate {
     public HiddenRoom() {   // Why is there a '...' after String?
-        super("Second Room", "This is the second room. There is a passage going south.");
+        super("secret room", "This is the hidden room. A stone wall materializes behind you There is a passage going north.");
         setMoveErrorMessage("There is no exit that way!");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
@@ -12,3 +12,4 @@ public class HiddenRoom extends RoomTemplate {
 
         }
     }
+
