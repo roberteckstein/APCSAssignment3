@@ -41,7 +41,7 @@ public class TextAdventure {
     //  Static so they can be referenced from anywhere
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
-    public static RoomTemplate startingRoom, roomSecond;
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom;
     public static ItemTemplate sword, chest, lantern;
     public static CreatureTemplate dragon;
 
@@ -71,6 +71,7 @@ public class TextAdventure {
          */
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
+        hiddenRoom = new HiddenRoom();
 
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
@@ -80,12 +81,13 @@ public class TextAdventure {
         So in the example cavern1.addPath("north",cavern2'), 'cavern1' is the room we're adding a connection to, 'north'
         is the keyword (direction) invoked to go to a new room, and 'cavern2' is the connecting room we end up in.
         Adding the opposite 'cavern2.addPath("south",cavern1)' creates a two-way connection between one. ALL PATHS
-        NEED BOTH LINES OF CODE TO GO BACK AND FORTH, else it's a one-way path.
+        NEED BOTH LINES OF CODE TO GO BACK AND FORTH, else it's a one-way path
 
         The whole block of code here is just for setting up the map, so we can mess with it to change the map
         on the fly.
          */
         startingRoom.addPath("north", roomSecond);
+        startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
 
 

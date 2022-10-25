@@ -17,5 +17,5 @@ public class EntryRoom2 extends RoomTemplate {
         addItem(TextAdventure.chest);
 
     }
-
+//to exit the room you have to break through a wall
 }
