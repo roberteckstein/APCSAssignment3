@@ -5,7 +5,7 @@ import com.shs.RoomTemplate;
 public class EntryRoom3 extends RoomTemplate{
 
     public EntryRoom3() {
-        super("An empty room.", "It's the level three starting room");
-        setMoveErrorMessage("You can't go there.");
+        super("System.out.print(\"An empty room.\")", "System.out.print(\"It's the level three starting room!\")");
+        setMoveErrorMessage("setMoveErrorMessage(\"You can't go there.\")");
     }
 }
