@@ -41,7 +41,7 @@ public class TextAdventure {
     //  Static so they can be referenced from anywhere
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
-    public static RoomTemplate startingRoom, roomSecond, hidenRoom;
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom;
     public static ItemTemplate sword, chest, lantern;
     public static CreatureTemplate dragon;
 
@@ -71,7 +71,7 @@ public class TextAdventure {
          */
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
-        hidenRoom = new HiddenRoom();
+        hiddenRoom = new HiddenRoom();
 
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
@@ -87,7 +87,7 @@ public class TextAdventure {
         on the fly.
          */
         startingRoom.addPath("north", roomSecond);
-        startingRoom.addPath("west", hidenRoom);
+        startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
 
 
