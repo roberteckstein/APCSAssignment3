@@ -40,7 +40,7 @@ public class TextAdventure {
 
 
     //  Static so they can be referenced from anywhere
-    //  Every object in the game must be listed here.
+    //  Every object in the game must be listed here
     public static RoomTemplate currentRoom;
     public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2;
 
