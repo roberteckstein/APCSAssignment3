@@ -42,7 +42,7 @@ public class TextAdventure {
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
     public static RoomTemplate startingRoom, roomSecond, hiddenRoom;
-    public static ItemTemplate sword, chest, lantern, smallstatue;
+    public static ItemTemplate sword, chest, lantern;
     public static CreatureTemplate dragon;
 
 
@@ -63,8 +63,6 @@ public class TextAdventure {
         sword = new Sword();
         dragon = new Dragon();
         chest = new Chest();
-        smallstatue = new SmallStatue();
-
 
         /*  Must create rooms before creating paths. Creates a new instance of each room class.
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
