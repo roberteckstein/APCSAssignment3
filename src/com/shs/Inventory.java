@@ -8,7 +8,7 @@ public class Inventory {
 
     // Creates the inventory hashmap
     private Map<String, ItemTemplate> inventory = new HashMap<String, ItemTemplate>();
-    // hello
+
 
     // Returns the size of the inventory
     public int size() { return inventory.size();}
