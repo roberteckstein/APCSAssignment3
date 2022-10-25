@@ -19,8 +19,6 @@ public class Sunball extends ItemTemplate implements Lightable {
     public boolean isGettable() {
         return true;
     }
-
-    @Override
     public boolean isLightable() { return true; }
 
     public String setLightability(boolean light) {
