@@ -69,7 +69,7 @@ public class TextAdventure {
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
         rooms with different names (cavernIcy and cavernDark)
          */
-        startingRoom = new StartingRoom();
+        startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
 
 
@@ -272,8 +272,13 @@ public class TextAdventure {
 
 
     /* PUT ITEM
-    [ Needs documentation please ]
+    Puts a "target" object inside of a "directObject" container (e.g., "put sword in chest"). First, ensure that
+    both the object you're "putting" and the container object are either in the room, or in your inventory. If
+    we cannot find either one, the command fails with an error message. Next, ensure that the directObject is
+    in fact a container. Next, if the object is openable, be sure it is in fact open. Finally, if everything
+    checks out, remove the object from the room or your inventory and place it in the container.
     */
+
     public String put(String target, String directObject) {
 
 
@@ -301,8 +306,8 @@ public class TextAdventure {
                     " inside of the " + directObject;
         } else {
 
-
             ContainerTemplate ci = (ContainerTemplate)d;
+
 
             if ((ci instanceof Openable) && (!((Openable)ci).isOpen())) {
                 return "The " + directObject + " is not open.";
@@ -322,7 +327,11 @@ public class TextAdventure {
 
 
     /* REMOVE ITEM
-    [ Needs documentation please ]
+    Removes a "target" object from a "directObject" container (e.g., "remove sword from chest"). First, ensure that
+    the container object is in the room, or in your inventory. If we cannot find it, the command fails with an
+    error message. Next, if the object is openable, be sure it is in fact open. Next, ensure that the directObject
+    is a container and that the target open is in fact inside. Finally, if all of that checks out, remove the
+    object from the container and put it on the ground.
      */
     public String remove(String target, String directObject) {
 
