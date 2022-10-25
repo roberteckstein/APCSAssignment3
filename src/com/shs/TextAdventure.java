@@ -43,7 +43,7 @@ public class TextAdventure {
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
     public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2;
-    public static ItemTemplate sword, chest, sunball, smallstatue, chest2;
+    public static ItemTemplate sword, chest, lantern, smallstatue, chest2;
     public static CreatureTemplate dragon;
 
 
