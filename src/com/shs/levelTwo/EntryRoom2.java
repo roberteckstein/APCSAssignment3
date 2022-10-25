@@ -14,6 +14,7 @@ public class EntryRoom2 extends RoomTemplate {
         addItem(TextAdventure.dragon);
         addItem(TextAdventure.sword);
         addItem(TextAdventure.lantern);
+        addItem(TextAdventure.chest);
 
     }
 
