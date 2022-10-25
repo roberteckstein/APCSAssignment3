@@ -7,13 +7,13 @@ public class EntryRoom2 extends RoomTemplate {
 
     public EntryRoom2() {
         //Room description
-        super("Starting Room", "This is the starting room.");
+        super("Space Ship", "You are in the spaceship.");
         setMoveErrorMessage("You can't go there.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(TextAdventure.dragon);
         addItem(TextAdventure.sword);
-        addItem(TextAdventure.lantern);
+        addItem(TextAdventure.sunball);
         addItem(TextAdventure.chest);
 
     }

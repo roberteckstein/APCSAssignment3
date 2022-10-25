@@ -7,6 +7,7 @@ When new rooms, items, or other classes are created, remember to add import stat
 import com.shs.item.*;
 import com.shs.creature.*;
 import com.shs.levelOne.*;
+import com.shs.levelTwo.EntryRoom2;
 import com.shs.traits.*;
 
 
@@ -41,8 +42,8 @@ public class TextAdventure {
     //  Static so they can be referenced from anywhere
     //  Every object in the game must be listed here.
     public static RoomTemplate currentRoom;
-    public static RoomTemplate startingRoom, roomSecond, hiddenRoom;
-    public static ItemTemplate sword, chest, lantern;
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2;
+    public static ItemTemplate sword, chest, sunball, smallstatue, chest2;
     public static CreatureTemplate dragon;
 
 
@@ -63,6 +64,9 @@ public class TextAdventure {
         sword = new Sword();
         dragon = new Dragon();
         chest = new Chest();
+        chest2 = new Chest();
+        smallstatue = new SmallStatue();
+
 
         /*  Must create rooms before creating paths. Creates a new instance of each room class.
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
@@ -71,6 +75,9 @@ public class TextAdventure {
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
+
+        //Level 2 room instantiation
+        entryRoom2 = new EntryRoom2();
 
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
@@ -92,6 +99,8 @@ public class TextAdventure {
         roomSecond.addPath("south", startingRoom);
 
         //LEVEL TWO rooms
+
+
 
         //LEVEL THREE rooms
         // This sets which room you start in when the game starts.

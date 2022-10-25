@@ -7,7 +7,7 @@ public class Sunball extends ItemTemplate implements Lightable {
 
     boolean light = false;
     public Sunball() {
-        super("lantern", "This is a battery powered lantern", "The lantern is lighting up the room.");
+        super("Sunball", "This is a portable ball of sun", "The sunball is lighting up the room.");
     }
 
     @Override
@@ -24,17 +24,17 @@ public class Sunball extends ItemTemplate implements Lightable {
     public String setLightability(boolean light) {
         if (this.light == true) {
             if (light == true) {
-                return "The lantern is now on";
+                return "The sunball is now on";
             } else {
                 this.light = false;
-                return "The lantern is now off";
+                return "The sunball is now off";
             }
         } else {
             if (light == false) {
-                return "The lantern is already off";
+                return "The sunball is already off";
             } else {
                 this.light = true;
-                return "The lantern is now on.";
+                return "The sunball is now on.";
             }
 
         }
