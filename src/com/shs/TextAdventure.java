@@ -69,7 +69,7 @@ public class TextAdventure {
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
         rooms with different names (cavernIcy and cavernDark)
          */
-        startingRoom = new StartingRoom();
+        startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
 
 

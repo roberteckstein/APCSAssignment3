@@ -3,9 +3,9 @@ package com.shs.levelTwo;
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 
-public class StartingRoom extends RoomTemplate {
+public class EntryRoom2 extends RoomTemplate {
 
-    public StartingRoom() {
+    public EntryRoom2() {
         //Room description
         super("Starting Room", "This is the starting room.");
         setMoveErrorMessage("You can't go there.");

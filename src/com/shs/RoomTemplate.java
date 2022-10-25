@@ -9,9 +9,7 @@ public abstract class RoomTemplate {
     private boolean alreadyVisited;
 
 
-
     private String shortDescription;
-
 
 
     private String description = "";
@@ -28,6 +26,8 @@ public abstract class RoomTemplate {
     private Inventory itemsInRoom = new Inventory();
 
 
+
+
     public RoomTemplate(String shortDescription, String... description) {   // Why is there a '...' after String?
 
 
@@ -39,6 +39,8 @@ public abstract class RoomTemplate {
             this.description += d;
         }
     }
+
+
 
 
     // Checks if the room has already been visited
