@@ -12,7 +12,7 @@ public class Sunball extends ItemTemplate implements Lightable {
 
     @Override
     public boolean isMoveable() {
-        return true;
+        return false;
     }
 
     @Override
