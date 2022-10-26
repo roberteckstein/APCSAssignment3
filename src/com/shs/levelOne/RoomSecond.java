@@ -59,7 +59,7 @@ public class RoomSecond extends RoomTemplate {
         String result = d.use(i);
         if (!result.equals(""))
         {
-            TextAdventure.roomSecond.addPath("north", TextAdventure.minerRoom);
+            TextAdventure.roomSecond.addPath("north", null);
         }
         return result;
     }
