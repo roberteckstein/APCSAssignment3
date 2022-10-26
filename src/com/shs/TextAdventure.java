@@ -42,7 +42,14 @@ public class TextAdventure {
 
     //  Static so they can be referenced from anywhere
     //  Every object in the game must be listed here
-    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2, currentRoom;
+
+    //lvl 1
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3;
+
+    //lvl 2
+    public static RoomTemplate entryRoom2;
+
+    //lvl 3
     public static RoomTemplate entryroom3, secondroom3;
 
 
@@ -68,6 +75,7 @@ public class TextAdventure {
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
+        room3 = new Room3();
 
         //Level 2 room instantiation
         entryRoom2 = new EntryRoom2();
@@ -93,6 +101,7 @@ public class TextAdventure {
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
+        hiddenRoom.addPath("north", room3);
 
         //LEVEL TWO rooms
 

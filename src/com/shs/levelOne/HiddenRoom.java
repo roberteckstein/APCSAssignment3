@@ -2,6 +2,7 @@ package com.shs.levelOne;
 import com.shs.RoomTemplate;
 import com.shs.TextAdventure;
 import com.shs.item.SmallStatue;
+import com.shs.item.Chest;
 
 public class HiddenRoom extends RoomTemplate {
     public HiddenRoom() {   // Why is there a '...' after String?
