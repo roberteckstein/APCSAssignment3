@@ -24,14 +24,14 @@ public class Sunball extends ItemTemplate implements Lightable {
     public String setLightable(boolean light) {
         if (this.light == true) {
             if (light == true) {
-                return "The sunball is now on";
+                return "The sunball is already on.";
             } else {
                 this.light = false;
-                return "The sunball is now off";
+                return "The sunball is now off.";
             }
         } else {
             if (light == false) {
-                return "The sunball is already off";
+                return "The sunball is already off.";
             } else {
                 this.light = true;
                 return "The sunball is now on.";
