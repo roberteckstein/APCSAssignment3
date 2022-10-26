@@ -1,6 +1,8 @@
 package com.shs.traits;
 
 public interface Lightable {
+
+
     public boolean isLightable();
 
 
