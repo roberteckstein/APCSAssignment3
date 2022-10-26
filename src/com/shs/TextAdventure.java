@@ -101,6 +101,7 @@ public class TextAdventure {
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
+        hiddenRoom.addPath("north", room3);
 
         //LEVEL TWO rooms
 
