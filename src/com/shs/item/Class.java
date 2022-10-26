@@ -4,7 +4,7 @@ import com.shs.ItemTemplate;
 
 public class Class extends ItemTemplate {
     public Class() {
-        super("Class", "A class.", "An equipped class.");
+        super("class", "A class.", "An equipped class.");
     }
 
     @Override
