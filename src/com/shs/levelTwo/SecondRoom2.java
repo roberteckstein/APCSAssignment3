@@ -9,20 +9,13 @@ import com.shs.item.Sunball;
 import com.shs.item.Sword;
 
 public class EntryRoom2 extends RoomTemplate {
-    Dragon dragon = new Dragon();
-    Sword sword = new Sword();
-    Sunball sunball = new Sunball();
     Chest chest = new Chest();
     public EntryRoom2() {
         //Room description
-        super("You are at the gates to Hell. You can only go north.", "You are at the gates of Hell. You can only go north.");
+        super("You are in an empty room. There is a chest", "The room is empty.");
         setMoveErrorMessage("You can't go there.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
-        addItem(dragon);
-        addItem(sword);
-        addItem(sunball);
         addItem(chest);
-
     }
 }
