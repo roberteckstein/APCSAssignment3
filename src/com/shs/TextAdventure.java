@@ -41,7 +41,7 @@ public class TextAdventure {
     //  Every object in the game must be listed here
 
     //lvl 1
-    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3;
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3, minerRoom, treasureRoom, crystalRoom;
 
     //lvl 2
     public static RoomTemplate entryRoom2;
@@ -73,6 +73,9 @@ public class TextAdventure {
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
         room3 = new Room3();
+        minerRoom = new MinerRoom();
+        treasureRoom = new TreasureRoom();
+        crystalRoom = new TreasureRoom();
 
         //Level 2 room instantiation
         entryRoom2 = new CircleRoom();
@@ -98,6 +101,11 @@ public class TextAdventure {
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
+        roomSecond.addPath("west", room3);
+        room3.addPath("east", roomSecond);
+        room3.addPath("north", minerRoom);
+        minerRoom.addPath("south", room3);
+        minerRoom.addPath("east", treasureRoom);
 
         //LEVEL TWO rooms
 

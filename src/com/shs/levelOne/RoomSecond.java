@@ -7,6 +7,8 @@ import com.shs.creature.Elemental;
 import com.shs.item.Chest;
 import com.shs.item.TastyRock;
 
+import static com.shs.TextAdventure.minerRoom;
+
 
 public class RoomSecond extends RoomTemplate {
 
@@ -34,7 +36,7 @@ public class RoomSecond extends RoomTemplate {
     @Override
     public String getMoveErrorMessage(String direction) {
         if (direction.equals("north") && elemental.isAlive()) {
-            return "The passage to the north is blocked by the crystal elemental.";
+            return "The passage to the west is blocked by the crystal elemental.";
         } else {
             return getMoveErrorMessage();
         }
@@ -57,9 +59,9 @@ public class RoomSecond extends RoomTemplate {
             return "You do not see the " + directObject + ".";
         }
         String result = d.use(i);
-        if (!result.equals(""))
+        if (result.equals("rock"))
         {
-            TextAdventure.roomSecond.addPath("north", null);
+            TextAdventure.roomSecond.addPath("north", minerRoom);
         }
         return result;
     }
