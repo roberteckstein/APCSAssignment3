@@ -41,7 +41,9 @@ public abstract class RoomTemplate {
     }
 
 
-
+    public void setDescription (String text) {
+        description = text;
+    }
 
     // Checks if the room has already been visited
     public boolean isAlreadyVisited() {
