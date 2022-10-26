@@ -5,7 +5,7 @@ import com.shs.ItemTemplate;
 public class Lightsaber extends ItemTemplate {
 
     public Lightsaber() {
-        super("Lightsaber", "There is a Lightsaber here.", "A Lightsaber from Star Wars.");
+        super("lightsaber", "There is a lightsaber here.", "A lightsaber from Star Wars.");
     }
 
     @Override

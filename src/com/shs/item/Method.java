@@ -4,7 +4,7 @@ import com.shs.ItemTemplate;
 
 public class Method extends ItemTemplate {
     public Method() {
-        super("Method", "A method.", "An equipped method.");
+        super("method", "A method.", "An equipped method.");
     }
 
     @Override
