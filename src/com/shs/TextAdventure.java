@@ -75,10 +75,10 @@ public class TextAdventure {
         room3 = new Room3();
 
         //Level 2 room instantiation
-        entryRoom2 = new EntryRoom2();
+        entryRoom2 = new CircleRoom();
 
         //Level 3 room instantiation
-        entryroom3 = new EntryRoom3();
+        entryroom3 = new CircleRoom();
         secondroom3 = new SecondRoom3();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
