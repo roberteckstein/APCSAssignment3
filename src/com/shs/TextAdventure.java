@@ -61,6 +61,7 @@ public class TextAdventure {
 
         // Creates a new instance of the Inventory class
         playerInventory = new Inventory();
+        playerInventory.addItem(new TastyRock());
 
 
         /*  Must create items before populating rooms. Creates a new instance of each item class. Multiple instances
@@ -145,7 +146,11 @@ public class TextAdventure {
     public String parse(String command) {
 
         // This takes all unimportant words out of the user's input and replaces them with a space character
-        command = command.replaceAll("( a | the | in | from )", " ");
+        command = command.replaceAll("( a )", " ");
+        command = command.replaceAll("( the )", " ");
+        command = command.replaceAll("( in )", " ");
+        command = command.replaceAll("( from )", " ");
+        command = command.replaceAll("( to )", " ");
 
         /* This splits up the user's input by where the spaces are, to a maximum of 3 different parts. NOTE: CURRENT
         IMPLEMENTATION MEANS ALL USER INPUT MUST FOLLOW THE SAME 'action, target, _____' PATTERN (swing the sword at
@@ -154,7 +159,7 @@ public class TextAdventure {
         This also creates an array, called parts, that stores each distinct part of the user's input as a distinct
         element (to a maximum of 3).
          */
-        String[] parts = command.split(" ", 3);
+        String[] parts = command.split(" ");
         String action = "", target = "", directObject = "";
 
         /* If the input was a single action like 'walk', then action is set to the command.
@@ -168,7 +173,7 @@ public class TextAdventure {
         } else if (parts.length == 2) {
             action = parts[0];
             target = parts[1];
-        } else if (parts.length == 3) {
+        } else if (parts.length >= 3) {
             action = parts[0];
             target = parts[1];
             directObject = parts[2];
@@ -401,8 +406,8 @@ public class TextAdventure {
     /* USE OBJECT
     Method for the player to use (consume) an object.
      */
-    private String use(String i, String d) {
-        String result = currentRoom.use(i, d);
+    private String use(String item, String receiver) {
+        String result = currentRoom.use(item, receiver);
         if(!result.equals(""))
         {
             return result;
