@@ -6,11 +6,9 @@ import com.shs.item.SmallStatue;
 
 public class MinerRoom extends RoomTemplate {
     public MinerRoom() {   // Why is there a '...' after String?
-        super("elemental room", "Stepping into the room, an elemental blocks your path. You can barely see there are passages to the east, west, and south.");
-        setMoveErrorMessage("There is no exit that way!");
+        super("elemental room", "");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
-        addItem(new Elemental());
 
     }
 }

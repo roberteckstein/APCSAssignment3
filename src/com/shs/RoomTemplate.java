@@ -116,6 +116,10 @@ public abstract class RoomTemplate {
 
     public String getMoveErrorMessage() { return moveErrorMessage; }
 
+    //used if you want to give a different error for different directions (such as a blocked exit)
+    public String getMoveErrorMessage(String direction) { return getMoveErrorMessage(); }
+
+    public String use(String i, String d) {return  "";}
 
 
     public void setMoveErrorMessage(String errorMessage) { moveErrorMessage = errorMessage; }

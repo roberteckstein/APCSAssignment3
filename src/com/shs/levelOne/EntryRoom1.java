@@ -12,8 +12,6 @@ public class EntryRoom1 extends RoomTemplate {
 
 
         // Add items/creatures here (watch out for duplicate items across rooms)
-        addItem(TextAdventure.sword);
-        addItem(TextAdventure.chest);
     }
 
 }
