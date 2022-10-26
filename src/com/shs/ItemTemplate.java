@@ -36,9 +36,6 @@ public abstract class ItemTemplate extends Object{
     public boolean isGettable() {
         return false;
     }
-    public boolean isUseable() {
-        return false;
-    }
     public boolean isOpenable() { return false; }
 
     public String use(ItemTemplate item) { return ""; } //implement for particular items that can accept items (locks / monsters etc)
