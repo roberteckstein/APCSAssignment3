@@ -5,6 +5,6 @@ public interface Lightable {
 
 
 
-    public String setLightability(boolean light);
+    public String setLightable(boolean light);
 
 }

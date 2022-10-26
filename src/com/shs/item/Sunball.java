@@ -12,7 +12,7 @@ public class Sunball extends ItemTemplate implements Lightable {
 
     @Override
     public boolean isMoveable() {
-        return true;
+        return false;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class Sunball extends ItemTemplate implements Lightable {
     }
     public boolean isLightable() { return true; }
 
-    public String setLightability(boolean light) {
+    public String setLightable(boolean light) {
         if (this.light == true) {
             if (light == true) {
                 return "The sunball is now on";
