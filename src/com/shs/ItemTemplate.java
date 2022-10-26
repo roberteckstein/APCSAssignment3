@@ -3,7 +3,7 @@ package com.shs;
 public abstract class ItemTemplate extends Object{
 
     private final String name;
-    private final String description;
+    private String description;
     private final String equippedDescription;
 
 
@@ -26,6 +26,7 @@ public abstract class ItemTemplate extends Object{
     public String getDescription() {
         return description;
     }
+    public void setDescription(String text) {description = text;}
     public String getEquippedDescription() {
         return equippedDescription;
     }
@@ -34,9 +35,6 @@ public abstract class ItemTemplate extends Object{
         return false;
     }
     public boolean isGettable() {
-        return false;
-    }
-    public boolean isUseable() {
         return false;
     }
     public boolean isOpenable() { return false; }
