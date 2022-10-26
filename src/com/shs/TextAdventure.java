@@ -4,11 +4,8 @@ package com.shs;
 /* IMPORTS
 When new rooms, items, or other classes are created, remember to add import statements here
  */
-import com.shs.item.*;
-import com.shs.creature.*;
 import com.shs.levelOne.*;
 import com.shs.levelThree.*;
-import com.shs.levelTwo.EntryRoom2;
 import com.shs.traits.*;
 
 
