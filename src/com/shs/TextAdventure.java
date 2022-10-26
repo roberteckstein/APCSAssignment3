@@ -226,18 +226,13 @@ public class TextAdventure {
     } // End READ AND EXECUTE USER INPUT block
 
 
-
     /* MOVEMENT BETWEEN ROOMS
     In its current form, being in a room means the user can access everything in that room.
     If we want to make a very large room (or very long one) where not everything is accessible at the same time,
     that room can be split into multiple room instances.
      */
     public String move(String direction) {
-
         RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
-
-
-
         if (nextRoom != null) {
             currentRoom = nextRoom;
             if (currentRoom.isAlreadyVisited()) {
@@ -250,15 +245,10 @@ public class TextAdventure {
         }
     }   // End MOVEMENT BETWEEN ROOMS block
 
-
-
-
-
     /* PICK UP ITEM
     If the item isn't null, and is gettable, the item is added to the playerInventory hashmap
      */
     public String get(String target) {
-
         ItemTemplate i = currentRoom.getItem(target);
         if (i == null) {
             return "You cannot find that item.";
@@ -272,15 +262,10 @@ public class TextAdventure {
 
     }   // End PICK UP ITEM block
 
-
-
-
-
     /* DROP ITEM
     If the item is in playerInventory and isn't null, it is removed from playerInventory and added to the current room
      */
     public String drop(String target) {
-
         ItemTemplate i = playerInventory.removeItem(target);
         if (i != null) {
             currentRoom.addItem(i);
@@ -290,10 +275,6 @@ public class TextAdventure {
         }
     }   // End DROP ITEM block
 
-
-
-
-
     /* PUT ITEM
     Puts a "target" object inside of a "directObject" container (e.g., "put sword in chest"). First, ensure that
     both the object you're "putting" and the container object are either in the room, or in your inventory. If
@@ -301,25 +282,16 @@ public class TextAdventure {
     in fact a container. Next, if the object is openable, be sure it is in fact open. Finally, if everything
     checks out, remove the object from the room or your inventory and place it in the container.
     */
-
     public String put(String target, String directObject) {
-
-
         //  Check both the room and the player's inventory
         ItemTemplate i = currentRoom.getItem(target);
         ItemTemplate d = currentRoom.getItem(directObject);
-
-
         if (i == null) {
             i = playerInventory.getItem(target);
         }
-
-
         if (d == null) {
             d = playerInventory.getItem(directObject);
         }
-
-
         if (i == null) {
             return "You do not see the " + target + ".";
         } else if (d == null) {
@@ -328,26 +300,17 @@ public class TextAdventure {
             return "You cannot put the " + target +
                     " inside of the " + directObject;
         } else {
-
             ContainerTemplate ci = (ContainerTemplate)d;
-
 
             if ((ci instanceof Openable) && (!((Openable)ci).isOpen())) {
                 return "The " + directObject + " is not open.";
             }
-
-
             ci.containedItems.addItem(i);
             currentRoom.removeItem(target);
             playerInventory.removeItem(target);
             return "Done.";
-
         }
     }   // End PUT ITEM block
-
-
-
-
 
     /* REMOVE ITEM
     Removes a "target" object from a "directObject" container (e.g., "remove sword from chest"). First, ensure that
@@ -360,38 +323,28 @@ public class TextAdventure {
 
         //  Check both the room and the player's inventory
         ItemTemplate d = currentRoom.getItem(directObject);
-
         if (d == null) {
             d = playerInventory.getItem(directObject);
         }
-
         if (d == null) {
             return "You do not see the " + directObject + ".";
         } else if (!(d instanceof ContainerTemplate)) {
             return "The " + directObject + " does not contain anything.";
         } else {
-
             ContainerTemplate ci = (ContainerTemplate)d;
-
             if ((ci instanceof Openable) && (!((Openable)ci).isOpen())) {
                 return "The " + directObject + " is not open.";
             }
-
             ItemTemplate i = ci.containedItems.getItem(target);
             if (i == null) {
                 return "The " + target + " is not inside the " + directObject + ".";
             }
-
             ci.containedItems.removeItem(target);
             currentRoom.addItem(i);
             return "The " + target + " is now on the ground.";
 
         }
     }   // End REMOVE ITEM block
-
-
-
-
 
     /* OPEN OBJECT
     This method checks the room for the input target. If not found, it checks the player's inventory.
@@ -401,15 +354,11 @@ public class TextAdventure {
         Item opened
      */
     public String open(String target) {
-
-
         //  Perform room/inventory check for target
         ItemTemplate i = currentRoom.getItem(target);
         if (i == null) {
             i = playerInventory.getItem(target);
         }
-
-
         //  Return value
         if (i == null) {
             return "You do not see that item.";
@@ -421,9 +370,6 @@ public class TextAdventure {
         }
     }   // End OPEN OBJECT check
 
-
-
-
     /* CLOSE OBJECT
     This method checks the room for the input target. If not found, it checks the player's inventory.
     Returns 1 of 3:
@@ -432,15 +378,11 @@ public class TextAdventure {
         Item closed
      */
     public String close(String target) {
-
-
         //  Perform room/inventory check for target
         ItemTemplate i = currentRoom.getItem(target);
         if (i == null) {
             i = playerInventory.getItem(target);
         }
-
-
         //  Return value
         if (i == null) {
             return "You do not see that item.";
@@ -452,21 +394,18 @@ public class TextAdventure {
         }
     }   // End CLOSE OBJECT block
 
-
-
-
-
     /* PLAYER INVENTORY
     Method to print out the player's current inventory.
      */
     public String inventory() {
-
         String returnValue = "You have the following items:\n";
         returnValue += playerInventory.printItems();
-
         return returnValue;
     }   // End PLAYER INVENTORY block
 
+    /* USE OBJECT
+    Method for the player to use (consume) an object.
+     */
     private String use(String i, String d) {
         String result = currentRoom.use(i, d);
         if(!result.equals(""))
@@ -474,11 +413,9 @@ public class TextAdventure {
             return result;
         }
         else {
-            return "nothing happens";
+            return "Nothing happens.";
         }
     }
-
-
 
     /* MAIN METHOD
     Creates a new instance of TextAdventure, calls 'setup' (configuration) and calls 'run' (execution)
