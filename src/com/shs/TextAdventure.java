@@ -41,7 +41,7 @@ public class TextAdventure {
     //  Every object in the game must be listed here
 
     //lvl 1
-    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3, minerRoom;
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3;
 
     //lvl 2
     public static RoomTemplate entryRoom2;
@@ -69,26 +69,16 @@ public class TextAdventure {
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
         rooms with different names (cavernIcy and cavernDark)
          */
-
-        //Level 1 room stuff
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
         room3 = new Room3();
-        minerRoom = new MinerRoom();
-
 
         //Level 2 room instantiation
-        entryRoom2 = new EntryRoom2();
-        secondRoom2 = new SecondRoom2();
-        thirdRoom2 = new ThirdRoom2();
-        fourthRoom2 = new FourthRoom2();
-        fifthRoom2 = new FifthRoom2();
-        sixthRoom2 = new SixthRoom2();
-        seventhRoom2 = new seventhRoom2();
+        entryRoom2 = new CircleRoom();
 
         //Level 3 room instantiation
-        entryroom3 = new EntryRoom3();
+        entryroom3 = new CircleRoom();
         secondroom3 = new SecondRoom3();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
@@ -105,15 +95,11 @@ public class TextAdventure {
          */
 
         //LEVEL ONE rooms
-        minerRoom.addPath("south", roomSecond);
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
-        hiddenRoom.addPath("north", room3);
         roomSecond.addPath("south", startingRoom);
-        roomSecond.addPath("west", room3);
-        room3.addPath("east", roomSecond);
-        //LEVEL TWO rooms
 
+        //LEVEL TWO rooms
 
 
 
@@ -221,8 +207,6 @@ public class TextAdventure {
 
             case "look":
                 return currentRoom.getLongDescription();
-            case "cat":
-                return win();
 
             case "use":
             case "give":
@@ -239,9 +223,6 @@ public class TextAdventure {
     If we want to make a very large room (or very long one) where not everything is accessible at the same time,
     that room can be split into multiple room instances.
      */
-    public String win() {
-        return ("You wake up in your bed. The nightmare is finally over. You win. ;)");
-    }
     public String move(String direction) {
         RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
         if (nextRoom != null) {
