@@ -1,27 +1,30 @@
 package com.shs.levelTwo;
 
-import com.shs.ItemTemplate;
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 import com.shs.creature.Dragon;
 import com.shs.item.Chest;
-import com.shs.item.Sunball;
 import com.shs.item.Sword;
 
 public class EntryRoom2 extends RoomTemplate {
-    Dragon dragon = new Dragon();
-    Sword sword = new Sword();
-    Sunball sunball = new Sunball();
-    Chest chest = new Chest();
+
+    private Dragon dragon;
+    private Sword sword;
+    private Chest chest;
+    //Lantern lantern;
     public EntryRoom2() {
+        super("Starting Room", "This is the starting room.");
         //Room description
-        super("Space Ship", "You are in the spaceship.");
+        dragon = new Dragon();
+        sword = new Sword();
+        //Lantern lantern = new Lantern();
+        chest = new Chest();
         setMoveErrorMessage("You can't go there.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(dragon);
         addItem(sword);
-        addItem(sunball);
+        //addItem(lantern);
         addItem(chest);
 
     }
