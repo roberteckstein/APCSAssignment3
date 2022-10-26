@@ -213,6 +213,8 @@ public class TextAdventure {
 
             case "look":
                 return currentRoom.getLongDescription();
+            case "cat":
+                return win();
 
             case "use":
             case "give":
@@ -229,6 +231,9 @@ public class TextAdventure {
     If we want to make a very large room (or very long one) where not everything is accessible at the same time,
     that room can be split into multiple room instances.
      */
+    public String win() {
+        return ("You wake up in your bed. The nightmare is finally over. You win. ;)");
+    }
     public String move(String direction) {
         RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
         if (nextRoom != null) {
