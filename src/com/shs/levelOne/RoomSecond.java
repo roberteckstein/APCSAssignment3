@@ -32,13 +32,12 @@ public class RoomSecond extends RoomTemplate {
     }
 
     @Override
-    public String getMoveErrorMessage(String direction)
-    {
-        if (direction.equals("north")&&elemental.isAlive())
-        {
+    public String getMoveErrorMessage(String direction) {
+        if (direction.equals("north") && elemental.isAlive()) {
             return "The passage to the north is blocked by the crystal elemental.";
+        } else {
+            return getMoveErrorMessage();
         }
-        return getMoveErrorMessage();
     }
 
     @Override

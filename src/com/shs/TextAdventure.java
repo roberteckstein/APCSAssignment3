@@ -107,22 +107,17 @@ public class TextAdventure {
     }   // End GAME CONFIGURATION block
 
 
-
-
     // GAME EXECUTION. For now, do not touch
     public void run() {
 
-
         // Creates a scanner called 'in' to take user input
         Scanner in = new Scanner(System.in);
-
 
         /* This fetches and prints a description of the current room (stored in that room's class file), and notes
         that the user has now visited that room
          */
         System.out.println(currentRoom.getLongDescription());
         currentRoom.setAlreadyVisited(true);
-
 
         // This loops until the game ends, to constantly read commands the user inputs
         while (!gameOver) {
@@ -131,23 +126,17 @@ public class TextAdventure {
             System.out.println(message);
         }
 
-
         // Closes the scanner, and the game ends (exit code 0)
         in.close();
 
     }   // End GAME EXECUTION block
 
 
-
-
-
     // READ AND EXECUTE USER INPUT
     public String parse(String command) {
 
-
         // This takes all unimportant words out of the user's input and replaces them with a space character
         command = command.replaceAll("( a | the | in | from )", " ");
-
 
         /* This splits up the user's input by where the spaces are, to a maximum of 3 different parts. NOTE: CURRENT
         IMPLEMENTATION MEANS ALL USER INPUT MUST FOLLOW THE SAME 'action, target, _____' PATTERN (swing the sword at
@@ -158,7 +147,6 @@ public class TextAdventure {
          */
         String[] parts = command.split(" ", 3);
         String action = "", target = "", directObject = "";
-
 
         /* If the input was a single action like 'walk', then action is set to the command.
            If the input was an action and a target like 'swing the sword', then action is set to the first part
@@ -176,7 +164,6 @@ public class TextAdventure {
             target = parts[1];
             directObject = parts[2];
         }
-
 
         // Big ol' if/else structure for each possible action.
         switch (action) {
@@ -320,7 +307,6 @@ public class TextAdventure {
     object from the container and put it on the ground.
      */
     public String remove(String target, String directObject) {
-
         //  Check both the room and the player's inventory
         ItemTemplate d = currentRoom.getItem(directObject);
         if (d == null) {
