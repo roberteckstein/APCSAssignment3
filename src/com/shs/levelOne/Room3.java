@@ -45,7 +45,7 @@ public class Room3 extends RoomTemplate{
             return "You do not see the " + directObject + ".";
         }
         String result = d.use(i);
-        if (!result.equals("pickaxe"))
+        if (result.equals("pickaxe"))
         {
             System.out.println("You use the pickaxe to break the stone.");
             TextAdventure.room3.addPath("west", crystalRoom);
