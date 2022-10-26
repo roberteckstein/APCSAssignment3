@@ -5,7 +5,7 @@ import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 import com.shs.creature.Elemental;
 import com.shs.item.Chest;
-import com.shs.item.TastyRock;
+import com.shs.levelOne.Room3;
 
 import static com.shs.TextAdventure.minerRoom;
 
