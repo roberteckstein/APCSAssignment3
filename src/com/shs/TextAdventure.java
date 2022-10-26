@@ -7,6 +7,7 @@ When new rooms, items, or other classes are created, remember to add import stat
 import com.shs.item.*;
 import com.shs.creature.*;
 import com.shs.levelOne.*;
+import com.shs.levelThree.*;
 import com.shs.levelTwo.EntryRoom2;
 import com.shs.traits.*;
 
@@ -42,6 +43,7 @@ public class TextAdventure {
     //  Static so they can be referenced from anywhere
     //  Every object in the game must be listed here
     public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2, currentRoom;
+    public static RoomTemplate entryroom3, secondroom3;
 
 
 
@@ -70,6 +72,9 @@ public class TextAdventure {
         //Level 2 room instantiation
         entryRoom2 = new EntryRoom2();
 
+        //Level 3 room instantiation
+        entryroom3 = new EntryRoom3();
+        secondroom3 = new SecondRoom3();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
         a hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
@@ -94,6 +99,8 @@ public class TextAdventure {
 
 
         //LEVEL THREE rooms
+
+
         // This sets which room you start in when the game starts.
         currentRoom = startingRoom;
 
