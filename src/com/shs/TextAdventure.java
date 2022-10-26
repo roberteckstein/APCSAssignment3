@@ -4,11 +4,9 @@ package com.shs;
 /* IMPORTS
 When new rooms, items, or other classes are created, remember to add import statements here
  */
-import com.shs.item.*;
-import com.shs.creature.*;
 import com.shs.levelOne.*;
-import com.shs.levelThree.*;
 import com.shs.levelTwo.EntryRoom2;
+import com.shs.levelThree.*;
 import com.shs.traits.*;
 
 
@@ -31,58 +29,50 @@ public class TextAdventure {
 
 
 
-
-    // Ends the game when true (exit code 0)
     private boolean gameOver = false;
-
-
-    // playerInventory is an instance of the imported class Inventory, which is a hashmap.
-    public static Inventory playerInventory;
+    public static Inventory playerInventory; // hashmap
 
 
     //  Static so they can be referenced from anywhere
     //  Every object in the game must be listed here
 
-    //lvl 1
+    // LEVEL ONE
     public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3;
 
-    //lvl 2
+    // LEVEL TWO
     public static RoomTemplate entryRoom2;
 
-    //lvl 3
-    public static RoomTemplate entryroom3, secondroom3;
+    // LEVEL THREE
+    public static RoomTemplate entryRoom3;
 
 
 
 
-    // GAME CONFIGURATION. Work in this block to change map layout, room contents, or item/room instances
+    // GAME CONFIGURATION
     public void setup() {
 
 
-        // Creates a new instance of the Inventory class
         playerInventory = new Inventory();
 
 
         /*  Must create items before populating rooms. Creates a new instance of each item class. Multiple instances
         of the same class must have unique names (shortSword vs. longSword or swordStartingRoom vs. swordCavern)
-         */
-
-
-        /*  Must create rooms before creating paths. Creates a new instance of each room class.
+        Must create rooms before creating paths. Creates a new instance of each room class.
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
         rooms with different names (cavernIcy and cavernDark)
          */
+
+        // LEVEL ONE
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
         room3 = new Room3();
 
-        //Level 2 room instantiation
+        // LEVEL TWO
         entryRoom2 = new EntryRoom2();
 
-        //Level 3 room instantiation
-        entryroom3 = new EntryRoom3();
-        secondroom3 = new SecondRoom3();
+        // LEVEL THREE
+        entryRoom3 = new CircleRoom();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
         a hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
@@ -95,22 +85,20 @@ public class TextAdventure {
 
         The whole block of code here is just for setting up the map, so we can mess with it to change the map
         on the fly.
-         */
+        */
 
-        //LEVEL ONE rooms
+        //LEVEL ONE
+        currentRoom = startingRoom;
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
 
-        //LEVEL TWO rooms
+        //LEVEL TWO
 
 
 
-        //LEVEL THREE rooms
-
-
-        // This sets which room you start in when the game starts.
-        currentRoom = startingRoom;
+        //LEVEL THREE
+        //startingRoom.addPath("north", entryRoom3); // remember to remove
 
     }   // End GAME CONFIGURATION block
 
