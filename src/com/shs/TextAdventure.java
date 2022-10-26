@@ -207,6 +207,9 @@ public class TextAdventure {
                 gameOver = true;
                 return "Quitting the game";
 
+            case "storage":
+            case "backpack":
+            case "inv":
             case "inventory":
                 return inventory();
 
