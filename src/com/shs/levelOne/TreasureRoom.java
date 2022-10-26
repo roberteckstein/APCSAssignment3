@@ -1,6 +1,8 @@
 package com.shs.levelOne;
 
 import com.shs.RoomTemplate;
+import com.shs.item.ExpiredFood;
+import com.shs.item.WrittenNote;
 
 public class TreasureRoom extends RoomTemplate {
     public TreasureRoom(){
