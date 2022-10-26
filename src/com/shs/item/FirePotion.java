@@ -2,7 +2,7 @@ package com.shs.item;
 
 import com.shs.ItemTemplate;
 
-public class FirePotion extends ItemTemplate {
+public class FirePotion extends ItemTemplated implements Useablilty {
 
     public FirePotion() {
         super("FirePotion", "A potion that makes you immune to sun", "You are now resistant to lava");
@@ -17,9 +17,7 @@ public class FirePotion extends ItemTemplate {
     public boolean isGettable() {
         return true;
     }
-    @Override
-    public boolean isUseable(){
-        return true;
-    }
+
+
 }
 
