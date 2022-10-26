@@ -80,6 +80,12 @@ public class TextAdventure {
 
         //Level 2 room instantiation
         entryRoom2 = new EntryRoom2();
+        secondRoom2 = new SecondRoom2();
+        thirdRoom2 = new ThirdRoom2();
+        fourthRoom2 = new FourthRoom2();
+        fifthRoom2 = new FifthRoom2();
+        sixthRoom2 = new SixthRoom2();
+        seventhRoom2 = new seventhRoom2();
 
         //Level 3 room instantiation
         entryroom3 = new EntryRoom3();
@@ -107,6 +113,7 @@ public class TextAdventure {
         roomSecond.addPath("west", room3);
         room3.addPath("east", roomSecond);
         //LEVEL TWO rooms
+
 
 
 
