@@ -72,6 +72,8 @@ public class TextAdventure {
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
         rooms with different names (cavernIcy and cavernDark)
          */
+
+        //Level 1 room stuff
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
@@ -101,7 +103,8 @@ public class TextAdventure {
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
         roomSecond.addPath("south", startingRoom);
-
+        roomSecond.addPath("west", room3);
+        room3.addPath("east", roomSecond);
         //LEVEL TWO rooms
 
 
