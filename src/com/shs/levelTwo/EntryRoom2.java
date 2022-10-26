@@ -11,10 +11,10 @@ public class EntryRoom2 extends RoomTemplate {
         setMoveErrorMessage("You can't go there.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
-        //addItem(TextAdventure.dragon);
-        //addItem(TextAdventure.sword);
-        //addItem(TextAdventure.lantern);
-        //addItem(TextAdventure.chest);
+        /*addItem(TextAdventure.dragon);
+        addItem(TextAdventure.sword);
+        addItem(TextAdventure.lantern);
+        addItem(TextAdventure.chest);*/
 
     }
 //to exit the room you have to break through a wall

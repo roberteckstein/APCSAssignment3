@@ -11,3 +11,4 @@ public interface Openable {
     public String setOpen(boolean open);
 
 }
+
