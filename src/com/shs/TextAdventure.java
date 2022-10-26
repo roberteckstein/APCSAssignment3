@@ -36,16 +36,12 @@ public class TextAdventure {
 
 
     // playerInventory is an instance of the imported class Inventory, which is a hashmap.
-    private Inventory playerInventory;
+    public static Inventory playerInventory;
 
 
     //  Static so they can be referenced from anywhere
-    //  Every object in the game must be listed here.
-    public static RoomTemplate currentRoom;
-    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2;
-    public static ItemTemplate sword, chest, lantern, smallstatue, chest2;
-    public static CreatureTemplate dragon;
-
+    //  Every object in the game must be listed here
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, entryRoom2, currentRoom;
 
 
 
@@ -61,11 +57,6 @@ public class TextAdventure {
         /*  Must create items before populating rooms. Creates a new instance of each item class. Multiple instances
         of the same class must have unique names (shortSword vs. longSword or swordStartingRoom vs. swordCavern)
          */
-        sword = new Sword();
-        dragon = new Dragon();
-        chest = new Chest();
-        chest2 = new Chest();
-        smallstatue = new SmallStatue();
 
 
         /*  Must create rooms before creating paths. Creates a new instance of each room class.
@@ -181,43 +172,48 @@ public class TextAdventure {
 
 
         // Big ol' if/else structure for each possible action.
-        if (action.equals("move") || action.equals("go")) {
-            return move(target);
+        switch (action) {
+            case "move":
+            case "go":
+                return move(target);
 
-        } else if (action.equals("get") || action.equals("take")) {
-            return get(target);
+            case "get":
+            case "take":
+                return get(target);
 
-        } else if (action.equals("put")) {
-            return put(target, directObject);
+            case "put":
+                return put(target, directObject);
 
-        } else if (action.equals("remove")) {
-            return remove(target, directObject);
+            case "remove":
+                return remove(target, directObject);
 
-        } else if (action.equals("drop")) {
-            return drop(target);
+            case "drop":
+                return drop(target);
 
-        } else if (action.equals("open")) {
-            return open(target);
+            case "open":
+                return open(target);
 
-        } else if (action.equals("close")) {
-            return close(target);
+            case "close":
+                return close(target);
 
-        } else if (action.equals("quit")) {
-            gameOver = true;
-            return "Quitting the game";
+            case "quit":
+                gameOver = true;
+                return "Quitting the game";
 
-        } else if (action.equals("inventory")) {
-            return inventory();
+            case "inventory":
+                return inventory();
 
-        } else if (action.equals("look")) {
-            return currentRoom.getLongDescription();
+            case "look":
+                return currentRoom.getLongDescription();
 
+            case "use":
+            case "give":
+                return use(target, directObject);
+            default:
+                return "Unknown command: \"" + command + "\"";
         }
 
-        return "Unknown command: \"" + command + "\"";
     } // End READ AND EXECUTE USER INPUT block
-
-
 
 
 
@@ -229,6 +225,9 @@ public class TextAdventure {
     public String move(String direction) {
 
         RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
+
+
+
         if (nextRoom != null) {
             currentRoom = nextRoom;
             if (currentRoom.isAlreadyVisited()) {
@@ -237,7 +236,7 @@ public class TextAdventure {
                 return currentRoom.getLongDescription();
             }
         } else {
-            return currentRoom.getMoveErrorMessage();
+            return currentRoom.getMoveErrorMessage(direction);
         }
     }   // End MOVEMENT BETWEEN ROOMS block
 
@@ -415,7 +414,6 @@ public class TextAdventure {
 
 
 
-
     /* CLOSE OBJECT
     This method checks the room for the input target. If not found, it checks the player's inventory.
     Returns 1 of 3:
@@ -459,7 +457,16 @@ public class TextAdventure {
         return returnValue;
     }   // End PLAYER INVENTORY block
 
-
+    private String use(String i, String d) {
+        String result = currentRoom.use(i, d);
+        if(!result.equals(""))
+        {
+            return result;
+        }
+        else {
+            return "nothing happens";
+        }
+    }
 
 
 

@@ -9,6 +9,12 @@ public abstract class CreatureTemplate extends ItemTemplate {
         this.alive = true;
     }
 
+    //no equipped desc. ver.
+    public CreatureTemplate(String name, String description) {
+        super(name, description);
+        this.alive = true;
+    }
+
     public boolean isAlive() {
         return alive;
     }
