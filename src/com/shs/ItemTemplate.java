@@ -13,6 +13,13 @@ public abstract class ItemTemplate extends Object{
         this.equippedDescription = equippedDescription;
     }
 
+    //defaults equipped description to the same as the main one, mostly for items that don't need to be equipped.
+    public ItemTemplate(String name, String description) {
+        this.name = name;
+        this.description = description;
+        this.equippedDescription = description;
+    }
+
     public String getName() {
         return name;
     }
@@ -30,4 +37,6 @@ public abstract class ItemTemplate extends Object{
         return false;
     }
     public boolean isOpenable() { return false; }
+
+    public String use(ItemTemplate item) { return ""; } //implement for particular items that can accept items (locks / monsters etc)
 }

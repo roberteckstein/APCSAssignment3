@@ -205,12 +205,13 @@ public class TextAdventure {
         } else if (action.equals("look")) {
             return currentRoom.getLongDescription();
 
+        } else if (action.equals("use") || action.equals("give"))
+        {
+            return use(target, directObject);
         }
 
         return "Unknown command: \"" + command + "\"";
     } // End READ AND EXECUTE USER INPUT block
-
-
 
 
 
@@ -408,7 +409,6 @@ public class TextAdventure {
 
 
 
-
     /* CLOSE OBJECT
     This method checks the room for the input target. If not found, it checks the player's inventory.
     Returns 1 of 3:
@@ -452,7 +452,29 @@ public class TextAdventure {
         return returnValue;
     }   // End PLAYER INVENTORY block
 
+    private String use(String target, String directObject) {
+        ItemTemplate i = playerInventory.getItem(target);
+        ItemTemplate d = currentRoom.getItem(directObject);
 
+
+        if (d == null) {
+            d = playerInventory.getItem(directObject);
+        }
+
+        if (i == null) {
+            return "You do not see the " + target + ".";
+        } else if (d == null) {
+            return "You do not see the " + directObject + ".";
+        }
+        String result = d.use(i);
+        if(!result.equals(""))
+        {
+            return result;
+        }
+        else {
+            return "nothing happens";
+        }
+    }
 
 
 
