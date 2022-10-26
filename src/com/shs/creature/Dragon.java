@@ -1,4 +1,4 @@
-Dragon.javaDragon.javapackage com.shs.creature;
+package com.shs.creature;
 
 import com.shs.CreatureTemplate;
 
