@@ -6,7 +6,7 @@ import com.shs.traits.Usable;
 public class FirePotion extends ItemTemplate {
 
     public FirePotion() {
-        super("FirePotion", "A potion that makes you immune to sun", "You are now resistant to lava");
+        super("FirePotion", "A potion that makes you immune to heat.", "You are now resistant to fire.");
     }
 
     @Override
