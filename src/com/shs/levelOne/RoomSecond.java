@@ -5,7 +5,9 @@ import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 import com.shs.creature.Elemental;
 import com.shs.item.Chest;
-import com.shs.item.TastyRock;
+import com.shs.levelOne.Room3;
+
+import static com.shs.TextAdventure.minerRoom;
 
 
 public class RoomSecond extends RoomTemplate {
@@ -40,6 +42,9 @@ public class RoomSecond extends RoomTemplate {
         }
     }
 
+    //i have ZERo clue how use works, i can't figure it out but i kinda have some stuff laid
+    // out so you can see what i was trying to do,
+    // also tried doing it in room3 but i couldnt figure that out either - dean
     @Override
     public String use(String target, String directObject)
     {
@@ -57,9 +62,8 @@ public class RoomSecond extends RoomTemplate {
             return "You do not see the " + directObject + ".";
         }
         String result = d.use(i);
-        if (!result.equals(""))
-        {
-            TextAdventure.roomSecond.addPath("north", null);
+        if (result.equals("rock")) {
+            TextAdventure.roomSecond.addPath("north", minerRoom);
         }
         return result;
     }
