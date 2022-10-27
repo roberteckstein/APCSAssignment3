@@ -47,7 +47,7 @@ public class TextAdventure {
     public static RoomTemplate entryRoom2;
 
     //lvl 3
-    public static RoomTemplate entryroom3, secondroom3;
+    public static RoomTemplate circleRoom, secondroom3;
 
 
 
@@ -81,7 +81,7 @@ public class TextAdventure {
         entryRoom2 = new CircleRoom();
 
         //Level 3 room instantiation
-        entryroom3 = new CircleRoom();
+        circleRoom = new CircleRoom();
         secondroom3 = new SecondRoom3();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
