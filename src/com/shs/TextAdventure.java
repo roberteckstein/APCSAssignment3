@@ -225,7 +225,6 @@ public class TextAdventure {
 
     } // End READ AND EXECUTE USER INPUT block
 
-
     /* MOVEMENT BETWEEN ROOMS
     In its current form, being in a room means the user can access everything in that room.
     If we want to make a very large room (or very long one) where not everything is accessible at the same time,
