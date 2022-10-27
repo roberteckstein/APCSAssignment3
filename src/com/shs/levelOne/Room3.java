@@ -16,40 +16,5 @@ public class Room3 extends RoomTemplate{
     public Room3() {
             super("There is a cave in to the west, maybe you can clear it out?", "The wall to the west is caved in, maybe you could clear it out somehow.. A corridor leads east.");
             addItem(rock);
-            addItem(Crystals);
-    }
-
-    @Override
-     public String getMoveErrorMessage(String direction) {
-         if (direction.equals("west")) {
-             return "The passage to the west is blocked by the cave in.";
-         } else {
-             return getMoveErrorMessage();
-         }
-     }
-
-    @Override
-    public String use(String target, String directObject)
-    {
-        ItemTemplate i = TextAdventure.playerInventory.getItem(target);
-        ItemTemplate d = getItem(directObject);
-
-
-        if (d == null) {
-            d = TextAdventure.playerInventory.getItem(directObject);
-        }
-
-        if (i == null) {
-            return "You do not have a " + target + ".";
-        } else if (d == null) {
-            return "You do not see the " + directObject + ".";
-        }
-        String result = d.use(i);
-        if (result.equals("pickaxe"))
-        {
-            System.out.println("You use the pickaxe to break the stone.");
-            TextAdventure.room3.addPath("west", crystalRoom);
-        }
-        return result;
     }
 }
