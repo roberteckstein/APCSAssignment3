@@ -1,6 +1,6 @@
 package com.shs.traits;
 
-public interface Usability {
+public interface Usable {
     public boolean isUsable();
 
 

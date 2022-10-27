@@ -1,7 +1,7 @@
 package com.shs.item;
 
 import com.shs.ItemTemplate;
-import com.shs.traits.Usability;
+import com.shs.traits.Usable;
 
 public class FirePotion extends ItemTemplate {
 
