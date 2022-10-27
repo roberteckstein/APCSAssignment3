@@ -4,7 +4,7 @@ import com.shs.ItemTemplate;
 
 public class Pickaxe extends ItemTemplate {
     public Pickaxe() {
-        super("Pickaxe", "A pickaxe lays on the ground", "A sturdy pickaxe.");
+        super("pickaxe", "A pickaxe lays on the ground", "A sturdy pickaxe.");
 
     }
 

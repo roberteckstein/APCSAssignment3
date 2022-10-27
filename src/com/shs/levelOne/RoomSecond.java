@@ -62,7 +62,7 @@ public class RoomSecond extends RoomTemplate {
             return "You do not see the " + directObject + ".";
         }
         String result = d.use(i);
-        if (result.equals("rock")) {
+        if (!result.equals("")) {
             TextAdventure.roomSecond.addPath("north", minerRoom);
         }
         return result;
