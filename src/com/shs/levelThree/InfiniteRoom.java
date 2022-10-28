@@ -4,6 +4,7 @@ import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 import com.shs.item.Graffiti;
 import com.shs.item.Mattress;
+import com.shs.item.Window;
 
 import java.util.Random;
 
