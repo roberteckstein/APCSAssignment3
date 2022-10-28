@@ -251,7 +251,7 @@ public class TextAdventure {
         Just displays some text. Game done.
     */
     public String win() {
-        return ("/n/nYou wake up in your bed. The nightmare is finally over. You win. ;)");
+        return ("\n\nYou wake up in your bed. The nightmare is finally over. You win. ;)");
     }
 
     /* MOVEMENT BETWEEN ROOMS
