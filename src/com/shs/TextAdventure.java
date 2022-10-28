@@ -223,11 +223,12 @@ public class TextAdventure {
 
             case "close":
                 return close(target);
-
+                
             case "quit":
                 gameOver = true;
                 return "Quitting the game";
-
+            case "cat": // Answer to my riddle
+                return win();
             case "storage":
             case "backpack":
             case "inv":
@@ -245,7 +246,13 @@ public class TextAdventure {
         }
 
     } // End READ AND EXECUTE USER INPUT block
-
+    
+    /* WINNING SCREEN
+        Just displays some text. Game done.
+    */
+    public String win() {
+        return ("/n/nYou wake up in your bed. The nightmare is finally over. You win. ;)");
+    }
 
     /* MOVEMENT BETWEEN ROOMS
     In its current form, being in a room means the user can access everything in that room.
