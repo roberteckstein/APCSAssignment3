@@ -115,6 +115,7 @@ public class TextAdventure {
         minerRoom.addPath("west", finalRoom);
         treasureRoom.addPath("west", minerRoom);
         crystalRoom.addPath("east", room3);
+bugfixed        finalRoom.addPath("east", minerRoom);
 
         //LEVEL TWO rooms
         startingRoom.addPath("l2", entryRoom2);
