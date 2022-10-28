@@ -17,7 +17,8 @@ public abstract class RoomTemplate {
 
     // Each room has a unique error message for trying to exit through an invalid path.
     private String moveErrorMessage = "";
-
+    
+    public boolean InfiniteRoom = false;
 
     // A hashmap to list all valid exits from the room, and the room that they connect to.
     private HashMap<String, RoomTemplate> exits = new HashMap<String, RoomTemplate>();
@@ -66,7 +67,9 @@ public abstract class RoomTemplate {
 
         return returnValue;
     }
-
+    public boolean getInfiniteRoom() {
+		return (InfiniteRoom);
+	}
 
     // Prints a list of items in the room (long version)
     public String getLongDescription() {
