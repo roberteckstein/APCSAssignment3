@@ -25,12 +25,6 @@ public class InfiniteRoom extends RoomTemplate {
         if (numGen(5) > 1) {
             addItem(new Window());
         }
-        
-        // Adding paths to room. New instances of same InfiniteRoom Class
-        addPath("north", new InfiniteRoom());
-        addPath("south", new InfiniteRoom());
-        addPath("east", new InfiniteRoom());
-        addPath("west", new InfiniteRoom());
     }
     
     // Random Number Generator Method for reusabiity
