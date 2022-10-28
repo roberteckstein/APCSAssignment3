@@ -6,7 +6,7 @@ When new rooms, items, or other classes are created, remember to add import stat
  */
 import com.shs.levelOne.*;
 import com.shs.levelThree.*;
-import com.shs.levelTwo.EntryRoom2;
+import com.shs.levelTwo.*;
 import com.shs.traits.*;
 
 
@@ -45,7 +45,7 @@ public class TextAdventure {
     public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3, minerRoom, treasureRoom, crystalRoom, finalRoom;
 
     //lvl 2
-    public static RoomTemplate entryRoom2;
+    public static RoomTemplate one, two, three, four, five, six, seven;
 
     //lvl 3
     public static RoomTemplate entryRoom3, secondRoom3;
@@ -84,7 +84,13 @@ public class TextAdventure {
 
 
         //Level 2 room instantiation
-        entryRoom2 = new EntryRoom2();
+        one = new EntryRoom2();
+        two = new SecondRoom2();
+        three = new ThirdRoom2();
+        four = new FourthRoom2();
+        five = new FifthRoom2();
+        six = new SixthRoom2();
+        seven = new SeventhRoom2();
 
         //Level 3 room instantiation
         entryRoom3 = new CircleRoom();
@@ -118,8 +124,19 @@ public class TextAdventure {
         finalRoom.addPath("east", minerRoom);
 
         //LEVEL TWO rooms
-        startingRoom.addPath("l2", entryRoom2);
-
+        startingRoom.addPath("l2", one);
+        one.addPath("north", two);
+        two.addPath("south", one);
+        two.addPath("east", three);
+        two.addPath("west", four);
+        three.addPath("west", two);
+        four.addPath("east", two);
+        four.addPath("west", five);
+        five.addPath("east", four);
+        five.addPath("north", six);
+        five.addPath("south", seven);
+        six.addPath("south", five);
+        seven.addPath("north", five);
 
         //LEVEL THREE rooms
         startingRoom.addPath("l3", entryRoom3);
