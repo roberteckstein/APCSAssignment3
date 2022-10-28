@@ -21,6 +21,9 @@ public class InfiniteRoom extends RoomTemplate {
         if (numGen(10) > 4) {
             addItem(new Mattress(ranColor(numGen(12))));
         }
+        if (numGen(5) > 1) {
+            addItem(new Window());
+        }
         
         // Adding paths to room. New instances of same InfiniteRoom Class
         addPath("north", new InfiniteRoom());
