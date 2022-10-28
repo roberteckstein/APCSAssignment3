@@ -4,29 +4,18 @@ import com.shs.ItemTemplate;
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 import com.shs.creature.Elemental;
-import com.shs.levelOne.Room3;
-
-import static com.shs.TextAdventure.minerRoom;
+import com.shs.item.Chest;
+import com.shs.item.TastyRock;
 
 
 public class RoomSecond extends RoomTemplate {
+
     Elemental elemental = new Elemental();
     public RoomSecond() {
-        super("Second Room", "This is the second room. There is a passage going North, South and West");
-        setMoveErrorMessage("There is no exit that way!");
+        super("Second Room", "You are in a room that looks like a normal junction. There is a passage going North, South and West.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(elemental);
-
-    }
-    @Override
-    public String getLongDescription()
-    {
-        if (elemental.isAlive())
-        {
-            return "This is the second room. There is a passage going North, South and West. The passage to the north is blocked by a large crystal elemental";
-        }
-        return "This is the second room. There is a passage going North, South and West. A crystal elemental sits in the corner licking a rock.";
     }
 
     @Override
@@ -38,9 +27,6 @@ public class RoomSecond extends RoomTemplate {
         }
     }
 
-    //i have ZERo clue how use works, i can't figure it out but i kinda have some stuff laid
-    // out so you can see what i was trying to do,
-    // also tried doing it in room3 but i couldnt figure that out either - dean
     @Override
     public String use(String target, String directObject)
     {
@@ -58,8 +44,9 @@ public class RoomSecond extends RoomTemplate {
             return "You do not see the " + directObject + ".";
         }
         String result = d.use(i);
-        if (!result.equals("")) {
-            TextAdventure.roomSecond.addPath("north", minerRoom);
+        if (!result.equals(""))
+        {
+            TextAdventure.roomSecond.addPath("north", TextAdventure.minerRoom);
         }
         return result;
     }

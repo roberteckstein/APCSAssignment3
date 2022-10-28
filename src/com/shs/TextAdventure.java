@@ -47,7 +47,7 @@ public class TextAdventure {
     public static RoomTemplate entryRoom2;
 
     //lvl 3
-    public static RoomTemplate circleRoom, secondroom3;
+    public static RoomTemplate entryRoom3, secondRoom3;
 
 
 
@@ -75,14 +75,16 @@ public class TextAdventure {
         room3 = new Room3();
         minerRoom = new MinerRoom();
         treasureRoom = new TreasureRoom();
-        crystalRoom = new TreasureRoom();
+        crystalRoom = new CrystalRoom();
         finalRoom = new FinalRoom();
+
+
         //Level 2 room instantiation
         entryRoom2 = new CircleRoom();
 
         //Level 3 room instantiation
-        circleRoom = new CircleRoom();
-        secondroom3 = new SecondRoom3();
+        entryRoom3 = new CircleRoom();
+        secondRoom3 = new SecondRoom3();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
         a hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
@@ -104,13 +106,11 @@ public class TextAdventure {
         roomSecond.addPath("south", startingRoom);
         roomSecond.addPath("west", room3);
         room3.addPath("east", roomSecond);
-        room3.addPath("north", minerRoom);
         minerRoom.addPath("south", roomSecond);
-        minerRoom.addPath("west", finalRoom);
         minerRoom.addPath("east", treasureRoom);
         treasureRoom.addPath("west", minerRoom);
-        crystalRoom.addPath("east", room3);
-        finalRoom.addPath("east", minerRoom);
+        crystalRoom.addPath("east", roomSecond);
+
 
         //LEVEL TWO rooms
 
@@ -154,7 +154,11 @@ public class TextAdventure {
     public String parse(String command) {
 
         // This takes all unimportant words out of the user's input and replaces them with a space character
-        command = command.replaceAll("( a | the | in | from )", " ");
+        command = command.replaceAll("( the )", " ");
+        command = command.replaceAll("( a )", " ");
+        command = command.replaceAll("( in )", " ");
+        command = command.replaceAll("( from )", " ");
+        command = command.replaceAll("( to )", " ");
 
         /* This splits up the user's input by where the spaces are, to a maximum of 3 different parts. NOTE: CURRENT
         IMPLEMENTATION MEANS ALL USER INPUT MUST FOLLOW THE SAME 'action, target, _____' PATTERN (swing the sword at
@@ -414,6 +418,7 @@ public class TextAdventure {
         String result = currentRoom.use(i, d);
         if(!result.equals(""))
         {
+            playerInventory.removeItem(i);
             return result;
         }
         else {

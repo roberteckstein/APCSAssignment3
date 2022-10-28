@@ -19,4 +19,14 @@ public class Elemental extends CreatureTemplate {
         }
         return "";
     }
+
+    @Override
+    public String getDescription()
+    {
+        if (isAlive())
+        {
+            return "An elemental stands blocking the passage to the north.";
+        }
+        return "An elemental sits in the corner licking a rock.";
+    }
 }

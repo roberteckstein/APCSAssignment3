@@ -20,9 +20,9 @@ public class Inventory {
     }
 
 
-    // Adds an item to the inventory
+    // Adds an item to the inventory. To lowercase to prevent issues with parsing.
     public void addItem(ItemTemplate item) {
-        inventory.put(item.getName(), item);
+        inventory.put(item.getName().toLowerCase(), item);
     }
 
 

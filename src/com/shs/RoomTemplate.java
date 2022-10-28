@@ -23,7 +23,7 @@ public abstract class RoomTemplate {
     private HashMap<String, RoomTemplate> exits = new HashMap<String, RoomTemplate>();
 
 
-    private Inventory itemsInRoom = new Inventory();
+    protected Inventory itemsInRoom = new Inventory();
 
 
 
@@ -34,7 +34,7 @@ public abstract class RoomTemplate {
         this.shortDescription = shortDescription;
         this.alreadyVisited = false;   // By default, all rooms are set to not have been visited yet
 
-
+        setMoveErrorMessage("There is no exit that way!"); //default
         for (String d : description) {
             this.description += d;
         }

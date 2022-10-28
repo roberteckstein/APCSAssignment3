@@ -1,12 +1,15 @@
 package com.shs.levelOne;
-
 import com.shs.RoomTemplate;
+import com.shs.TextAdventure;
+import com.shs.creature.Elemental;
+import com.shs.item.SmallStatue;
 
 public class MinerRoom extends RoomTemplate {
     public MinerRoom() {   // Why is there a '...' after String?
-        super("You are in the miner's room.", "A small room with crystal golem in the corner, to the west is an incredibly dark passage, to the east an open vault door, abandoned. And passage and to the south.");
+        super("miner's room", "You are in a small room full of empty racks for tools. to the west is an incredibly dark passage, to the east an open vault door, abandoned, there is also a passage leading south.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
+
     }
 }
 
