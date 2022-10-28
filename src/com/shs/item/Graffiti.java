@@ -1,17 +1,15 @@
 package com.shs.item;
 
 import com.shs.ItemTemplate;
+import com.shs.RandomItemTemplate;
+
 import java.util.Random;
-public class Graffiti extends ItemTemplate {
+public class Graffiti extends RandomItemTemplate {
     public Graffiti (String color) {
         super ("graffiti","", " How did you get this?");
        setDescription("There is" + color + " graffiti on the wall. It reads \"" + ranRiddle(numGen(11))+ "\" ");
     }
-    private int numGen (int high) {
-        Random r = new Random();
-        int x = r.nextInt(high);
-        return(x);
-    }
+
     private String ranRiddle (int x) {
         switch (x) {
             case 0 : return "We are everywhere. There are 600 million of us watching your every move.";
