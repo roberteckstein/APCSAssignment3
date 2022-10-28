@@ -277,7 +277,7 @@ public class TextAdventure {
     that room can be split into multiple room instances.
      */
     public String move(String direction) {
-        if (!(currentRoom.getShortDescription()).equalsIgnoreCase("This room looks familiar to you.")) { // If it not is the infinite room
+        if (!currentRoom.getInfiniteRoom()) { // If it not is the infinite room
             RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
             if (nextRoom != null) {
                 currentRoom = nextRoom;
