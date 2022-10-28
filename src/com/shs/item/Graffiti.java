@@ -7,7 +7,7 @@ import java.util.Random;
 public class Graffiti extends RandomItemTemplate {
     public Graffiti (String color) {
         super ("graffiti","", " How did you get this?");
-       setDescription("There is" + color + " graffiti on the wall. It reads \"" + ranRiddle(numGen(11))+ "\" ");
+       setDescription("There is " + color + " graffiti on the wall. It reads \"" + ranRiddle(numGen(11))+ "\" ");
     }
 
     private String ranRiddle (int x) {
