@@ -8,11 +8,13 @@ import com.shs.item.TastyRock;
 import com.shs.Inventory;
 import com.shs.item.Crystal;
 
+import static com.shs.TextAdventure.crystalRoom;
+
 public class Room3 extends RoomTemplate{
     Doggo dog = new Doggo();
     TastyRock rock = new TastyRock();
     public Room3() {
-            super("A passage leads east and west. The west passage is blocked by a hungry dog.", "A hungry looking dog blocks a dor facing west.");
+            super("A room with a passage leading west and east.", "");
             addItem(rock);
             addItem(dog);
     }
@@ -54,7 +56,7 @@ public class Room3 extends RoomTemplate{
         }
         String result = d.use(i);
         if (!result.equals("")) {
-            TextAdventure.room3.addPath("west", TextAdventure.crystalRoom);
+            TextAdventure.room3.addPath("west", crystalRoom);
         }
         return result;
     }

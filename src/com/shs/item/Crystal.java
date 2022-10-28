@@ -3,7 +3,6 @@ package com.shs.item;
 import com.shs.ItemTemplate;
 
 public class Crystal extends ItemTemplate {
-    public int Crystals = 0;
     public Crystal(){
         super("crystal", "A shimmering crystal lies on the ground.", "A large crystal.");
     }

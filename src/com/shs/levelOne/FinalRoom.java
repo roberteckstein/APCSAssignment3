@@ -19,7 +19,7 @@ public class FinalRoom extends RoomTemplate {
     {
         if (door.isAlive())
         {
-            return "It's dark and you can barely see. You make out a door with text that reads, 'The crystal is the key.";
+            return "It's dark and you can barely see. You make out a door with text that reads, \"The crystal is the key.\"";
         }
         return "You are in a dark room with an open dor radiating heat with a faint glow of orange visible.";
     }

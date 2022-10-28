@@ -15,7 +15,7 @@ public class Elemental extends CreatureTemplate {
         if (target.getName().equals("rock")&&isAlive())
         {
             setAlive(false);
-            return "The elemental grabs the salt rock and recedes into the corner of the room. Before he even turns he's already licking the rock.";
+            return "The elemental grabs the salt rock and recedes into the corner of the room. Before he even turns he's already licking the rock. The north door is now open.";
         }
         return "";
     }

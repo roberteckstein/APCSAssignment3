@@ -13,7 +13,7 @@ public class Doggo extends CreatureTemplate {
             if (target.getName().equals("food")&&isAlive())
             {
                 setAlive(false);
-                return "The dog grabs the expired food and runs past you, towards the exit.";
+                return "The dog grabs the expired food and runs past you, towards the exit. The west passage is now open.";
             }
             return "";
         }
