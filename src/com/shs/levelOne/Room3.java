@@ -43,7 +43,7 @@ public class Room3 extends RoomTemplate{
         String result = d.use(i);
         if (!result.equals(""))
         {
-            TextAdventure.room3.addPath("east", TextAdventure.crystalRoom);
+            TextAdventure.room3.addPath("west", TextAdventure.crystalRoom);
         }
         return result;
     }

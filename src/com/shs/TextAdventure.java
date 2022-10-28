@@ -6,6 +6,7 @@ When new rooms, items, or other classes are created, remember to add import stat
  */
 import com.shs.levelOne.*;
 import com.shs.levelThree.*;
+import com.shs.levelTwo.EntryRoom2;
 import com.shs.traits.*;
 
 
@@ -69,6 +70,9 @@ public class TextAdventure {
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
         rooms with different names (cavernIcy and cavernDark)
          */
+
+
+        //Level 1 room instantiation
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
@@ -80,7 +84,7 @@ public class TextAdventure {
 
 
         //Level 2 room instantiation
-        entryRoom2 = new CircleRoom();
+        entryRoom2 = new EntryRoom2();
 
         //Level 3 room instantiation
         entryRoom3 = new CircleRoom();
@@ -108,15 +112,22 @@ public class TextAdventure {
         room3.addPath("east", roomSecond);
         minerRoom.addPath("south", roomSecond);
         minerRoom.addPath("east", treasureRoom);
+        minerRoom.addPath("west", finalRoom);
         treasureRoom.addPath("west", minerRoom);
-        crystalRoom.addPath("east", roomSecond);
-
+        crystalRoom.addPath("east", room3);
 
         //LEVEL TWO rooms
-
+        startingRoom.addPath("l2", entryRoom2);
 
 
         //LEVEL THREE rooms
+        startingRoom.addPath("l3", entryRoom3);
+
+
+
+
+
+
 
 
         // This sets which room you start in when the game starts.

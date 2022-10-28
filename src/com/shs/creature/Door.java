@@ -5,7 +5,7 @@ import com.shs.ItemTemplate;
 
 public class Door extends CreatureTemplate {
     public Door() {
-        super("door", "A tall door, yoy notice some text scribed into it, \"The crystal is the key' it reads.\"");
+        super("door", "A tall door, you notice some text scribed into it, \"The crystal is the key' it reads.\"");
     }
 
     @Override

@@ -51,7 +51,7 @@ public class FinalRoom extends RoomTemplate {
         }
         String result = d.use(i);
         if (!result.equals("")) {
-            TextAdventure.crystalRoom.addPath("north", null);
+            TextAdventure.finalRoom.addPath("north", TextAdventure.entryRoom2);
         }
         return result;
     }
