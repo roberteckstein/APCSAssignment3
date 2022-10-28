@@ -6,7 +6,7 @@ import com.shs.ItemTemplate;
 public class Doggo extends CreatureTemplate {
 
     public Doggo() {
-            super("Dog", "There is a hungry looking dog, he won't let you in");
+            super("dog", "There is a hungry looking dog, he won't let you in");
         }
         @Override
         public String use(ItemTemplate target) {

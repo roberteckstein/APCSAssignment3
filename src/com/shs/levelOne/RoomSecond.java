@@ -7,8 +7,6 @@ import com.shs.creature.Elemental;
 import com.shs.item.Chest;
 import com.shs.levelOne.Room3;
 
-import static com.shs.TextAdventure.minerRoom;
-
 
 public class RoomSecond extends RoomTemplate {
 
@@ -63,7 +61,7 @@ public class RoomSecond extends RoomTemplate {
         }
         String result = d.use(i);
         if (!result.equals("")) {
-            TextAdventure.roomSecond.addPath("north", minerRoom);
+            TextAdventure.roomSecond.addPath("north", TextAdventure.minerRoom);
         }
         return result;
     }

@@ -5,7 +5,7 @@ import com.shs.ItemTemplate;
 public class Crystal extends ItemTemplate {
     public int Crystals = 0;
     public Crystal(){
-        super("crystal", "crystals lay on the ground.", "Some crystals");
+        super("crystal", "A shimmering crystal lies on the ground.", "A large crystal.");
     }
 
     @Override
