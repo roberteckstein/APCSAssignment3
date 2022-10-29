@@ -170,7 +170,7 @@ public class TextAdventure {
         while (!gameOver) {
             System.out.print("> ");
             String message = parse(in.nextLine().trim());
-            System.out.println(message);
+            System.out.println("\n" + message + "\n");
         }
 
         // Closes the scanner, and the game ends (exit code 0)
@@ -245,6 +245,7 @@ public class TextAdventure {
                 gameOver = true;
                 return "Quitting the game";
             case "cat": // Answer to my riddle
+                gameOver = true;
                 return win();
             case "storage":
             case "backpack":
