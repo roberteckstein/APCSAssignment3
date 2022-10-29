@@ -14,7 +14,7 @@ public class InfiniteRoom extends RoomTemplate {
         
         System.gc(); // Calls Garbage Collecter due to the excess of unused objects being created.
         
-        setDescription("You are in a bedroom with doors North, West, East, South" + ranNoise(numGen(10)));
+        setDescription("You are in a bedroom with doors North, West, East, South. " + ranNoise(numGen(10)));
         setMoveErrorMessage("There may be many exits to this room, but that is not one of them.");
         
         // Adding Objects based on random number generator
