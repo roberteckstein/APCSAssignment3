@@ -33,6 +33,8 @@ public class TextAdventure {
     // Ends the game when true (exit code 0)
     private boolean gameOver = false;
 
+    // Turns Counter
+    private int turnsMade = 0;
 
     // playerInventory is an instance of the imported class Inventory, which is a hashmap.
     public static Inventory playerInventory;
@@ -154,7 +156,7 @@ public class TextAdventure {
     }   // End GAME CONFIGURATION block
 
 
-    // GAME EXECUTION. For now, do not touch
+    // GAME EXECUTION. For now, do not touch (Derek : Sorry, touched it)
     public void run() {
 
         // Creates a scanner called 'in' to take user input
@@ -282,6 +284,7 @@ public class TextAdventure {
             RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
             if (nextRoom != null) {
                 currentRoom = nextRoom;
+                addTurn();
                 if (currentRoom.isAlreadyVisited()) {
                     return currentRoom.getShortDescription();
                 } else {
@@ -294,6 +297,7 @@ public class TextAdventure {
             RoomTemplate nextRoom = new InfiniteRoom();
             if (direction.equals("north") || direction.equals("east") || direction.equals("south") || direction.equals("west")) {
                 currentRoom = nextRoom;
+                addTurn();
                 return currentRoom.getLongDescription();
             } else {
                 return currentRoom.getMoveErrorMessage();
@@ -313,6 +317,7 @@ public class TextAdventure {
         } else {
             playerInventory.addItem(i);
             currentRoom.removeItem(target);
+            addTurn();
             return "Taken.";
         }
 
@@ -325,6 +330,7 @@ public class TextAdventure {
         ItemTemplate i = playerInventory.removeItem(target);
         if (i != null) {
             currentRoom.addItem(i);
+            addTurn();
             return "Dropped.";
         } else {
             return "You are not carrying that item.";
@@ -473,6 +479,13 @@ public class TextAdventure {
         }
     }
 
+    /* TURN COUNTER INCREASING METHOD
+        Adds 1 to a turn when called. Called when an action does something.
+    */
+    private void addTurn() {
+        turnsMade++;
+    }
+        
     /* MAIN METHOD
     Creates a new instance of TextAdventure, calls 'setup' (configuration) and calls 'run' (execution)
      */
