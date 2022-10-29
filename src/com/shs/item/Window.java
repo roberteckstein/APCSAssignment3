@@ -14,7 +14,7 @@ public class Window extends RandomItemTemplate {
             case 0:
                 return "a grassy field. ";
             case 1:
-                return "the interior of a cave. ";
+                return "the interior of a cave. Crystals lie on the cave walls. ";
             case 2:
                 return "a large kitchen. ";
             case 3:
@@ -24,11 +24,13 @@ public class Window extends RandomItemTemplate {
             case 5:
                 return "the inside of a volcano. ";
             case 6:
-                return "the middle of outer space. ";
+                return "the outer space - very, very close to the sun. ";
             case 7:
                 return "the room, flipped upside down. ";
             case 8:
                 return "your deepest fear - something words cannot describe. ";
+            case 9:
+                return "the firey pits of the underworld. ";
             default:
                 return "A stone wall. ";
         }
