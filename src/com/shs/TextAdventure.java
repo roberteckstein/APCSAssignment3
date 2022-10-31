@@ -6,9 +6,7 @@ When new rooms, items, or other classes are created, remember to add import stat
  */
 
 import com.shs.levelOne.*;
-import com.shs.levelThree.CircleRoom;
-import com.shs.levelThree.InfiniteRoom;
-import com.shs.levelThree.SecondRoom3;
+import com.shs.levelThree.*;
 import com.shs.levelTwo.*;
 import com.shs.traits.Openable;
 
