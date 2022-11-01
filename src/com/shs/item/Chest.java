@@ -1,7 +1,11 @@
 package com.shs.item;
 
 import com.shs.ContainerTemplate;
+import com.shs.ItemTemplate;
 import com.shs.traits.Openable;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Chest extends ContainerTemplate implements Openable {
 
@@ -22,6 +26,7 @@ public class Chest extends ContainerTemplate implements Openable {
         return r;
     }
 
+
     public String getEquippedDescription() {
 
         String r = "A chest that is " + (open ? "open." : "closed.") + " ";
@@ -31,6 +36,7 @@ public class Chest extends ContainerTemplate implements Openable {
 
         return r;
     }
+
 
     @Override
     public boolean isGettable() {

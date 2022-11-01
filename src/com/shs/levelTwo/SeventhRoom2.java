@@ -9,7 +9,7 @@ public class SeventhRoom2 extends RoomTemplate {
     Chest chest = new Chest();
     public SeventhRoom2() {
         //Room description
-        super("You meet the final boss. The Devil is waiting for you.", "Already killed the Devil. You may now proceed to level 3.");
+        super("The room is empty, you've already killed the devil.", "You meet the final boss. The Devil is waiting for you.");
         setMoveErrorMessage("You can't go there.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
