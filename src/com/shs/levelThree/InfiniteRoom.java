@@ -14,7 +14,7 @@ public class InfiniteRoom extends RoomTemplate {
         
         System.gc(); // Calls Garbage Collecter due to the excess of unused objects being created.
         
-        setDescription("You are in a bedroom with doors North, West, East, South. " + ranNoise(numGen(10)));
+        setDescription("You are in a bedroom with doors going in the directions north, east, west, and south. " + ranNoise(numGen(10)));
         setMoveErrorMessage("There may be many exits to this room, but that is not one of them.");
         
         // Adding Objects based on random number generator
@@ -38,10 +38,10 @@ public class InfiniteRoom extends RoomTemplate {
     private String ranNoise (int x){
         String y  = "You hear a noise coming from the";
         switch (x) {
-            case 0 : return (y + " North. ");
-            case 1 : return (y + " South. ");
-            case 2 : return (y + " East. ");
-            case 3 : return (y + " West. ");
+            case 0 : return (y + " north. ");
+            case 1 : return (y + " south. ");
+            case 2 : return (y + " east. ");
+            case 3 : return (y + " west. ");
             default : return "";
         }
     }
