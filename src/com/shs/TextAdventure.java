@@ -50,7 +50,7 @@ public class TextAdventure {
     public static RoomTemplate one, two, three, four, five, six, seven;
 
     //lvl 3
-    public static RoomTemplate entryRoom3, secondRoom3;
+    public static RoomTemplate circleRoom, secondRoom3, thirdRoom3, fourthRoom3, fifthRoom3;
 
 
 
@@ -95,8 +95,11 @@ public class TextAdventure {
         seven = new SeventhRoom2();
 
         //Level 3 room instantiation
-        entryRoom3 = new CircleRoom();
+        circleRoom = new CircleRoom();
         secondRoom3 = new SecondRoom3();
+        thirdRoom3 = new ThridRoom3();
+        fourthRoom3 = new FourthRoom3();
+        fifthRoom3 = new FifthRoom3();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
         a hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
@@ -141,9 +144,16 @@ public class TextAdventure {
         seven.addPath("north", five);
 
         //LEVEL THREE rooms
-        startingRoom.addPath("l3", entryRoom3);
-
-
+        startingRoom.addPath("l3", circleRoom);
+        circleRoom.addPath("north", secondRoom3);
+        secondRoom3.addPath("south", circleRoom);
+        secondRoom3.addPath("east", thirdRoom3);
+        secondRoom3.addPath("west", fourthRoom3);
+        thirdRoom3.addPath("west", secondRoom3);
+        fourthRoom3.addPath("east", secondRoom3);
+        fourthRoom3.addPath("north", fifthRoom3);
+        fifthRoom3.addPath("south", fourthRoom3);
+        fifthRoom3.addPath("east", new InfiniteRoom());
 
 
 
