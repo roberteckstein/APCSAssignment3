@@ -97,7 +97,7 @@ public class TextAdventure {
         //Level 3 room instantiation
         circleRoom = new CircleRoom();
         secondRoom3 = new SecondRoom3();
-        thirdRoom3 = new ThridRoom3();
+        thirdRoom3 = new ThirdRoom3();
         fourthRoom3 = new FourthRoom3();
         fifthRoom3 = new FifthRoom3();
 
