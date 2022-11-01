@@ -10,6 +10,3 @@ Infinite Room Should be done. It just needs to be added to the path system for l
 <previous_room>.addPath("<direction>", new InfiniteRoom());
 Also, I'm not sure if we have any "openable" items so I didn't bother adding the turnAdder method to the actions of close, open, get, etc.
 P.S. has anyone from floor 3 made progress on the rooms themselves?
-
-  
-  https://jstris.jezevec10.com/join/ER8D4L
