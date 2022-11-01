@@ -4,10 +4,11 @@ package com.shs;
 /* IMPORTS
 When new rooms, items, or other classes are created, remember to add import statements here
  */
+
 import com.shs.levelOne.*;
 import com.shs.levelThree.*;
-import com.shs.traits.*;
-
+import com.shs.levelTwo.*;
+import com.shs.traits.Openable;
 
 import java.util.Scanner;
 
@@ -32,6 +33,8 @@ public class TextAdventure {
     // Ends the game when true (exit code 0)
     private boolean gameOver = false;
 
+    // Turns Counter
+    private int turnsMade = 0;
 
     // playerInventory is an instance of the imported class Inventory, which is a hashmap.
     public static Inventory playerInventory;
@@ -41,13 +44,13 @@ public class TextAdventure {
     //  Every object in the game must be listed here
 
     //lvl 1
-    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3, minerRoom, treasureRoom, crystalRoom;
+    public static RoomTemplate startingRoom, roomSecond, hiddenRoom, currentRoom, room3, minerRoom, treasureRoom, crystalRoom, finalRoom;
 
     //lvl 2
-    public static RoomTemplate entryRoom2;
+    public static RoomTemplate one, two, three, four, five, six, seven;
 
     //lvl 3
-    public static RoomTemplate entryroom3, secondroom3;
+    public static RoomTemplate circleRoom, secondRoom3, thirdRoom3, fourthRoom3, fifthRoom3;
 
 
 
@@ -69,20 +72,34 @@ public class TextAdventure {
         If we want to create multiple instances of the same room template, that can be done simply by declaring two
         rooms with different names (cavernIcy and cavernDark)
          */
+
+
+        //Level 1 room instantiation
         startingRoom = new EntryRoom1();
         roomSecond = new RoomSecond();
         hiddenRoom = new HiddenRoom();
         room3 = new Room3();
         minerRoom = new MinerRoom();
         treasureRoom = new TreasureRoom();
-        crystalRoom = new TreasureRoom();
+        crystalRoom = new CrystalRoom();
+        finalRoom = new FinalRoom();
+
 
         //Level 2 room instantiation
-        entryRoom2 = new CircleRoom();
+        one = new EntryRoom2();
+        two = new SecondRoom2();
+        three = new ThirdRoom2();
+        four = new FourthRoom2();
+        five = new FifthRoom2();
+        six = new SixthRoom2();
+        seven = new SeventhRoom2();
 
         //Level 3 room instantiation
-        entryroom3 = new CircleRoom();
-        secondroom3 = new SecondRoom3();
+        circleRoom = new CircleRoom();
+        secondRoom3 = new SecondRoom3();
+        thirdRoom3 = new ThirdRoom3();
+        fourthRoom3 = new FourthRoom3();
+        fifthRoom3 = new FifthRoom3();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
         a hashmap called 'exits' where the key is the direction to go in (north, south, etc.) and the value is the room
@@ -100,18 +117,47 @@ public class TextAdventure {
         //LEVEL ONE rooms
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
+        hiddenRoom.addPath("north", room3);
         roomSecond.addPath("south", startingRoom);
         roomSecond.addPath("west", room3);
         room3.addPath("east", roomSecond);
-        room3.addPath("north", minerRoom);
-        minerRoom.addPath("south", room3);
+        minerRoom.addPath("south", roomSecond);
         minerRoom.addPath("east", treasureRoom);
+        minerRoom.addPath("west", finalRoom);
+        treasureRoom.addPath("west", minerRoom);
+        crystalRoom.addPath("east", room3);
+        finalRoom.addPath("east", minerRoom);
 
         //LEVEL TWO rooms
-
-
+        startingRoom.addPath("l2", one);
+        one.addPath("north", two);
+        two.addPath("south", one);
+        two.addPath("east", three);
+        two.addPath("west", four);
+        three.addPath("west", two);
+        four.addPath("east", two);
+        four.addPath("west", five);
+        five.addPath("east", four);
+        five.addPath("north", six);
+        five.addPath("south", seven);
+        six.addPath("south", five);
+        seven.addPath("north", five);
 
         //LEVEL THREE rooms
+        startingRoom.addPath("l3", circleRoom);
+        circleRoom.addPath("north", secondRoom3);
+        secondRoom3.addPath("south", circleRoom);
+        secondRoom3.addPath("east", thirdRoom3);
+        secondRoom3.addPath("west", fourthRoom3);
+        thirdRoom3.addPath("west", secondRoom3);
+        fourthRoom3.addPath("east", secondRoom3);
+        fourthRoom3.addPath("north", fifthRoom3);
+        fifthRoom3.addPath("south", fourthRoom3);
+        fifthRoom3.addPath("east", new InfiniteRoom());
+
+
+
+
 
 
         // This sets which room you start in when the game starts.
@@ -120,7 +166,7 @@ public class TextAdventure {
     }   // End GAME CONFIGURATION block
 
 
-    // GAME EXECUTION. For now, do not touch
+    // GAME EXECUTION. For now, do not touch (Derek : Sorry, touched it)
     public void run() {
 
         // Creates a scanner called 'in' to take user input
@@ -136,7 +182,7 @@ public class TextAdventure {
         while (!gameOver) {
             System.out.print("> ");
             String message = parse(in.nextLine().trim());
-            System.out.println(message);
+            System.out.println("\n" + message + "\n");
         }
 
         // Closes the scanner, and the game ends (exit code 0)
@@ -149,7 +195,13 @@ public class TextAdventure {
     public String parse(String command) {
 
         // This takes all unimportant words out of the user's input and replaces them with a space character
-        command = command.replaceAll("( a | the | in | from )", " ");
+        command = command.replaceAll("( the )", " ");
+        command = command.replaceAll("( a )", " ");
+        command = command.replaceAll("( in )", " ");
+        command = command.replaceAll("( from )", " ");
+        command = command.replaceAll("( to )", " ");
+        command = command.replaceAll("( on )", " ");
+        command = command.replaceAll("( at )", " ");
 
         /* This splits up the user's input by where the spaces are, to a maximum of 3 different parts. NOTE: CURRENT
         IMPLEMENTATION MEANS ALL USER INPUT MUST FOLLOW THE SAME 'action, target, _____' PATTERN (swing the sword at
@@ -202,11 +254,13 @@ public class TextAdventure {
 
             case "close":
                 return close(target);
-
+                
             case "quit":
                 gameOver = true;
                 return "Quitting the game";
-
+            case "cat": // Answer to my riddle
+                gameOver = true;
+                return win();
             case "storage":
             case "backpack":
             case "inv":
@@ -219,12 +273,33 @@ public class TextAdventure {
             case "use":
             case "give":
                 return use(target, directObject);
+            case "help":
+              return """ 
+            LIST OF COMMANDS:
+                  1. move/go <north/east/south/west>
+                  2. get/take <item>
+                  3. put <item> <container>
+                  4. remove <item> <container>
+                  5. drop <item>
+                  6. open <container>
+                  7. close <container>
+                  8. quit
+                  9. storage/backpack/inv/inventory
+                  10. look
+                  11. use/give <object> <creature/obstacle>
+                """;
             default:
                 return "Unknown command: \"" + command + "\"";
         }
 
     } // End READ AND EXECUTE USER INPUT block
-
+    
+    /* WINNING SCREEN
+        Just displays some text. Game done.
+    */
+    public String win() {
+        return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
+    }
 
     /* MOVEMENT BETWEEN ROOMS
     In its current form, being in a room means the user can access everything in that room.
@@ -232,16 +307,28 @@ public class TextAdventure {
     that room can be split into multiple room instances.
      */
     public String move(String direction) {
-        RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
-        if (nextRoom != null) {
-            currentRoom = nextRoom;
-            if (currentRoom.isAlreadyVisited()) {
-                return currentRoom.getShortDescription();
+        if (!currentRoom.getInfiniteRoom()) { // If it not is the infinite room
+            RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
+            if (nextRoom != null) {
+                currentRoom = nextRoom;
+                addTurn();
+                if (currentRoom.isAlreadyVisited()) {
+                    return currentRoom.getShortDescription();
+                } else {
+                    return currentRoom.getLongDescription();
+                }
             } else {
-                return currentRoom.getLongDescription();
+                return currentRoom.getMoveErrorMessage(direction);
             }
-        } else {
-            return currentRoom.getMoveErrorMessage(direction);
+        } else { // The Infinite Room just creates a new instance.
+            RoomTemplate nextRoom = new InfiniteRoom();
+            if (direction.equals("north") || direction.equals("east") || direction.equals("south") || direction.equals("west")) {
+                currentRoom = nextRoom;
+                addTurn();
+                return currentRoom.getLongDescription();
+            } else {
+                return currentRoom.getMoveErrorMessage();
+            }
         }
     }   // End MOVEMENT BETWEEN ROOMS block
 
@@ -257,6 +344,7 @@ public class TextAdventure {
         } else {
             playerInventory.addItem(i);
             currentRoom.removeItem(target);
+            addTurn();
             return "Taken.";
         }
 
@@ -269,6 +357,7 @@ public class TextAdventure {
         ItemTemplate i = playerInventory.removeItem(target);
         if (i != null) {
             currentRoom.addItem(i);
+            addTurn();
             return "Dropped.";
         } else {
             return "You are not carrying that item.";
@@ -409,6 +498,8 @@ public class TextAdventure {
         String result = currentRoom.use(i, d);
         if(!result.equals(""))
         {
+            // dont touch! -dean
+            //playerInventory.removeItem(i);
             return result;
         }
         else {
@@ -416,6 +507,13 @@ public class TextAdventure {
         }
     }
 
+    /* TURN COUNTER INCREASING METHOD
+        Adds 1 to a turn when called. Called when an action does something.
+    */
+    private void addTurn() {
+        turnsMade++;
+    }
+        
     /* MAIN METHOD
     Creates a new instance of TextAdventure, calls 'setup' (configuration) and calls 'run' (execution)
      */
