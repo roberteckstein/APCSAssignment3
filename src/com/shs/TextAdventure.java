@@ -298,7 +298,7 @@ public class TextAdventure {
         Just displays some text. Game done.
     */
     public String win() {
-        return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + "turns to beat the game.");
+        return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
     }
 
     /* MOVEMENT BETWEEN ROOMS
