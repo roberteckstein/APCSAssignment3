@@ -2,7 +2,7 @@ package com.shs;
 
 public abstract class ContainerTemplate extends ItemTemplate {
 
-    Inventory containedItems;
+    public Inventory containedItems;
 
     public ContainerTemplate(String name, String unequippedDescription, String equippedDescription) {
         super(name, unequippedDescription, equippedDescription);
