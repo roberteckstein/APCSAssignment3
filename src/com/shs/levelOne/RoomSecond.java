@@ -43,9 +43,9 @@ public class RoomSecond extends RoomTemplate {
         }
 
         if (i == null) {
-            return "You do not have a " + target + ".";
+            return "You do not have that item.";
         } else if (d == null) {
-            return "You do not see the " + directObject + ".";
+            return "You can't find anything to use that on.";
         }
         String result = d.use(i);
         if (!result.equals(""))

@@ -19,7 +19,7 @@ public class FinalRoom extends RoomTemplate {
     {
         if (door.isAlive())
         {
-            return "It's dark and you can barely see. You make out a door with text that reads, \"The crystal is the key.\"";
+            return "It's dark and you can barely see. You make out a door with text that reads, \"The crystal is the key.\" There is an indent in the wall where something could go.";
         }
         return "You are in a dark room with an open dor radiating heat with a faint glow of orange visible.";
     }
@@ -45,9 +45,9 @@ public class FinalRoom extends RoomTemplate {
         }
 
         if (i == null) {
-            return "You do not have a " + target + ".";
+            return "You do not have that item.";
         } else if (d == null) {
-            return "You do not see the " + directObject + ".";
+            return "You can't find anything to use that on.";
         }
         String result = d.use(i);
         if (!result.equals("")) {

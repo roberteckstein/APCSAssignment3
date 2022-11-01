@@ -473,7 +473,8 @@ public class TextAdventure {
         String result = currentRoom.use(i, d);
         if(!result.equals(""))
         {
-            playerInventory.removeItem(i);
+            // dont touch! -dean
+            //playerInventory.removeItem(i);
             return result;
         }
         else {

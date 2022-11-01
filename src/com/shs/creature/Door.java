@@ -2,6 +2,7 @@ package com.shs.creature;
 
 import com.shs.CreatureTemplate;
 import com.shs.ItemTemplate;
+import com.shs.TextAdventure;
 
 public class Door extends CreatureTemplate {
     public Door() {
@@ -12,7 +13,8 @@ public class Door extends CreatureTemplate {
     public String use(ItemTemplate target) {
         if (target.getName().equals("crystal") && isAlive()) {
             setAlive(false);
-            return "The door swings open and you are blasted by a wave of heat. The passage is now open.";
+            TextAdventure.playerInventory.removeItem("crystal");
+            return "The door swings open and you are blasted by a wave of heat. The passage north is now open.";
         }
         return "";
     }
