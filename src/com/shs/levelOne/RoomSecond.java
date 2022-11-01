@@ -3,34 +3,23 @@ package com.shs.levelOne;
 import com.shs.ItemTemplate;
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
+import com.shs.creature.Doggo;
 import com.shs.creature.Elemental;
 import com.shs.item.Chest;
-import com.shs.levelOne.Room3;
-
-import static com.shs.TextAdventure.minerRoom;
+import com.shs.item.Fedora;
+import com.shs.item.TastyRock;
 
 
 public class RoomSecond extends RoomTemplate {
 
-    Chest chest = new Chest();
     Elemental elemental = new Elemental();
+    static Fedora fedora = new Fedora();
     public RoomSecond() {
-        super("Second Room", "This is the second room. There is a passage going North, South and West");
-        setMoveErrorMessage("There is no exit that way!");
+        super("Second Room", "You are in a room that looks like a normal junction. There is a passage going North, South and West.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
-        addItem(chest);
         addItem(elemental);
-
-    }
-    @Override
-    public String getLongDescription()
-    {
-        if (elemental.isAlive())
-        {
-            return "This is the second room. There is a passage going North, South and West. The passage to the north is blocked by a large crystal elemental";
-        }
-        return "This is the second room. There is a passage going North, South and West. A crystal elemental sits in the corner licking a rock.";
+        addItem(fedora);
     }
 
     @Override
@@ -42,9 +31,6 @@ public class RoomSecond extends RoomTemplate {
         }
     }
 
-    //i have ZERo clue how use works, i can't figure it out but i kinda have some stuff laid
-    // out so you can see what i was trying to do,
-    // also tried doing it in room3 but i couldnt figure that out either - dean
     @Override
     public String use(String target, String directObject)
     {
@@ -57,13 +43,14 @@ public class RoomSecond extends RoomTemplate {
         }
 
         if (i == null) {
-            return "You do not have a " + target + ".";
+            return "You do not have that item.";
         } else if (d == null) {
-            return "You do not see the " + directObject + ".";
+            return "You can't find anything to use that on.";
         }
         String result = d.use(i);
-        if (result.equals("rock")) {
-            TextAdventure.roomSecond.addPath("north", minerRoom);
+        if (!result.equals(""))
+        {
+            TextAdventure.roomSecond.addPath("north", TextAdventure.minerRoom);
         }
         return result;
     }

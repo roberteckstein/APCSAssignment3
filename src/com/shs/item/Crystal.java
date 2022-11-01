@@ -2,18 +2,14 @@ package com.shs.item;
 
 import com.shs.ItemTemplate;
 
+// Level 1 Item
 public class Crystal extends ItemTemplate {
-    public int Crystals = 0;
     public Crystal(){
-        super("crystal", "crystals lay on the ground.", "Some crystals");
+        super("crystal", "A shimmering crystal lies on the ground.", "A large crystal.");
     }
 
     @Override
     public boolean isGettable() {
         return true;
-    }
-    @Override
-    public boolean isOpenable() {
-        return false;
     }
 }

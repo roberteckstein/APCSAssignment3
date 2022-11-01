@@ -2,6 +2,7 @@ package com.shs.item;
 
 import com.shs.ItemTemplate;
 
+// Level 1 Item
 public class TastyRock extends ItemTemplate {
 
     public TastyRock() {
@@ -11,15 +12,9 @@ public class TastyRock extends ItemTemplate {
         public boolean isMoveable() {
             return true;
         }
-
+    
         @Override
         public boolean isGettable() {
             return true;
         }
-
-        @Override
-        public boolean isOpenable() {
-            return false;
-        }
-
 }

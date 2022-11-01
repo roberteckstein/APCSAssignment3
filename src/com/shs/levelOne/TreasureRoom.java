@@ -6,7 +6,7 @@ import com.shs.item.WrittenNote;
 
 public class TreasureRoom extends RoomTemplate {
     public TreasureRoom(){
-        super("Vault","This room is filled wall to wall with expired food and empty cabinets, there is an open door leading west");
+        super("Vault","You are in a room that is filled wall to wall with expired food and empty cabinets. There is an open vault door leading west.");
         setMoveErrorMessage("There is no exit that way!");
         addItem(new ExpiredFood());
         addItem(new WrittenNote());

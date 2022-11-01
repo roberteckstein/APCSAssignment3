@@ -9,7 +9,7 @@ public class FourthRoom2 extends RoomTemplate {
     Chest chest = new Chest();
     public FourthRoom2() {
         //Room description
-        super("The room is full of lava. You need a strong fire resistance potion to go through.", "Already visited.");
+        super("", "The room is full of lava. You need a strong fire resistance potion to go through.");
         setMoveErrorMessage("You can't go there.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)

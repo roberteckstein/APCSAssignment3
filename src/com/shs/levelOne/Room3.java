@@ -3,26 +3,22 @@ package com.shs.levelOne;
 import com.shs.ItemTemplate;
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
+import com.shs.creature.Doggo;
 import com.shs.item.TastyRock;
-import com.shs.Inventory;
-import com.shs.item.Crystal;
-import static com.shs.TextAdventure.crystalRoom;
 
-// i hid out he doggo for now until we can get the use function working -dean
 public class Room3 extends RoomTemplate{
-    //static Doggo dog = new Doggo();
-    TastyRock rock = new TastyRock();
-    Crystal Crystals = new Crystal();
+    static Doggo dog = new Doggo();
+    static TastyRock rock = new TastyRock();
     public Room3() {
-            super("There is a cave in to the west, maybe you can clear it out?", "The wall to the west is caved in, maybe you could clear it out somehow.. A corridor leads east.");
+            super("Doggo room", "You are in a room with sparkling crystal walls. There are exits to the east and west.");
+            addItem(dog);
             addItem(rock);
-            addItem(Crystals);
-    }
 
-    @Override
+    }
+     @Override
      public String getMoveErrorMessage(String direction) {
-         if (direction.equals("west")) {
-             return "The passage to the west is blocked by the cave in.";
+         if (direction.equals("west") && dog.isAlive()) {
+             return "The passage to the west is blocked by a hungry dog. You don't dare go any closer.";
          } else {
              return getMoveErrorMessage();
          }
@@ -40,15 +36,14 @@ public class Room3 extends RoomTemplate{
         }
 
         if (i == null) {
-            return "You do not have a " + target + ".";
+            return "You do not have that item.";
         } else if (d == null) {
-            return "You do not see the " + directObject + ".";
+            return "You can't find anything to use that on.";
         }
         String result = d.use(i);
-        if (result.equals("pickaxe"))
+        if (!result.equals(""))
         {
-            System.out.println("You use the pickaxe to break the stone.");
-            TextAdventure.room3.addPath("west", crystalRoom);
+            TextAdventure.room3.addPath("west", TextAdventure.crystalRoom);
         }
         return result;
     }

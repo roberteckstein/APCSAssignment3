@@ -4,7 +4,7 @@ import com.shs.ItemTemplate;
 public class Fedora extends ItemTemplate {
 
     public Fedora() {
-        super("fedora", "A snazzy fedora.", "A fedora.");
+        super("fedora", "A snazzy fedora lies on the ground.", "A fedora.");
     }
 
     @Override
