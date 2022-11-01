@@ -24,7 +24,7 @@ public class Doggo extends CreatureTemplate {
         if (target.getName().equals("food")&&isAlive())
         {
             setAlive(false);
-            TextAdventure.playerInventory.removeItem("doog");
+            TextAdventure.playerInventory.removeItem("food");
             return "The dog nearly tears your hand off biting the food, it runs out the door. You can now go into the west door.";
         }
         return "";
