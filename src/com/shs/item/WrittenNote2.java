@@ -6,7 +6,7 @@ import com.shs.TextAdventure;
 public class WrittenNote2 extends ItemTemplate {
 
     public WrittenNote2(){
-        super("paper", "You see a single sheet of paper taped to the wall, high out of reach. It says: \n\"What seems impossible may be true,\nDon't think too hard, just go ahead and do.\n...\nPut everything in the box.\"\n", "");
+        super("paper", "", "");
 
     }
     public boolean isGettable() {
@@ -20,9 +20,9 @@ public class WrittenNote2 extends ItemTemplate {
     @Override
     public String getDescription() {
         if (TextAdventure.currentRoom.getItem("box") != null) {
-            this.setDescription("Yeah.");
+            this.setDescription("Looking closer, ");
         }
-        return null;
+        return "You see a single sheet of paper taped to the wall, high out of reach. It says: \n\"What seems impossible may be true,\nDon't think too hard, just go ahead and do.\n...\nPut everything in the box.\"\n";
     }
 
 }
