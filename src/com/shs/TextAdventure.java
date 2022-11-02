@@ -28,8 +28,6 @@ public class TextAdventure {
 
 
 
-
-
     // Ends the game when true (exit code 0)
     private boolean gameOver = false;
 
@@ -133,7 +131,6 @@ public class TextAdventure {
         one.addPath("north", two);
         two.addPath("south", one);
         two.addPath("east", three);
-        two.addPath("west", four);
         three.addPath("west", two);
         four.addPath("east", two);
         four.addPath("west", five);
@@ -275,18 +272,18 @@ public class TextAdventure {
                 return use(target, directObject);
             case "help":
               return
-                "LIST OF COMMANDS:\n" +
-                "      1. move/go <north/east/south/west>\n" +
-                "      2. get/take <item>\n" +
-                "      3. put <item> <container>\n" +
-                "      4. remove <item> <container>\n" +
-                "      5. drop <item>\n" +
-                "      6. open <container>\n" +
-                "      7. close <container>\n" +
-                "      8. quit\n" +
-                "      9. storage/backpack/inv/inventory\n" +
-                "      10. look\n" +
-                "      11. use/give <object> <creature/obstacle>";
+                      "LIST OF COMMANDS:\n" +
+                      "      1. move/go <north/east/south/west>\n" +
+                      "      2. get/take <item>\n" +
+                      "      3. put <item> <container>\n" +
+                      "      4. remove <item> <container>\n" +
+                      "      5. drop <item>\n" +
+                      "      6. open <container>\n" +
+                      "      7. close <container>\n" +
+                      "      8. quit\n" +
+                      "      9. storage/backpack/inv/inventory\n" +
+                      "      10. look\n" +
+                      "      11. use/give <object> <creature/obstacle>";
             default:
                 return "Unknown command: \"" + command + "\"";
         }
