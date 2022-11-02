@@ -12,7 +12,7 @@ public class InfiniteRoom extends RoomTemplate {
     public InfiniteRoom () {
         super("This room looks familiar to you.","");
         
-        System.gc(); // Calls Garbage Collecter due to the excess of unused objects being created.
+        System.gc(); // Calls Garbage Collector due to the excess of unused objects being created.
         
         setDescription("You are in a bedroom with doors going in the directions north, east, west, and south. " + ranNoise(numGen(10)));
         setMoveErrorMessage("There may be many exits to this room, but that is not one of them.");
