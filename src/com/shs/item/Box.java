@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class Box extends ContainerTemplate implements Openable {
 
-    boolean open = false;
+    boolean open = true;
 
     public Box() {
         //  Descriptions can be blank because accessors are overridden below.
@@ -18,7 +18,7 @@ public class Box extends ContainerTemplate implements Openable {
 
     public String getDescription() {
 
-        String r = "There is a box here that is " + (open ? "open." : "closed.") + " ";
+        String r = "There is a box here on the floor. ";
         if (this.open) {
             r = r + getContents();
         }
