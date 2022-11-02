@@ -271,19 +271,19 @@ public class TextAdventure {
             case "give":
                 return use(target, directObject);
             case "help":
-              return
-                      "LIST OF COMMANDS:\n" +
-                      "      1. move/go <north/east/south/west>\n" +
-                      "      2. get/take <item>\n" +
-                      "      3. put <item> <container>\n" +
-                      "      4. remove <item> <container>\n" +
-                      "      5. drop <item>\n" +
-                      "      6. open <container>\n" +
-                      "      7. close <container>\n" +
-                      "      8. quit\n" +
-                      "      9. storage/backpack/inv/inventory\n" +
-                      "      10. look\n" +
-                      "      11. use/give <object> <creature/obstacle>";
+                return
+                        "LIST OF COMMANDS:\n" +
+                                "      1. move/go <north/east/south/west>\n" +
+                                "      2. get/take <item>\n" +
+                                "      3. put <item> <container>\n" +
+                                "      4. remove <item> <container>\n" +
+                                "      5. drop <item>\n" +
+                                "      6. open <container>\n" +
+                                "      7. close <container>\n" +
+                                "      8. quit\n" +
+                                "      9. storage/backpack/inv/inventory\n" +
+                                "      10. look\n" +
+                                "      11. use/give <object> <creature/obstacle>";
             default:
                 return "Unknown command: \"" + command + "\"";
         }
