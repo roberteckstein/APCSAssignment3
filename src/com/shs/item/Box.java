@@ -72,4 +72,18 @@ public class Box extends ContainerTemplate implements Openable {
 
         }
     }
+
+    @Override
+    public String getContents() {
+
+        String r = "";
+
+        if (containedItems.size() > 0) {
+            r = r + "Inside is the following: \n" + containedItems.printItems();
+        } else {
+            r = r + "It is empty.";
+        }
+
+        return r;
+    }
 }
