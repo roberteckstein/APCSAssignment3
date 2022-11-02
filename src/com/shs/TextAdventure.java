@@ -133,7 +133,6 @@ public class TextAdventure {
         one.addPath("north", two);
         two.addPath("south", one);
         two.addPath("east", three);
-        two.addPath("west", four);
         three.addPath("west", two);
         four.addPath("east", two);
         four.addPath("west", five);
