@@ -271,19 +271,19 @@ public class TextAdventure {
             case "give":
                 return use(target, directObject);
             case "help":
-              return
-                      "LIST OF COMMANDS:\n" +
-                      "      1. move/go <north/east/south/west>\n" +
-                      "      2. get/take <item>\n" +
-                      "      3. put <item> <container>\n" +
-                      "      4. remove <item> <container>\n" +
-                      "      5. drop <item>\n" +
-                      "      6. open <container>\n" +
-                      "      7. close <container>\n" +
-                      "      8. quit\n" +
-                      "      9. storage/backpack/inv/inventory\n" +
-                      "      10. look\n" +
-                      "      11. use/give <object> <creature/obstacle>";
+                return
+                        "LIST OF COMMANDS:\n" +
+                                "      1. move/go <north/east/south/west>\n" +
+                                "      2. get/take <item>\n" +
+                                "      3. put <item> <container>\n" +
+                                "      4. remove <item> <container>\n" +
+                                "      5. drop <item>\n" +
+                                "      6. open <container>\n" +
+                                "      7. close <container>\n" +
+                                "      8. quit\n" +
+                                "      9. storage/backpack/inv/inventory\n" +
+                                "      10. look\n" +
+                                "      11. use/give <object> <creature/obstacle>";
             default:
                 return "Unknown command: \"" + command + "\"";
         }
@@ -334,9 +334,9 @@ public class TextAdventure {
     public String get(String target) {
         ItemTemplate i = currentRoom.getItem(target);
         if (i == null) {
-            return "You cannot find that item.";
+            return ("You cannot find \""+target+"\".");
         } else if (!i.isGettable()) {
-            return "You cannot get that item.";
+            return ("You cannot get \""+target+"\".");
         } else {
             playerInventory.addItem(i);
             currentRoom.removeItem(target);
@@ -356,7 +356,7 @@ public class TextAdventure {
             addTurn();
             return "Dropped.";
         } else {
-            return "You are not carrying that item.";
+            return ("You are not carrying \""+target+"\".");
         }
     }   // End DROP ITEM block
 

@@ -16,7 +16,7 @@ public class SecondRoom2 extends RoomTemplate {
     Lava lava = new Lava();
     public SecondRoom2() {
         //Room description
-        super("Middle of Hell", "You are in the middle of Hell.");
+        super("Middle of Hell", "You are in the middle of Hell. You can move east or west down a path, or you can move south back to the gates of Hell.");
         setMoveErrorMessage("You can't go there.");
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(lava);
