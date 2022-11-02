@@ -3,22 +3,20 @@ package com.shs.creature;
 import com.shs.CreatureTemplate;
 import com.shs.ItemTemplate;
 import com.shs.TextAdventure;
-import com.shs.levelOne.RoomSecond;
-import com.shs.levelTwo.SecondRoom2;
-import com.shs.item.FirePotion;
+import com.shs.item.WaterBucket;
 
 public class Lava extends CreatureTemplate {
-    FirePotion fp = new FirePotion();
+    WaterBucket fp = new WaterBucket();
     public Lava() {
         super("lava", "There is lava blocking your path to the west");
     }
     @Override
     public String use(ItemTemplate target) {
 
-        if (target.getName().equals("potion")&&isAlive())
+        if (target.getName().equals("bucket")&&isAlive())
         {
             setAlive(false);
-            TextAdventure.playerInventory.removeItem("potion");
+            TextAdventure.playerInventory.removeItem("bucket");
             return "You used the fire potion. The lava is useless in stopping you now.";
         }
         return "";

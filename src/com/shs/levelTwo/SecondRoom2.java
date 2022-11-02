@@ -4,15 +4,11 @@ import com.shs.ItemTemplate;
 import com.shs.TextAdventure;
 import com.shs.RoomTemplate;
 import com.shs.creature.Lava;
-import com.shs.item.Chest;
-import com.shs.item.Sunball;
-import com.shs.item.Sword;
-import com.shs.ContainerTemplate;
-import com.shs.item.FirePotion;
+import com.shs.item.WaterBucket;
 
 
 public class SecondRoom2 extends RoomTemplate {
-    FirePotion potion = new FirePotion();
+    WaterBucket bucket = new WaterBucket();
     Lava lava = new Lava();
     public SecondRoom2() {
         //Room description
@@ -21,7 +17,7 @@ public class SecondRoom2 extends RoomTemplate {
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(lava);
         lava.setAlive(true);
-        addItem(potion);
+        addItem(bucket);
 
     }
 
