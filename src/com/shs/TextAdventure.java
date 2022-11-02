@@ -334,9 +334,9 @@ public class TextAdventure {
     public String get(String target) {
         ItemTemplate i = currentRoom.getItem(target);
         if (i == null) {
-            return "You cannot find that item.";
+            return ("You cannot find \""+target+"\".");
         } else if (!i.isGettable()) {
-            return "You cannot get that item.";
+            return ("You cannot get \""+target+"\".");
         } else {
             playerInventory.addItem(i);
             currentRoom.removeItem(target);
@@ -356,7 +356,7 @@ public class TextAdventure {
             addTurn();
             return "Dropped.";
         } else {
-            return "You are not carrying that item.";
+            return ("You are not carrying \""+target+"\".");
         }
     }   // End DROP ITEM block
 
