@@ -16,10 +16,11 @@ public class SecondRoom2 extends RoomTemplate {
     Lava lava = new Lava();
     public SecondRoom2() {
         //Room description
-        super("Second Room", "You are in Hell.");
+        super("Middle of Hell", "You are in the middle of Hell.");
         setMoveErrorMessage("You can't go there.");
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(lava);
+        lava.setAlive(true);
         addItem(potion);
 
     }
@@ -50,6 +51,7 @@ public class SecondRoom2 extends RoomTemplate {
         String result = d.use(i);
         if (!result.equals(""))
         {
+            lava.setAlive(false);
             TextAdventure.two.addPath("west", TextAdventure.four);
         }
         return result;
