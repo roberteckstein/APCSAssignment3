@@ -18,12 +18,14 @@ public class SecondRoom2 extends RoomTemplate {
         //Room description
         super("Middle of Hell", "You are in the middle of Hell.");
         setMoveErrorMessage("You can't go there.");
-
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(lava);
         lava.setAlive(true);
         addItem(potion);
+
     }
+
+
     @Override
     public String getMoveErrorMessage(String direction) {
         if (direction.equals("west") && lava.isAlive()) {
@@ -32,12 +34,11 @@ public class SecondRoom2 extends RoomTemplate {
             return getMoveErrorMessage();
         }
     }
-    public String use(String target, String directObject)
-    {
+
+
+    public String use(String target, String directObject) {
         ItemTemplate i = TextAdventure.playerInventory.getItem(target);
         ItemTemplate d = getItem(directObject);
-
-
         if (d == null) {
             d = TextAdventure.playerInventory.getItem(directObject);
         }

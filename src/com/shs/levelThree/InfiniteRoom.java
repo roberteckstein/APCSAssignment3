@@ -16,7 +16,7 @@ public class InfiniteRoom extends RoomTemplate {
         
         setDescription("You are in a bedroom with doors going in the directions north, east, west, and south. " + ranNoise(numGen(10)));
         setMoveErrorMessage("There may be many exits to this room, but that is not one of them.");
-        
+        InfiniteRoom = true;
         // Adding Objects based on random number generator
         addItem(new Graffiti(ranColor(numGen(12))));
         if (numGen(10) > 4) {
