@@ -10,3 +10,7 @@ Infinite Room Should be done. It just needs to be added to the path system for l
 <previous_room>.addPath("<direction>", new InfiniteRoom());
 Also, I'm not sure if we have any "openable" items so I didn't bother adding the turnAdder method to the actions of close, open, get, etc.
 P.S. has anyone from floor 3 made progress on the rooms themselves?
+
+## Note From Mr. Bob (11/2)
+Add support for command "Put crystal in door" or "Put crystal in wall" in the dark room on level 1.
+Didn't understand how to use or drink the potion to get past the lava.
