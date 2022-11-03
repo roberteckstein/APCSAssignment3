@@ -19,7 +19,7 @@ public class Toaster extends ContainerTemplate{
     public String getDescription() {
         String r = "There is a toaster attached to the table. ";
         if (containedItems.getItem("bread") != null) {
-            r = "An orange glow emanates from the toaster as it cooks the bread...\n...\nFinally it dings, and your toast pops up.\n\nBurned onto the slice of toast is a message:\n\"Make a circle\"";
+            r = "An orange glow emanates from the toaster as it cooks the bread...\n...\nFinally it dings, and your toast pops up.\n\nBurned onto the slice of toast is a message:\n\"Follow the walls.\"";
             containedItems.clearInventory();
             containedItems.addItem(toast);
         } else if (containedItems.getItem("bread") == null) {

@@ -19,7 +19,7 @@ public class Graffiti extends RandomItemTemplate {
             case 4 : return "Jon, feed me my lasagna.";
             case 5 : return "You are all like mice to me.";
             case 6 : return "I can smell you.";
-            case 7 : return "Mothers Eat Our Wishses.";
+            case 7 : return "Mothers Eat Our Wishes.";
             case 8 : return "I wonder what the answer is? (Type it in whenever you've figured it out)";
             case 9 : return "Once upon a time, I was one of the most feared things around.";
             case 10 : return "Elegance, Curiosity, Independence, Protection, and Magic.";

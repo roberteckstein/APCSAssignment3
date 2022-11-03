@@ -93,8 +93,6 @@ public class TextAdventure {
         //Level 3 room instantiation
         circleRoom = new CircleRoom();
         secondRoom3 = new SecondRoom3();
-        thirdRoom3 = new ThirdRoom3();
-        fourthRoom3 = new FourthRoom3();
         fifthRoom3 = new FifthRoom3();
 
         /*  Add paths from one room to the next. The template class 'RoomTemplate' (that all room instances inherit) has
@@ -140,10 +138,8 @@ public class TextAdventure {
         //LEVEL THREE rooms
         startingRoom.addPath("l3", circleRoom);
         circleRoom.addPath("circle", secondRoom3);
-        secondRoom3.addPath("east", thirdRoom3);
-
-        fourthRoom3.addPath("north", fifthRoom3);
-        fifthRoom3.addPath("east", new InfiniteRoom());
+        secondRoom3.addPath("northeast", fifthRoom3);
+        fifthRoom3.addPath("north", new InfiniteRoom());
 
 
 
@@ -188,11 +184,19 @@ public class TextAdventure {
         command = command.replaceAll("( the )", " ");
         command = command.replaceAll("( a )", " ");
         command = command.replaceAll("( in )", " ");
+        command = command.replaceAll("( inside )", " ");
         command = command.replaceAll("( from )", " ");
         command = command.replaceAll("( to )", " ");
         command = command.replaceAll("( on )", " ");
         command = command.replaceAll("( at )", " ");
         command = command.replaceAll("( around )", " ");
+        command = command.replaceAll("( purple )", " ");
+        command = command.replaceAll("( red )", " ");
+        command = command.replaceAll("( blue )", " ");
+        command = command.replaceAll("( yellow )", " ");
+        command = command.replaceAll("( slice )", " ");
+        command = command.replaceAll("( of )", " ");
+        command = command.replaceAll("( out )", " ");
 
         /* This splits up the user's input by where the spaces are, to a maximum of 3 different parts. NOTE: CURRENT
         IMPLEMENTATION MEANS ALL USER INPUT MUST FOLLOW THE SAME 'action, target, _____' PATTERN (swing the sword at

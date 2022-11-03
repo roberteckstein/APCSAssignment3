@@ -32,7 +32,7 @@ public class Window extends RandomItemTemplate {
             case 9:
                 return "the firey pits of the underworld. ";
             default:
-                return "A stone wall. ";
+                return "a stone wall. ";
         }
     }
 }
