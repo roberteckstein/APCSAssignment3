@@ -13,7 +13,7 @@ public class SeventhRoom2 extends RoomTemplate {
     Devil devil = new Devil();
     public SeventhRoom2() {
         //Room description
-        super("The room is empty, you've already killed the devil.", "You meet the final boss.");
+        super("The room is empty, you've already killed the devil. A path leads north.", "You meet the final boss. A path leads north.");
         setMoveErrorMessage("You can't go there.");
         addItem(devil);
         devil.setAlive(true);

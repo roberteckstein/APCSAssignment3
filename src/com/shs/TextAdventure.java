@@ -256,7 +256,6 @@ public class TextAdventure {
                 gameOver = true;
                 return "Quitting the game";
             case "cat": // Answer to my riddle
-                gameOver = true;
                 return win();
             case "storage":
             case "backpack":
@@ -272,7 +271,7 @@ public class TextAdventure {
             case "help":
                 return
                         "LIST OF COMMANDS:\n" +
-                                "      1. move/go <north/east/south/west>\n" +
+                                "      1. move/go <direction>\n" +
                                 "      2. get/take <item>\n" +
                                 "      3. put <item> <container>\n" +
                                 "      4. remove <item> <container>\n" +
@@ -282,7 +281,11 @@ public class TextAdventure {
                                 "      8. quit\n" +
                                 "      9. storage/backpack/inv/inventory\n" +
                                 "      10. look\n" +
-                                "      11. use/give <object> <creature/obstacle>";
+                                "      11. use/give <object> <creature/obstacle>\n" +
+                                "      12. map";
+            case "map":
+                return
+                        "You don't have a map.";
             default:
                 return "Unknown command: \"" + command + "\"";
         }
@@ -293,9 +296,14 @@ public class TextAdventure {
         Just displays some text. Game done.
     */
     public String win() {
-        clearScreen();
-        return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
+        if(currentRoom.getInfiniteRoom()) {
+            gameOver = true;
+            return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
+        } else {
+            return "Stop cheating.";
+        }
     }
+
 
     /* MOVEMENT BETWEEN ROOMS
     In its current form, being in a room means the user can access everything in that room.
@@ -303,6 +311,16 @@ public class TextAdventure {
     that room can be split into multiple room instances.
      */
     public String move(String direction) {
+        switch (direction) {
+            case "n": direction = "north"; break;
+            case "s": direction = "south"; break;
+            case "w": direction = "west"; break;
+            case "e": direction = "east"; break;
+            case "ne": direction = "northeast"; break;
+            case "nw": direction = "northwest"; break;
+            case "se": direction = "southeast"; break;
+            case "sw": direction = "southwest"; break;
+        }
         if (!currentRoom.getInfiniteRoom()) { // If it not is the infinite room
             RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
             if (nextRoom != null) {
@@ -504,7 +522,7 @@ public class TextAdventure {
     }
 
 
-    /* TURN COUNTER INCREASING METHOD
+    /* TURN COUNTER INCREASING METHODd
         Adds 1 to a turn when called. Called when an action does something.
     */
     public static void addTurn() {

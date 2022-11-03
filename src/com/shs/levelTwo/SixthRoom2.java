@@ -10,7 +10,7 @@ public class SixthRoom2 extends RoomTemplate {
     Sword sword = new Sword();
     public SixthRoom2() {
         //Room description
-        super("The storage room.", "You are in the storage room.");
+        super("You seem to be inside a storage room. A path leads south.", "You are in the storage room.");
         addItem(sword);
         setMoveErrorMessage("You can't go there.");
 

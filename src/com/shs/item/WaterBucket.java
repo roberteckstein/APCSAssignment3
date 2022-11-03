@@ -6,7 +6,7 @@ import com.shs.traits.Usable;
 public class WaterBucket extends ItemTemplate {
 
     public WaterBucket() {
-        super("bucket", "A water bucket full of water lies in the corner.", "A bucket of water.");
+        super("bucket", "A bucket full of water lies in the corner.", "A bucket of water.");
     }
 
     @Override
