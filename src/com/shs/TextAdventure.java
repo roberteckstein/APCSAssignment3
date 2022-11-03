@@ -504,7 +504,7 @@ public class TextAdventure {
     }
 
 
-    /* TURN COUNTER INCREASING METHOD
+    /* TURN COUNTER INCREASING METHODd
         Adds 1 to a turn when called. Called when an action does something.
     */
     public static void addTurn() {
