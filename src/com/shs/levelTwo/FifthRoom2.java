@@ -11,7 +11,7 @@ public class FifthRoom2 extends RoomTemplate {
 
     public FifthRoom2() {
         //Room description
-        super("Base of fortress (north, south, east)", "You are at the base of the fortress with rooms in the north and south. Something growls in the south, so you should probably check the north room first.");
+        super("Base of fortress (north, south, east)", "You are at the base of the fortress with rooms in the north and south, with a path leading east. Something growls in the south, so you should probably check the north room first.");
         setMoveErrorMessage("You can't go there.");
     }
     @Override
