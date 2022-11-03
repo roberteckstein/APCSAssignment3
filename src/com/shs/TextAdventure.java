@@ -26,8 +26,6 @@ the left next to the line numbers).
  */
 public class TextAdventure {
 
-
-
     // Ends the game when true (exit code 0)
     private boolean gameOver = false;
 
@@ -198,6 +196,7 @@ public class TextAdventure {
         command = command.replaceAll("( to )", " ");
         command = command.replaceAll("( on )", " ");
         command = command.replaceAll("( at )", " ");
+        command = command.replaceAll("( around )", " ");
 
         /* This splits up the user's input by where the spaces are, to a maximum of 3 different parts. NOTE: CURRENT
         IMPLEMENTATION MEANS ALL USER INPUT MUST FOLLOW THE SAME 'action, target, _____' PATTERN (swing the sword at
@@ -230,6 +229,7 @@ public class TextAdventure {
         switch (action) {
             case "move":
             case "go":
+            case "walk":
                 return move(target);
 
             case "get":
@@ -317,7 +317,7 @@ public class TextAdventure {
             }
         } else { // The Infinite Room just creates a new instance.
             RoomTemplate nextRoom = new InfiniteRoom();
-            if (direction.equals("north") || direction.equals("east") || direction.equals("south") || direction.equals("west")) {
+            if (direction.equals("north") || direction.equals("east") || direction.equals("south") || direction.equals("west") || direction.equals ("in a circle")) {
                 currentRoom = nextRoom;
                 addTurn();
                 return currentRoom.getLongDescription();
@@ -360,7 +360,7 @@ public class TextAdventure {
     }   // End DROP ITEM block
 
     /* PUT ITEM
-    Puts a "target" object inside of a "directObject" container (e.g., "put sword in chest"). First, ensure that
+    Puts a "target" object inside a "directObject" container (e.g., "put sword in chest"). First, ensure that
     both the object you're "putting" and the container object are either in the room, or in your inventory. If
     we cannot find either one, the command fails with an error message. Next, ensure that the directObject is
     in fact a container. Next, if the object is openable, be sure it is in fact open. Finally, if everything
