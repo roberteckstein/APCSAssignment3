@@ -272,7 +272,7 @@ public class TextAdventure {
             case "help":
                 return
                         "LIST OF COMMANDS:\n" +
-                                "      1. move/go <north/east/south/west>\n" +
+                                "      1. move/go <direction>\n" +
                                 "      2. get/take <item>\n" +
                                 "      3. put <item> <container>\n" +
                                 "      4. remove <item> <container>\n" +
@@ -282,7 +282,11 @@ public class TextAdventure {
                                 "      8. quit\n" +
                                 "      9. storage/backpack/inv/inventory\n" +
                                 "      10. look\n" +
-                                "      11. use/give <object> <creature/obstacle>";
+                                "      11. use/give <object> <creature/obstacle>\n" +
+                                "      12. map";
+            case "map":
+                return
+                        "You don't have a map.";
             default:
                 return "Unknown command: \"" + command + "\"";
         }
