@@ -10,11 +10,11 @@ public class Toast extends ItemTemplate {
     }
         @Override
         public boolean isMoveable() {
-            return true;
+            return false;
         }
     
         @Override
         public boolean isGettable() {
-            return true;
+            return false;
         }
 }

@@ -139,14 +139,10 @@ public class TextAdventure {
 
         //LEVEL THREE rooms
         startingRoom.addPath("l3", circleRoom);
-        circleRoom.addPath("north", secondRoom3);
-        secondRoom3.addPath("south", circleRoom);
+        circleRoom.addPath("circle", secondRoom3);
         secondRoom3.addPath("east", thirdRoom3);
-        secondRoom3.addPath("west", fourthRoom3);
-        thirdRoom3.addPath("west", secondRoom3);
-        fourthRoom3.addPath("east", secondRoom3);
+
         fourthRoom3.addPath("north", fifthRoom3);
-        fifthRoom3.addPath("south", fourthRoom3);
         fifthRoom3.addPath("east", new InfiniteRoom());
 
 
@@ -316,7 +312,7 @@ public class TextAdventure {
             }
         } else { // The Infinite Room just creates a new instance.
             RoomTemplate nextRoom = new InfiniteRoom();
-            if (direction.equals("north") || direction.equals("east") || direction.equals("south") || direction.equals("west") || direction.equals ("in a circle")) {
+            if (direction.equals("north") || direction.equals("east") || direction.equals("south") || direction.equals("west") || direction.equals ("circle")) {
                 currentRoom = nextRoom;
                 addTurn();
                 return currentRoom.getLongDescription();
