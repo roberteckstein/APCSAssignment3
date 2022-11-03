@@ -5,7 +5,7 @@ import com.shs.ItemTemplate;
 public class Sword extends ItemTemplate {
 
     public Sword() {
-        super("sword", "There is a sword here.", "A sword.");
+        super("sword", "There is a sword here.", "A sword");
     }
 
     @Override
