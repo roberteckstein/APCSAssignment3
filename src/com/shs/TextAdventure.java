@@ -292,6 +292,7 @@ public class TextAdventure {
         Just displays some text. Game done.
     */
     public String win() {
+        clearScreen();
         return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
     }
 
@@ -508,6 +509,14 @@ public class TextAdventure {
     public static void addTurn() {
         turnsMade++;
     }
+    
+    /* CLEAR SCREEN METHOD
+        clears the console of all text when called.
+    */
+    public static void clearScreen() {  
+      System.out.print("\033[H\033[2J");  
+      System.out.flush();  
+    }  
         
     /* MAIN METHOD
     Creates a new instance of TextAdventure, calls 'setup' (configuration) and calls 'run' (execution)
