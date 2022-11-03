@@ -298,7 +298,7 @@ public class TextAdventure {
     public String win() {
         if(currentRoom.getInfiniteRoom()) {
             gameOver = true;
-            return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
+            return ("You have come so far, but now you must face the final chalange, summoned from a distant plane, the universe's greatest warrior, Chris, challenges you to a game of Ro Sham Bo. (rock paper scizors)");
         } else {
             return "Stop cheating.";
         }
