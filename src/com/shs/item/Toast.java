@@ -6,15 +6,15 @@ import com.shs.ItemTemplate;
 public class Toast extends ItemTemplate {
 
     public Toast() {
-        super("toast", "A slightly burnt piece of toast.", "Burnt toast");
+        super("toast", "Burnt toast lies on the ground: \"Follow the walls\"", "Burnt toast: \"Follow the walls.\"");
     }
         @Override
         public boolean isMoveable() {
-            return false;
+            return true;
         }
     
         @Override
         public boolean isGettable() {
-            return false;
+            return true;
         }
 }

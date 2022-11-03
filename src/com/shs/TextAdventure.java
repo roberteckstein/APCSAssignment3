@@ -197,6 +197,7 @@ public class TextAdventure {
         command = command.replaceAll("( slice )", " ");
         command = command.replaceAll("( of )", " ");
         command = command.replaceAll("( out )", " ");
+        command = command.replaceAll("( into )", " ");
 
         /* This splits up the user's input by where the spaces are, to a maximum of 3 different parts. NOTE: CURRENT
         IMPLEMENTATION MEANS ALL USER INPUT MUST FOLLOW THE SAME 'action, target, _____' PATTERN (swing the sword at
