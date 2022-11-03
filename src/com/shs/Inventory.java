@@ -37,6 +37,14 @@ public class Inventory {
         return inventory.remove(itemName);
     }
 
+    // Clear all items from inventory
+    public void clearInventory() {inventory.clear();}
+
+    // Checks if specific item is in inventory
+    public boolean checkInventory(String item) {
+        return inventory.containsKey(item);
+    }
+
 
     // Prints the contents of the player's inventory
     public String printItems() {

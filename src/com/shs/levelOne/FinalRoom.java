@@ -52,6 +52,7 @@ public class FinalRoom extends RoomTemplate {
         String result = d.use(i);
         if (!result.equals("")) {
             TextAdventure.finalRoom.addPath("north", TextAdventure.one);
+            TextAdventure.playerInventory.clearInventory(); // Clear inventory for lvl 2
         }
         return result;
     }

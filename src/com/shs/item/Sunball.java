@@ -7,7 +7,7 @@ public class Sunball extends ItemTemplate implements Lightable {
 
     boolean light = false;
     public Sunball() {
-        super("Sunball", "A ball embodying the essence of the sun floats in the air.", "The sunball is now lighting up the room.");
+        super("sunball", "A ball embodying the essence of the sun. It's very bright.", "A sunball");
     }
 
     @Override

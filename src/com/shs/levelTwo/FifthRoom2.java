@@ -7,12 +7,26 @@ import com.shs.item.Chest;
 
 
 public class FifthRoom2 extends RoomTemplate {
-    Chest chest = new Chest();
+
+
     public FifthRoom2() {
         //Room description
-        super("", "You are at the base of the fortress with a path leading north and south. Something growls in the south, so you should probably check the north room first.");
+        super("Base of fortress (north, south, east)", "You are at the base of the fortress with rooms in the north and south. Something growls in the south, so you should probably check the north room first.");
         setMoveErrorMessage("You can't go there.");
-
-        // Add items/creatures here (watch out for duplicate objects across rooms)
+    }
+    @Override
+    public String getMoveErrorMessage(String direction) {
+        if (direction.equals("south")) {
+            if (!TextAdventure.playerInventory.checkInventory("sword")) {
+                return "You need a sword to enter this room.";
+            } else {
+                TextAdventure.five.addPath("south", TextAdventure.seven);
+                TextAdventure.currentRoom = TextAdventure.currentRoom.getRoomAt(direction);
+                TextAdventure.addTurn();
+                return TextAdventure.currentRoom.getLongDescription();
+            }
+        } else {
+            return getMoveErrorMessage();
+        }
     }
 }

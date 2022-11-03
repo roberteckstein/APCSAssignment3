@@ -32,7 +32,7 @@ public class TextAdventure {
     private boolean gameOver = false;
 
     // Turns Counter
-    private int turnsMade = 0;
+    private static int turnsMade = 0;
 
     // playerInventory is an instance of the imported class Inventory, which is a hashmap.
     public static Inventory playerInventory;
@@ -130,13 +130,12 @@ public class TextAdventure {
         startingRoom.addPath("l2", one);
         one.addPath("north", two);
         two.addPath("south", one);
-        two.addPath("east", three);
         three.addPath("west", two);
+        three.addPath("north", circleRoom);
         four.addPath("east", two);
         four.addPath("west", five);
         five.addPath("east", four);
         five.addPath("north", six);
-        five.addPath("south", seven);
         six.addPath("south", five);
         seven.addPath("north", five);
 
@@ -506,7 +505,7 @@ public class TextAdventure {
     /* TURN COUNTER INCREASING METHOD
         Adds 1 to a turn when called. Called when an action does something.
     */
-    private void addTurn() {
+    public static void addTurn() {
         turnsMade++;
     }
         

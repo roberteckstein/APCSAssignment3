@@ -12,13 +12,12 @@ public class SecondRoom2 extends RoomTemplate {
     Lava lava = new Lava();
     public SecondRoom2() {
         //Room description
-        super("Middle of Hell", "You are in the middle of Hell. You can move east or west down a path, or you can move south back to the gates of Hell.");
+        super("Middle of Hell (east, west, south)", "You are in the middle of Hell. You can move east, west, or go back south.");
         setMoveErrorMessage("You can't go there.");
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(lava);
         lava.setAlive(true);
         addItem(bucket);
-
     }
 
 
@@ -26,11 +25,19 @@ public class SecondRoom2 extends RoomTemplate {
     public String getMoveErrorMessage(String direction) {
         if (direction.equals("west") && lava.isAlive()) {
             return "The passage to the west is blocked by lava in your way.";
+        } else if (direction.equals("east")) {
+            if (!TextAdventure.playerInventory.checkInventory("sunball")) {
+                return "The room to the east is very dark. You need a massive light source to enter.";
+            } else {
+                TextAdventure.two.addPath("east", TextAdventure.three);
+                TextAdventure.currentRoom = TextAdventure.currentRoom.getRoomAt(direction);
+                TextAdventure.addTurn();
+                return TextAdventure.currentRoom.getLongDescription();
+            }
         } else {
             return getMoveErrorMessage();
         }
     }
-
 
     public String use(String target, String directObject) {
         ItemTemplate i = TextAdventure.playerInventory.getItem(target);

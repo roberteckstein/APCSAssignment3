@@ -17,7 +17,7 @@ public class Lava extends CreatureTemplate {
         {
             setAlive(false);
             TextAdventure.playerInventory.removeItem("bucket");
-            return "You used the fire potion. The lava is useless in stopping you now.";
+            return "You used the water bucket. The lava is useless in stopping you now.";
         }
         return "";
     }
