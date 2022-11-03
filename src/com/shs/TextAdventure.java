@@ -303,6 +303,14 @@ public class TextAdventure {
     that room can be split into multiple room instances.
      */
     public String move(String direction) {
+        if (direction.length() == 1) {
+            switch (direction) {
+                case "n": direction = "north"; break;
+                case "s": direction = "south"; break;
+                case "w": direction = "west"; break;
+                case "e": direction = "east"; break;
+            }
+        }
         if (!currentRoom.getInfiniteRoom()) { // If it not is the infinite room
             RoomTemplate nextRoom = currentRoom.getRoomAt(direction);
             if (nextRoom != null) {
