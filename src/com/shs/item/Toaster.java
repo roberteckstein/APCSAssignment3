@@ -1,6 +1,7 @@
 package com.shs.item;
 
 import com.shs.ContainerTemplate;
+import com.shs.TextAdventure;
 import com.shs.traits.Openable;
 import com.shs.item.Toast;
 
@@ -15,7 +16,6 @@ public class Toaster extends ContainerTemplate{
         //  Descriptions can be blank because accessors are overridden below.
         super("toaster", "", "");
     }
-
     public String getDescription() {
         String r = "There is a toaster attached to the table. ";
         if (containedItems.getItem("bread") != null) {

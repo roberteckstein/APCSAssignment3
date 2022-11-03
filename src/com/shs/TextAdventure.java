@@ -256,7 +256,6 @@ public class TextAdventure {
                 gameOver = true;
                 return "Quitting the game";
             case "cat": // Answer to my riddle
-                gameOver = true;
                 return win();
             case "storage":
             case "backpack":
@@ -293,9 +292,14 @@ public class TextAdventure {
         Just displays some text. Game done.
     */
     public String win() {
-        clearScreen();
-        return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
+        if(currentRoom.getInfiniteRoom()) {
+            gameOver = true;
+            return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
+        } else {
+            return "Stop cheating.";
+        }
     }
+
 
     /* MOVEMENT BETWEEN ROOMS
     In its current form, being in a room means the user can access everything in that room.
