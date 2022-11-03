@@ -113,6 +113,9 @@ public class TextAdventure {
          */
 
         //LEVEL ONE rooms
+        startingRoom.addPath("1", crystalRoom);
+        crystalRoom.addPath("2", finalRoom);
+
         startingRoom.addPath("north", roomSecond);
         startingRoom.addPath("west", hiddenRoom);
         hiddenRoom.addPath("north", room3);
@@ -265,7 +268,6 @@ public class TextAdventure {
 
             case "look":
                 return currentRoom.getLongDescription();
-
             case "use":
             case "give":
                 return use(target, directObject);
@@ -382,7 +384,7 @@ public class TextAdventure {
             return "You do not see the " + directObject + ".";
         } else if (!(d instanceof ContainerTemplate)) {
             return "You cannot put the " + target +
-                    " inside of the " + directObject;
+                    " inside of the " + directObject +".";
         } else {
             ContainerTemplate ci = (ContainerTemplate)d;
 
@@ -501,6 +503,7 @@ public class TextAdventure {
             return "Nothing happens.";
         }
     }
+
 
     /* TURN COUNTER INCREASING METHOD
         Adds 1 to a turn when called. Called when an action does something.

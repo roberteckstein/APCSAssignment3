@@ -126,7 +126,6 @@ public abstract class RoomTemplate {
 
     public String use(String i, String d) {return  "";}
 
-
     public void setMoveErrorMessage(String errorMessage) { moveErrorMessage = errorMessage; }
 
 
