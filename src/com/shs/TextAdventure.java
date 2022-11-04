@@ -125,7 +125,6 @@ public class TextAdventure {
         finalRoom.addPath("east", minerRoom);
 
         //LEVEL TWO rooms
-        startingRoom.addPath("l2", one);
         one.addPath("north", two);
         two.addPath("south", one);
         three.addPath("west", two);
@@ -138,7 +137,6 @@ public class TextAdventure {
         seven.addPath("north", five);
 
         //LEVEL THREE rooms
-        startingRoom.addPath("l3", circleRoom);
         circleRoom.addPath("circle", secondRoom3);
         secondRoom3.addPath("northeast", fifthRoom3);
         fifthRoom3.addPath("north", new InfiniteRoom());
