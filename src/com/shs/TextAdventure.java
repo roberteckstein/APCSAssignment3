@@ -33,6 +33,7 @@ public class TextAdventure {
 
     // Turns Counter
     private static int turnsMade = 0;
+    public static int infiniteTurns = 0;
 
     // playerInventory is an instance of the imported class Inventory, which is a hashmap.
     public static Inventory playerInventory;
@@ -336,7 +337,12 @@ public class TextAdventure {
             if (direction.equals("north") || direction.equals("east") || direction.equals("south") || direction.equals("west") || direction.equals ("circle")) {
                 currentRoom = nextRoom;
                 addTurn();
-                return currentRoom.getLongDescription();
+                infiniteTurns++;
+                if (infiniteTurns < 50) {
+                    return currentRoom.getLongDescription();
+                } else {
+                    return ("Psst, the answer is \"cat\"." + currentRoom.getLongDescription());
+                }
             } else {
                 return currentRoom.getMoveErrorMessage();
             }
