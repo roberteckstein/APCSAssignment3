@@ -9,6 +9,7 @@ import com.shs.levelOne.*;
 import com.shs.levelThree.*;
 import com.shs.levelTwo.*;
 import com.shs.traits.Openable;
+import com.shs.item.*;
 
 import java.util.Random;
 
@@ -232,6 +233,7 @@ public class TextAdventure {
             case "move":
             case "go":
             case "walk":
+            case "follow":
                 return move(target);
 
             case "get":
@@ -414,6 +416,11 @@ public class TextAdventure {
             ci.containedItems.addItem(i);
             currentRoom.removeItem(target);
             playerInventory.removeItem(target);
+            if (currentRoom.equals(circleRoom)) {
+                CircleRoom.toaster.hasBread();
+            } else if (currentRoom.equals(secondRoom3)) {
+                SecondRoom3.purpleBox.hasShapes();
+            }
             return "Done.";
         }
     }   // End PUT ITEM block

@@ -12,6 +12,14 @@ public class PurpleBox extends ContainerTemplate implements Openable {
         super("box", "", "");
     }
 
+    public String hasShapes() {
+        if (containedItems.checkInventory("cube") && (containedItems.checkInventory("sphere")) && (containedItems.size() == 2)) {
+            System.out.println("\n\nThe silhouette of a door suddenly glows bright purple in the northeast face of the room, opening to reveal a passage.");
+
+        }
+        return "";
+    }
+
     public String getDescription() {
 
         String r = "A purple box that is " + (open ? "open." : "closed.") + " ";
@@ -79,9 +87,6 @@ public class PurpleBox extends ContainerTemplate implements Openable {
             r = r + "There is nothing inside.";
         }
 
-        if ((containedItems.getItem("sphere") != null) && (containedItems.getItem("cube") != null) && (containedItems.size() == 2)) {
-            r = r + "\n\nThe silhouette of a door suddenly glows bright purple in the northeast face of the room, opening to reveal a passage.";
-        }
 
         return r;
     }

@@ -12,7 +12,7 @@ public class SecondRoom3 extends RoomTemplate {
     BlueSphere blueSphere = new BlueSphere();
     YellowPyramid yellowPyramid = new YellowPyramid();
 
-    PurpleBox purpleBox = new PurpleBox();
+    public static PurpleBox purpleBox = new PurpleBox();
 
     private String description1 = "Pacing around the room, something clicks as you step on a hidden button.\nThe floor opens up and you tumble through, into...\n\nA perfectly circular marble room. Almost identical to the last, but noticeably larger.\nThe room contains:";
     private String description2 = "A perfectly circular marble room. Almost identical to the last, but noticeably larger.\nThe room contains:";
