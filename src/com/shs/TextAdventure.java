@@ -10,6 +10,8 @@ import com.shs.levelThree.*;
 import com.shs.levelTwo.*;
 import com.shs.traits.Openable;
 
+import java.util.Random;
+
 import java.util.Scanner;
 
 
@@ -31,6 +33,7 @@ public class TextAdventure {
 
     // Turns Counter
     private static int turnsMade = 0;
+    public static int infiniteTurns = 0;
 
     // playerInventory is an instance of the imported class Inventory, which is a hashmap.
     public static Inventory playerInventory;
@@ -123,7 +126,6 @@ public class TextAdventure {
         finalRoom.addPath("east", minerRoom);
 
         //LEVEL TWO rooms
-        startingRoom.addPath("l2", one);
         one.addPath("north", two);
         two.addPath("south", one);
         three.addPath("west", two);
@@ -136,7 +138,6 @@ public class TextAdventure {
         seven.addPath("north", five);
 
         //LEVEL THREE rooms
-        startingRoom.addPath("l3", circleRoom);
         circleRoom.addPath("circle", secondRoom3);
         secondRoom3.addPath("northeast", fifthRoom3);
         fifthRoom3.addPath("north", new InfiniteRoom());
@@ -251,12 +252,19 @@ public class TextAdventure {
 
             case "close":
                 return close(target);
-                
+
             case "quit":
                 gameOver = true;
                 return "Quitting the game";
             case "cat": // Answer to my riddle
-                return win();
+                if(currentRoom.getInfiniteRoom()) {
+                    gameOver = true;
+                    RPS();
+                    return ("You took " + turnsMade + " turns this attempt.");
+                } else {
+                    return "Stop cheating.";
+                }
+
             case "storage":
             case "backpack":
             case "inv":
@@ -271,7 +279,7 @@ public class TextAdventure {
             case "help":
                 return
                         "LIST OF COMMANDS:\n" +
-                                "      1. move/go <direction>\n" +
+                                "      1. move/go <north/east/south/west>\n" +
                                 "      2. get/take <item>\n" +
                                 "      3. put <item> <container>\n" +
                                 "      4. remove <item> <container>\n" +
@@ -281,28 +289,18 @@ public class TextAdventure {
                                 "      8. quit\n" +
                                 "      9. storage/backpack/inv/inventory\n" +
                                 "      10. look\n" +
-                                "      11. use/give <object> <creature/obstacle>\n" +
-                                "      12. map";
+                                "      11. use/give <object> <creature/obstacle>";
             case "map":
-                return
-                        "You don't have a map.";
+                return "you don't have a map.";
             default:
                 return "Unknown command: \"" + command + "\"";
         }
 
     } // End READ AND EXECUTE USER INPUT block
-    
+
     /* WINNING SCREEN
         Just displays some text. Game done.
     */
-    public String win() {
-        if(currentRoom.getInfiniteRoom()) {
-            gameOver = true;
-            return ("You have come so far, but now you must face the final chalange, summoned from a distant plane, the universe's greatest warrior, Chris, challenges you to a game of Ro Sham Bo. (rock paper scizors)");
-        } else {
-            return "Stop cheating.";
-        }
-    }
 
 
     /* MOVEMENT BETWEEN ROOMS
@@ -339,7 +337,12 @@ public class TextAdventure {
             if (direction.equals("north") || direction.equals("east") || direction.equals("south") || direction.equals("west") || direction.equals ("circle")) {
                 currentRoom = nextRoom;
                 addTurn();
-                return currentRoom.getLongDescription();
+                infiniteTurns++;
+                if (infiniteTurns < 50) {
+                    return currentRoom.getLongDescription();
+                } else {
+                    return ("Psst, the answer is \"cat\"." + currentRoom.getLongDescription());
+                }
             } else {
                 return currentRoom.getMoveErrorMessage();
             }
@@ -512,8 +515,6 @@ public class TextAdventure {
         String result = currentRoom.use(i, d);
         if(!result.equals(""))
         {
-            // dont touch! -dean
-            //playerInventory.removeItem(i);
             return result;
         }
         else {
@@ -528,18 +529,84 @@ public class TextAdventure {
     public static void addTurn() {
         turnsMade++;
     }
-    
+
     /* CLEAR SCREEN METHOD
         clears the console of all text when called.
     */
-    public static void clearScreen() {  
-      System.out.print("\033[H\033[2J");  
-      System.out.flush();  
-    }  
-        
-    /* MAIN METHOD
-    Creates a new instance of TextAdventure, calls 'setup' (configuration) and calls 'run' (execution)
-     */
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public void RPS() {
+
+        int userChoice, computerChoice;
+
+        Scanner input = new Scanner(System.in);
+
+        Random rnd = new Random();
+
+
+        gameOver = true;
+        System.out.println("You wake up on the floor of an empty white room. A figure stands before you. You have not seen him before, but you know that he is called Chris");
+        System.out.println("He balls his hand into a fist and places it onto his open palm. \"CHOOSE\" he bellows.");
+        boolean tie = true;
+        userChoice = 3;
+        computerChoice = 3;
+        while (tie) {
+            System.out.println("Enter your choice (0=rock, 1=paper, 2=scissors)");
+            userChoice = input.nextInt();
+            while (userChoice > 2) {
+                System.out.println("Unknown.");
+                userChoice = input.nextInt();
+            }
+            if (userChoice == 0) {
+                System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition leave your hand still in a ball. Rock.");
+            } else if (userChoice == 2) {
+                System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition split your hand into two prongs. Scissors");
+            }
+            else {
+                System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition flatten your hand into a plane. Paper.");
+            }
+            computerChoice = rnd.nextInt(3);
+            if (computerChoice == 0) {
+                System.out.println("Chris doesn't move, but you can tell that he chose rock.");
+            } else if (computerChoice == 1) {
+                System.out.println("Chris doesn't move, but you can tell that he chose paper.");
+            } else if (computerChoice == 2) {
+                System.out.println("Chris doesn't move, but you can tell that he chose scissors.");
+            }
+            if (userChoice == computerChoice) {
+                tie = true;
+                System.out.println("Chris looks disappointed. You tied. Try again.");
+            } else {
+                tie = false;
+            }
+        }
+        if (computerChoice == 0) {
+            if (userChoice == 1) {
+                System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
+            }
+            else {
+                System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
+            }
+        }
+        else if (computerChoice == 1) {
+            if (userChoice == 0) {
+                System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
+            }
+            else {
+                System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
+            }
+        } else if (userChoice == 0) {
+            System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
+        }
+        else {
+            System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
+        }
+
+    }
+
     public static void main(String[] args) {
         TextAdventure game = new TextAdventure();
         game.setup();

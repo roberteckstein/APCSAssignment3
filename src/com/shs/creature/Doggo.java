@@ -7,13 +7,13 @@ import com.shs.TextAdventure;
 public class Doggo extends CreatureTemplate {
 
     public Doggo() {
-        super("dog", "There is a hungry looking dog, he won't let you in");
+        super("dog", "There is a hungry dog; he won't let you in.");
     }
 
     @Override
     public String getDescription() {
         if (isAlive()) {
-            return "A hungry dog sits infront of the west facing door.";
+            return "A hungry dog sits in front of the west facing door.";
         }
         return "You can't seem to find the dog.";
     }
@@ -25,7 +25,7 @@ public class Doggo extends CreatureTemplate {
         {
             setAlive(false);
             TextAdventure.playerInventory.removeItem("food");
-            return "The dog nearly tears your hand off biting the food, it runs out the door. You can now go into the west door.";
+            return "The dog nearly tears your hand off ripping the food away from you. It runs out the door... you can now go to the west.";
         }
         return "";
     }

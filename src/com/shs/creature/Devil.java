@@ -16,7 +16,7 @@ public class Devil extends CreatureTemplate {
         if (target.getName().equals("sword")&&isAlive())
         {
             setAlive(false);
-            return "The devil has been slain, and drops a sunball.";
+            return "The devil has been slain, and drops a bright orb.";
         }
         return "";
     }

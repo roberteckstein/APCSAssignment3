@@ -8,7 +8,7 @@ import com.shs.item.Chest;
 public class FourthRoom2 extends RoomTemplate {
     public FourthRoom2() {
         //Room description
-        super("Entrance of the fortress of Hell", "You are in the entrance of the fortress of Hell. There is a path going from west to east.");
+        super("Entrance of the fortress of Hell", "You are in the entrance of the fortress of Hell. There are paths going to the east and west.");
         setMoveErrorMessage("You can't go there.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)

@@ -7,7 +7,7 @@ import com.shs.TextAdventure;
 public class Elemental extends CreatureTemplate {
 
     public Elemental() {
-        super("elemental", "There is an elemental blocking your path");
+        super("elemental", "There is an elemental blocking your path.");
     }
 
     @Override
@@ -17,7 +17,7 @@ public class Elemental extends CreatureTemplate {
         {
             setAlive(false);
             TextAdventure.playerInventory.removeItem("rock");
-            return "The elemental grabs the salt rock and recedes into the corner of the room. Before he even turns he's already licking the rock. The north door is now open.";
+            return "The elemental grabs the salt rock and recedes into the corner of the room. Before he turns he's already licking the rock. The north door is now open.";
         }
         return "";
     }

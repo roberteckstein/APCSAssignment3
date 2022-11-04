@@ -12,7 +12,7 @@ public class SixthRoom2 extends RoomTemplate {
     Fedora fedora = new Fedora();
     public SixthRoom2() {
         //Room description
-        super("You seem to be inside a storage room. A path leads south.", "You are in the storage room.");
+        super("You seem to be inside a storage room. A path leads south.", "You seem to be inside a storage room. A path leads south.");
         addItem(sword);
         addItem(fedora);
 
