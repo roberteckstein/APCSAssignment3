@@ -11,7 +11,6 @@ import com.shs.levelTwo.*;
 import com.shs.traits.Openable;
 
 import java.util.Random;
-import java.util.random.*;
 
 import java.util.Scanner;
 
@@ -259,8 +258,14 @@ public class TextAdventure {
                 gameOver = true;
                 return "Quitting the game";
             case "cat": // Answer to my riddle
-                gameOver = true;
-                RPS();
+                if(currentRoom.getInfiniteRoom()) {
+                    gameOver = true;
+                    RPS();
+                    return ("You took " + turnsMade + " turns to beat the game. Good Job.");
+                } else {
+                    return "Stop cheating.";
+                }
+
             case "storage":
             case "backpack":
             case "inv":
@@ -295,14 +300,6 @@ public class TextAdventure {
     /* WINNING SCREEN
         Just displays some text. Game done.
     */
-    public String win() {
-        if(currentRoom.getInfiniteRoom()) {
-            gameOver = true;
-            return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
-        } else {
-            return "Stop cheating.";
-        }
-    }
 
 
     /* MOVEMENT BETWEEN ROOMS
