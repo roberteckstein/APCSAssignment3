@@ -21,7 +21,7 @@ public class FinalRoom extends RoomTemplate {
         {
             return "It's dark and you can barely see. You make out a door with text that reads, \"The crystal is the key.\" There is an indent in the wall where something could go.";
         }
-        return "You are in a dark room with an open dor radiating heat with a faint glow of orange visible.";
+        return "You are in a dark room with an open door. The door is radiating heat; a faint orange glow is visible from behind the door.";
     }
 
     @Override

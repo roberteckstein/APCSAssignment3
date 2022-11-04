@@ -4,7 +4,7 @@ import com.shs.RoomTemplate;
 
 public class EntryRoom1 extends RoomTemplate {
     public EntryRoom1() {
-        super("You are in the starting room. A passage travels north.", "You are in the starting room. A passage travels north.");
+        super("You are in a small cavern. A passage travels north.", "You are in a small cavern. A passage travels north. Your adventure starts here.");
         setMoveErrorMessage("The room's walls are solid! right?");
 
 
