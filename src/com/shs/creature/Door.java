@@ -6,7 +6,7 @@ import com.shs.TextAdventure;
 
 public class Door extends CreatureTemplate {
     public Door() {
-        super("wall", "A tall door, you notice some text scribed into it, \"The crystal is the key' it reads.\"");
+        super("wall", "A tall door, you notice some text etched into it, \"The crystal is the key' it reads.\"");
     }
 
     @Override

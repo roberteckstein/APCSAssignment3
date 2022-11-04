@@ -8,7 +8,7 @@ import com.shs.item.WaterBucket;
 public class Lava extends CreatureTemplate {
     WaterBucket fp = new WaterBucket();
     public Lava() {
-        super("lava", "There is lava blocking your path to the west");
+        super("lava", "There is lava blocking your path to the west.");
     }
     @Override
     public String use(ItemTemplate target) {
@@ -17,7 +17,7 @@ public class Lava extends CreatureTemplate {
         {
             setAlive(false);
             TextAdventure.playerInventory.removeItem("bucket");
-            return "You used the water bucket. The lava is useless in stopping you now, you can now go west.";
+            return "You splashed the water bucket onto the lava and it quickly cools down with a loud hiss. You can now go west.";
         }
         return "";
     }
