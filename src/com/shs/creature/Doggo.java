@@ -25,7 +25,7 @@ public class Doggo extends CreatureTemplate {
         {
             setAlive(false);
             TextAdventure.playerInventory.removeItem("food");
-            return "The dog nearly tears your hand off ripping the food away from you. It runs out the door.... you can now go to the west.";
+            return "The dog nearly tears your hand off ripping the food away from you. It runs out the door... you can now go to the west.";
         }
         return "";
     }
