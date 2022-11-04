@@ -7,7 +7,7 @@ import java.util.Random;
 public class Graffiti extends RandomItemTemplate {
     public Graffiti (String color) {
         super ("graffiti","", " How did you get this?");
-       setDescription("There is " + color + " graffiti on the wall. It reads \"" + ranRiddle(numGen(21))+ "\" ");
+       setDescription("There is " + color + " graffiti on the wall. It reads \"" + ranRiddle(numGen(29))+ "\" ");
     }
 
     private String ranRiddle (int x) {
@@ -33,6 +33,14 @@ public class Graffiti extends RandomItemTemplate {
             case 18 : return "Imagine living only one life.";
             case 19 : return "I can play a piano very well. I became viral on YouTube for it.";
             case 20 : return "Remember, you're only alive because you have paid your taxes to your ruler.";
+            case 21 : return "I'm a Grumpy ___.";
+            case 22 : return "Hey, don't cut my nails! They're my greatest weapons.";
+            case 23 : return "XZQ.";
+            case 24 : return "I like Kit Kats.";
+            case 25 : return "There is an answer. I'm not kit'den you.";
+            case 26 : return "I can live in a house.";
+            case 27 : return "I don't need a waterbucket to negate fall damage.";
+            case 28 : return "T-Talk 3/2/22";
             default : return "It broke.";
         }
     }

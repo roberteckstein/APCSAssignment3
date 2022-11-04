@@ -338,10 +338,10 @@ public class TextAdventure {
                 currentRoom = nextRoom;
                 addTurn();
                 infiniteTurns++;
-                if (infiniteTurns < 50) {
+                if (infiniteTurns < 60) {
                     return currentRoom.getLongDescription();
                 } else {
-                    return ("Psst, the answer is \"cat\"." + currentRoom.getLongDescription());
+                    return ("Psst, the answer is \"cat\".\n" + currentRoom.getLongDescription());
                 }
             } else {
                 return currentRoom.getMoveErrorMessage();
