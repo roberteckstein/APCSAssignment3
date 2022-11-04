@@ -12,7 +12,7 @@ public class FifthRoom2 extends RoomTemplate {
     Gatekeeper madman = new Gatekeeper();
     public FifthRoom2() {
         //Room description
-        super("Base of fortress (north, south, east)", "You are at the base of the fortress with rooms in the north and south. ");
+        super("Base of fortress (north, south, east)", "You are at the base of the fortress of Hell. There are passages heading to the north and south. ");
         setMoveErrorMessage("You can't go there.");
 
         addItem(madman);
