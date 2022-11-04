@@ -11,7 +11,6 @@ import com.shs.levelTwo.*;
 import com.shs.traits.Openable;
 
 import java.util.Random;
-import java.util.random.*;
 
 import java.util.Scanner;
 
@@ -254,7 +253,7 @@ public class TextAdventure {
 
             case "close":
                 return close(target);
-                
+
             case "quit":
                 gameOver = true;
                 return "Quitting the game";
@@ -291,7 +290,7 @@ public class TextAdventure {
         }
 
     } // End READ AND EXECUTE USER INPUT block
-    
+
     /* WINNING SCREEN
         Just displays some text. Game done.
     */
@@ -526,13 +525,13 @@ public class TextAdventure {
     public static void addTurn() {
         turnsMade++;
     }
-    
+
     /* CLEAR SCREEN METHOD
         clears the console of all text when called.
     */
-    public static void clearScreen() {  
-      System.out.print("\033[H\033[2J");  
-      System.out.flush();  
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     public void RPS() {
