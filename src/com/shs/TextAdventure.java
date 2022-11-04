@@ -581,30 +581,25 @@ public class TextAdventure {
         if (computerChoice == 0) {
             if (userChoice == 1) {
                 System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
-                return;
             }
             else {
                 System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
-                return;
             }
         }
         else if (computerChoice == 1) {
             if (userChoice == 0) {
                 System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
-                return;
             }
             else {
                 System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
-                return;
             }
         } else if (userChoice == 0) {
             System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
-            return;
         }
         else {
             System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
-            return;
         }
+
     }
 
     public static void main(String[] args) {
