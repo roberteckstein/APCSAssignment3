@@ -10,6 +10,9 @@ import com.shs.levelThree.*;
 import com.shs.levelTwo.*;
 import com.shs.traits.Openable;
 
+import java.util.Random;
+import java.util.random.*;
+
 import java.util.Scanner;
 
 
@@ -256,7 +259,8 @@ public class TextAdventure {
                 gameOver = true;
                 return "Quitting the game";
             case "cat": // Answer to my riddle
-                return win();
+                gameOver = true;
+                RPS();
             case "storage":
             case "backpack":
             case "inv":
@@ -271,7 +275,7 @@ public class TextAdventure {
             case "help":
                 return
                         "LIST OF COMMANDS:\n" +
-                                "      1. move/go <direction>\n" +
+                                "      1. move/go <north/east/south/west>\n" +
                                 "      2. get/take <item>\n" +
                                 "      3. put <item> <container>\n" +
                                 "      4. remove <item> <container>\n" +
@@ -281,11 +285,7 @@ public class TextAdventure {
                                 "      8. quit\n" +
                                 "      9. storage/backpack/inv/inventory\n" +
                                 "      10. look\n" +
-                                "      11. use/give <object> <creature/obstacle>\n" +
-                                "      12. map";
-            case "map":
-                return
-                        "You don't have a map.";
+                                "      11. use/give <object> <creature/obstacle>";
             default:
                 return "Unknown command: \"" + command + "\"";
         }
@@ -512,8 +512,6 @@ public class TextAdventure {
         String result = currentRoom.use(i, d);
         if(!result.equals(""))
         {
-            // dont touch! -dean
-            //playerInventory.removeItem(i);
             return result;
         }
         else {
@@ -535,11 +533,83 @@ public class TextAdventure {
     public static void clearScreen() {  
       System.out.print("\033[H\033[2J");  
       System.out.flush();  
-    }  
-        
-    /* MAIN METHOD
-    Creates a new instance of TextAdventure, calls 'setup' (configuration) and calls 'run' (execution)
-     */
+    }
+
+    public void RPS() {
+
+        int userChoice, computerChoice;
+
+        Scanner input = new Scanner(System.in);
+
+        Random rnd = new Random();
+
+
+        gameOver = true;
+        System.out.println("You wake up on the floor of an empty white room. A figure stands before you. You have not seen him before, but you know that he is called chris");
+        System.out.println("He balls his hand into a fist and places it onto his open palm. CHOOSE he bellows.");
+        boolean tie = true;
+        userChoice = 3;
+        computerChoice = 3;
+        while (tie) {
+            System.out.println("Enter your choice (0=rock, 1=paper, 2=scissors)");
+            userChoice = input.nextInt();
+            while (userChoice > 2) {
+                System.out.println("Unknown.");
+                userChoice = input.nextInt();
+            }
+            if (userChoice == 0) {
+                System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition leave your hand still in a ball. Rock.");
+            } else {
+                if (userChoice == 1) {
+                    System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition split your hand into two prongs. Scissors");
+                } else {
+                    System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition flatten your hand into a plane. Paper.");
+                }
+            }
+            computerChoice = rnd.nextInt(3);
+            if (computerChoice == 0) {
+                System.out.println("Chris doesn't move, but you can tell that he chose rock.");
+            } else if (computerChoice == 1) {
+                System.out.println("Chris doesn't move, but you can tell that he chose paper.");
+            } else if (computerChoice == 2) {
+                System.out.println("Chris doesn't move, but you can tell that he chose scissors.");
+            }
+            if (userChoice == computerChoice) {
+                tie = true;
+                System.out.println("Chris looks disappointed. You tied. Try again.");
+            } else {
+                tie = false;
+            }
+        }
+        if (computerChoice == 0) {
+            if (userChoice == 1) {
+                System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
+                return;
+            }
+            else {
+                System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
+                return;
+            }
+        }
+        else if (computerChoice == 1) {
+            if (userChoice == 0) {
+                System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
+                return;
+            }
+            else {
+                System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
+                return;
+            }
+        } else if (userChoice == 0) {
+            System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
+            return;
+        }
+        else {
+            System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
+            return;
+        }
+    }
+
     public static void main(String[] args) {
         TextAdventure game = new TextAdventure();
         game.setup();
