@@ -15,7 +15,7 @@ public class RoomSecond extends RoomTemplate {
     Elemental elemental = new Elemental();
     static Fedora fedora = new Fedora();
     public RoomSecond() {
-        super("Second Room", "You are in a room that looks like a normal junction. There is a passage going North, South and West.");
+        super("Second Room", "You are in a cavern that looks like a normal junction. There are passages traveling north, south and west.");
 
         // Add items/creatures here (watch out for duplicate objects across rooms)
         addItem(elemental);
