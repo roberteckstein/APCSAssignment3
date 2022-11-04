@@ -261,7 +261,7 @@ public class TextAdventure {
                 if(currentRoom.getInfiniteRoom()) {
                     gameOver = true;
                     RPS();
-                    return ("You took " + turnsMade + " turns to beat the game. Good Job.");
+                    return ("You took " + turnsMade + " turns this attempt.");
                 } else {
                     return "Stop cheating.";
                 }
@@ -556,12 +556,11 @@ public class TextAdventure {
             }
             if (userChoice == 0) {
                 System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition leave your hand still in a ball. Rock.");
-            } else {
-                if (userChoice == 1) {
-                    System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition split your hand into two prongs. Scissors");
-                } else {
-                    System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition flatten your hand into a plane. Paper.");
-                }
+            } else if (userChoice == 2) {
+                System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition split your hand into two prongs. Scissors");
+            }
+            else {
+                System.out.println("You bring your fist into the air, beat your hand into your palm twice, and on the third repetition flatten your hand into a plane. Paper.");
             }
             computerChoice = rnd.nextInt(3);
             if (computerChoice == 0) {
