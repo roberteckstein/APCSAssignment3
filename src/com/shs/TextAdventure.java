@@ -542,8 +542,8 @@ public class TextAdventure {
 
 
         gameOver = true;
-        System.out.println("You wake up on the floor of an empty white room. A figure stands before you. You have not seen him before, but you know that he is called chris");
-        System.out.println("He balls his hand into a fist and places it onto his open palm. CHOOSE he bellows.");
+        System.out.println("You wake up on the floor of an empty white room. A figure stands before you. You have not seen him before, but you know that he is called Chris");
+        System.out.println("He balls his hand into a fist and places it onto his open palm. \"CHOOSE\" he bellows.");
         boolean tie = true;
         userChoice = 3;
         computerChoice = 3;
