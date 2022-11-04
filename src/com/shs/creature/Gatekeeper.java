@@ -25,7 +25,7 @@ public class Gatekeeper extends CreatureTemplate {
     {
         if (isAlive())
         {
-            return "A madman stands at the gate with an assortment on wild clothing strewn across the floor he walks up and asks for your hat in order to cross";
+            return "A madman stands at the gate to the south with an assortment on wild clothing strewn across the floor he walks up and asks for your hat in order to cross";
         }
         return "The mad man sifts through his clothes at the entrance of the gate trying on new outfits.";
     }
