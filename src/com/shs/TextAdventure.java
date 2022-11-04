@@ -291,6 +291,8 @@ public class TextAdventure {
                                 "      9. storage/backpack/inv/inventory\n" +
                                 "      10. look\n" +
                                 "      11. use/give <object> <creature/obstacle>";
+            case "map":
+                return "you don't have a map.";
             default:
                 return "Unknown command: \"" + command + "\"";
         }
