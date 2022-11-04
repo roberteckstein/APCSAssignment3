@@ -11,7 +11,6 @@ import com.shs.levelTwo.*;
 import com.shs.traits.Openable;
 
 import java.util.Random;
-import java.util.random.*;
 
 import java.util.Scanner;
 
@@ -254,13 +253,19 @@ public class TextAdventure {
 
             case "close":
                 return close(target);
-                
+
             case "quit":
                 gameOver = true;
                 return "Quitting the game";
             case "cat": // Answer to my riddle
-                gameOver = true;
-                RPS();
+                if(currentRoom.getInfiniteRoom()) {
+                    gameOver = true;
+                    RPS();
+                    return ("You took " + turnsMade + " turns to beat the game. Good Job.");
+                } else {
+                    return "Stop cheating.";
+                }
+
             case "storage":
             case "backpack":
             case "inv":
@@ -291,18 +296,10 @@ public class TextAdventure {
         }
 
     } // End READ AND EXECUTE USER INPUT block
-    
+
     /* WINNING SCREEN
         Just displays some text. Game done.
     */
-    public String win() {
-        if(currentRoom.getInfiniteRoom()) {
-            gameOver = true;
-            return ("\n\nYou tumble out of your bed and land onto the hard wooden floor. The nightmare you've been trapped in this whole time is finally over. You must have a really creative imagination. You win.\nYou took " + turnsMade + " turns to beat the game.");
-        } else {
-            return "Stop cheating.";
-        }
-    }
 
 
     /* MOVEMENT BETWEEN ROOMS
@@ -526,13 +523,13 @@ public class TextAdventure {
     public static void addTurn() {
         turnsMade++;
     }
-    
+
     /* CLEAR SCREEN METHOD
         clears the console of all text when called.
     */
-    public static void clearScreen() {  
-      System.out.print("\033[H\033[2J");  
-      System.out.flush();  
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
     public void RPS() {
@@ -584,30 +581,25 @@ public class TextAdventure {
         if (computerChoice == 0) {
             if (userChoice == 1) {
                 System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
-                return;
             }
             else {
                 System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
-                return;
             }
         }
         else if (computerChoice == 1) {
             if (userChoice == 0) {
                 System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
-                return;
             }
             else {
                 System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
-                return;
             }
         } else if (userChoice == 0) {
             System.out.println("You have won. Chris shatters into 1000 pieces. You know your life will never return to normal, but those still on earth will thank you.");
-            return;
         }
         else {
             System.out.println("Chris smiles when he sees your choice. You have lost. The white room around you disappears. You are in Brazil. GAME OVER.");
-            return;
         }
+
     }
 
     public static void main(String[] args) {
