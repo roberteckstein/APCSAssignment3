@@ -45,6 +45,7 @@ public class FifthRoom2 extends RoomTemplate {
         String result = d.use(i);
         if (!result.equals(""))
         {
+            TextAdventure.playerInventory.removeItem("fedora");
             TextAdventure.five.addPath("south", TextAdventure.seven);
         }
         return result;
